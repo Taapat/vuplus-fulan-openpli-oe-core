@@ -23,7 +23,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openpli \
-	$(CURDIR)/meta-dream \
 	$(CURDIR)/meta-vuplus \
 	$(CURDIR)/meta-xsarius \
 	$(CURDIR)/meta-xp \
