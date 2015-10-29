@@ -35,7 +35,6 @@ EXTERNAL_WIFI_DRIVERS = " \
 
 ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-audiosync \
-	enigma2-plugin-extensions-autobackup \
 	enigma2-plugin-extensions-cutlisteditor \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediaplayer \
@@ -43,14 +42,10 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-moviecut \
 	enigma2-plugin-extensions-openwebif \
 	enigma2-plugin-extensions-pictureplayer \
-	enigma2-plugin-extensions-ppanel \
-	\
-	enigma2-plugin-pli-softcamsetup \
 	\
 	enigma2-plugin-systemplugins-fastscan \
 	enigma2-plugin-systemplugins-hotplug \
 	enigma2-plugin-systemplugins-networkbrowser \
-	enigma2-plugin-systemplugins-positionersetup \
 	enigma2-plugin-systemplugins-satfinder \
 	enigma2-plugin-systemplugins-skinselector \
 	enigma2-plugin-systemplugins-softwaremanager \
