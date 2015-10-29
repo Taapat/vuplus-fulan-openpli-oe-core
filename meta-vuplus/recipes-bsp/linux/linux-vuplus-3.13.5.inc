@@ -17,6 +17,7 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KV}.tar.bz2 \
 	file://linux-tcp_output.patch \
 	file://linux-3.13-gcc-4.9.3-build-error-fixed.patch \
 	file://add-support-for-gcc5.patch \
+	file://rtl8712-rtl8712-avoid-lots-of-build-warnings.patch \
 	file://${MACHINE}_defconfig \
 	"
 
