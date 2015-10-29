@@ -23,12 +23,6 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/openembedded-core/meta \
 	$(CURDIR)/meta-openpli \
-	$(CURDIR)/meta-vuplus \
-	$(CURDIR)/meta-xsarius \
-	$(CURDIR)/meta-xp \
-	$(CURDIR)/meta-xtrend \
-	$(CURDIR)/meta-formuler \
-	$(CURDIR)/meta-hd \
 	$(CURDIR)/meta-local
 
 CONFFILES = \
