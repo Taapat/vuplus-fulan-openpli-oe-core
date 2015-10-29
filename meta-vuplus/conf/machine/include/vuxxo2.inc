@@ -3,14 +3,14 @@ MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
 	vuplus-dvb-modules-${MACHINE} \
-	gst-ffmpeg \
+	gstreamer1.0-libav \
 "
 
 KERNEL_MODULE_AUTOLOAD += "xfs"
 
 MACHINE_EXTRA_RRECOMMENDS = " \
 	vuplus-shutdown \
-	gst-plugin-dvbmediasink \
+	gstreamer1.0-plugin-dvbmediasink \
 	ntfs-3g \
 "
 
