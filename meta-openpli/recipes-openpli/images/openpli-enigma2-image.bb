@@ -47,6 +47,8 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-skins-metropolis-hd \
 	enigma2-plugin-extensions-alternativesoftcammanager \
 	\
+	enigma2-plugin-systemplugins-animationsetup \
+	\
 	enigma2-plugin-systemplugins-fastscan \
 	enigma2-plugin-systemplugins-hotplug \
 	enigma2-plugin-systemplugins-networkbrowser \

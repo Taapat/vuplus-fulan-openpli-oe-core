@@ -18,6 +18,7 @@ DEPENDS = " \
 	python python-imaging python-twisted python-wifi \
 	swig-native \
 	tuxtxt-enigma2 \
+	libvugles2 \
 	"
 
 RDEPENDS_${PN} = " \
@@ -162,6 +163,9 @@ GST_UGLY_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
 RDEPENDS_${PN} += "libdreamdvd"
 RRECOMMENDS_${PN} += "libdvdcss"
 
+# We need the libraries to support vuplus animation
+RDEPENDS_${PN} += "libvugles2"
+
 # We depend on the font which we use for TXT subtitles (defined in skin_subtitles.xml)
 RDEPENDS_${PN} += "font-valis-enigma"
 
@@ -192,6 +196,7 @@ DESCRIPTION_append_enigma2-plugin-systemplugins-networkwizard = "provides easy s
 # Note that these tools lack recipes
 RDEPENDS_enigma2-plugin-extensions-dvdburn = "dvd+rw-tools dvdauthor mjpegtools cdrkit python-imaging ${DEMUXTOOL}"
 RDEPENDS_enigma2-plugin-systemplugins-hotplug = "hotplug-e2-helper"
+DESCRIPTION_append_enigma2-plugin-systemplugins-animationsetup = "Setup vuplus UI animations"
 
 inherit gitpkgv pythonnative
 
@@ -200,7 +205,7 @@ PKGV = "2.7+git${GITPKGV}"
 
 ENIGMA2_BRANCH ?= "master"
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git;branch=${ENIGMA2_BRANCH}"
+SRC_URI = "${GITHUB_URI}/Taapat/enigma2-openpli-vuplus.git;branch=${ENIGMA2_BRANCH}"
 
 LDFLAGS_prepend = "${@base_contains('GST_VERSION', '1.0', ' -lxml2 ', '', d)}"
 
@@ -224,6 +229,7 @@ FILES_enigma2-fonts = "${datadir}/fonts"
 EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
+	--with-libvugles2 \
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@base_contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)} \
 	${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
