@@ -10,12 +10,16 @@ SRC_URI = "http://archive.vuplus.com/download/build_support/vuplus/libgles-${MAC
 
 S = "${WORKDIR}/libgles-${MACHINE}"
 
+PRIVATE_LIBS_${PN} = "libEGL.so \
+libGLESv2.so \
+libv3ddriver.so \
+"
+
 do_install() {
 	install -d ${D}${libdir}
 	install -m 0755 ${S}/lib/*.so ${D}${libdir}
-	cp ${D}${libdir}/libv3ddriver.so ${D}${libdir}/libEGL.so
-	cp ${D}${libdir}/libv3ddriver.so ${D}${libdir}/libGLESv2.so
-
+	ln -s libv3ddriver.so ${D}/usr/lib/libEGL.so
+	ln -s libv3ddriver.so ${D}/usr/lib/libGLESv2.so
 	install -d ${D}${includedir}
 	cp -a ${S}/include/* ${D}${includedir}/
 }
