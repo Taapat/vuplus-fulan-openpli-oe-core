@@ -11,7 +11,7 @@ FEEDS = "3rd-party 3rd-party-${MACHINE}"
 do_compile() {
     [ ! -d ${S}/${sysconfdir}/opkg ] && mkdir -p ${S}/${sysconfdir}/opkg
     for feed in ${FEEDS}; do
-        echo "src/gz ${DISTRO_FEED_PREFIX}-${feed} ${DISTRO_FEED_URI}/${feed}" > ${S}/${sysconfdir}/opkg/${feed}-feed.conf
+        echo "src/gz ${DISTRO_FEED_PREFIX}-${feed} ${DISTRO_HOST}/${feed}" > ${S}/${sysconfdir}/opkg/${feed}-feed.conf
     done
 }
 do_install () {
