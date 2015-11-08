@@ -43,9 +43,10 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-openwebif \
 	enigma2-plugin-extensions-pictureplayer \
 	\
+	enigma2-plugin-extensions-alternativesoftcammanager \
+	enigma2-plugin-extensions-tv3play \
 	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-skins-metropolis-hd \
-	enigma2-plugin-extensions-alternativesoftcammanager \
 	\
 	enigma2-plugin-systemplugins-fastscan \
 	enigma2-plugin-systemplugins-hotplug \
