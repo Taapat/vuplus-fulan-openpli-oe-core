@@ -12,9 +12,3 @@ PKGV = "1+git${GITPKGV}"
 
 inherit allarch distutils-openplugins
 
-PACKAGES =+ " ${PN}-src"
-RDEPENDS_{PN}-src = "${PN}"
-FILES_${PN}-src = " \
-	${libdir}/enigma2/python/Plugins/*/*/*.py \
-	${libdir}/enigma2/python/Plugins/*-py2.7.egg-info/* \
-	"
