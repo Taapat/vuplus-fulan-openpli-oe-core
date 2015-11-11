@@ -4,8 +4,8 @@ PRIORITY = "required"
 LICENSE = "CLOSED"
 PACKAGE_ARCH := "${MACHINE_ARCH}"
 
-PV ?="15.1"
-PR="${SRCDATE}.${SRCDATE_PR}"
+PV = "15.1"
+PR = "${SRCDATE}.${SRCDATE_PR}"
 
 SRC_URI = " \
     http://archive.vuplus.com/download/build_support/vuplus/platform-util-${MACHINE}-${PV}-${PR}.tar.gz \
