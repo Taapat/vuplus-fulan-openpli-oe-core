@@ -2,7 +2,6 @@ SUMMARY = "Hardware drivers for ${MACHINE}"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
-require conf/license/license-close.inc
 
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
