@@ -18,6 +18,7 @@ DEPENDS = " \
 	python python-imaging python-twisted python-wifi \
 	swig-native \
 	tuxtxt-enigma2 \
+	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
 	"
 
 RDEPENDS_${PN} = " \
@@ -26,6 +27,7 @@ RDEPENDS_${PN} = " \
 	ethtool \
 	glibc-gconv-iso8859-15 \
 	${PYTHON_RDEPS} \
+	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
 	"
 
 RRECOMMENDS_${PN} = " \
@@ -228,6 +230,7 @@ EXTRA_OECONF = "\
 	${@base_contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)} \
 	${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "colorlcd", "--with-colorlcd" , "", d)} \
+	${@base_contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \

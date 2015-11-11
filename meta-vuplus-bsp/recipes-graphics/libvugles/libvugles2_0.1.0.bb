@@ -8,9 +8,6 @@ PR = "${SRCDATE}.${SRCDATE_PR}"
 
 SRC_URI = "http://archive.vuplus.com/download/build_support/vuplus/${PN}-${PV}-${PR}.tar.gz"
 
-RDEPENDS_${PN} = "libgles vuplus-platform-util"
-
-INHIBIT_PACKAGE_STRIP = "1"
 S = "${WORKDIR}/${PN}-${PV}"
 
 inherit pkgconfig
