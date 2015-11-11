@@ -40,7 +40,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-mediaplayer \
 	enigma2-plugin-extensions-mediascanner \
 	enigma2-plugin-extensions-moviecut \
-	enigma2-plugin-extensions-openwebif \
 	enigma2-plugin-extensions-pictureplayer \
 	\
 	enigma2-plugin-extensions-alternativesoftcammanager \
