@@ -16,5 +16,6 @@ RDEPENDS_${PN} = " \
 	python-json \
 	python-netclient \
 	python-twisted-web \
+	python-compression \
 	"
 
