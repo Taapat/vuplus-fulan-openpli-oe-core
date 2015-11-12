@@ -22,5 +22,7 @@ RDEPENDS_${PN} = " \
 	python-netclient \
 	python-zlib \
 	python-twisted-web \
+	python-compression \
+	python-pyopenssl \
 	"
 
