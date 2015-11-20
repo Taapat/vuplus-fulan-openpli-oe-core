@@ -78,6 +78,7 @@ DEPENDS += " \
 IMAGE_INSTALL += " \
 	aio-grab \
 	enigma2 \
+	enigma2-src \
 	libavahi-client \
 	settings-autorestore \
 	tuxbox-common \
