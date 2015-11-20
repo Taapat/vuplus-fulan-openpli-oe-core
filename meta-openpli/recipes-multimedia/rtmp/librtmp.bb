@@ -1,29 +1,31 @@
-DESCRIPTION = "librtmp Real-Time Messaging Protocol API"
+SUMMARY = "librtmp Real-Time Messaging Protocol API"
 LICENSE = "LGPLv2"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=e344c8fa836c3a41c4cbd79d7bd3a379"
 
 DEPENDS = "openssl zlib"
 
-inherit gitpkgv
+PROVIDES =+ " librtmp1"
+PACKAGES =+ " librtmp1"
 
-SRCREV = "a1900c3e152085406ecb87c1962c55ec9c6e4016"
+inherit autotools-brokensep gitpkgv
 
-PKGV = "2.4+git${GITPKGV}"
-PV = "2.4+git${SRCPV}"
-PR = "r2"
+SRCREV = "${AUTOREV}"
+PKGV = "2.48+git${GITPKGV}"
+PV = "2.48+git${SRCPV}"
+PR = "r6"
 
-SRC_URI = "git://git.ffmpeg.org/rtmpdump;protocol=git \
-	file://0001-librtmp-set-timeout-for-send-operations-too.patch;striplevel=2 \
-"
+SRC_URI = "git://github.com/oe-alliance/rtmpdump.git;protocol=git"
 
 S = "${WORKDIR}/git/librtmp"
 
-do_compile() {
-	oe_runmake CROSS_COMPILE=${TARGET_PREFIX} CFLAGS="${CFLAGS} -fPIC" LDFLAGS="${LDFLAGS}"
-}
+
+EXTRA_OEMAKE = " \
+    CC='${CC}' LD='${LD} ${STAGING_LIBDIR}' \
+    SYS=posix INC=-I=/usr/include DESTDIR=${D} \
+    prefix=${prefix} libdir=${libdir} incdir=${includedir}/librtmp bindir=${bindir} mandir=${mandir}"
 
 do_install() {
-	install -d ${D}${libdir}
-	oe_runmake DESTDIR=${D} install
+    install -d ${D}${libdir}
+    oe_runmake DESTDIR=${D} install
 }
