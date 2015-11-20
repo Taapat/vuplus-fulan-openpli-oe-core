@@ -1,6 +1,5 @@
 SUMMARY = "rtmpdump Real-Time Messaging Protocol"
-
-require conf/license/license-gplv2.inc
+LICENSE = "LGPLv2"
 
 
 DEPENDS = "openssl zlib"
