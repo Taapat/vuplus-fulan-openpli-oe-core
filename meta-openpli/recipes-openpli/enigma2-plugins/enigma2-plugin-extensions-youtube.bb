@@ -10,8 +10,8 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 SRCREV = "${AUTOREV}"
-PV = "1+git${SRCPV}"
-PKGV = "1+git${GITPKGV}"
+PV = "h1+git${SRCPV}"
+PKGV = "h1+git${GITPKGV}"
 
 inherit allarch distutils-openplugins
 
