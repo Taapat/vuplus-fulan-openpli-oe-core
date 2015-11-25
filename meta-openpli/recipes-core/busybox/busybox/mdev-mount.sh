@@ -55,10 +55,10 @@ case "$ACTION" in
 			REMOVABLE=`cat /sys/block/$DEVBASE/removable`
 			readlink -fn /sys/block/$DEVBASE/device | grep -qs 'pci\|ahci'
 			EXTERNAL=$?
-			if [ "${REMOVABLE}" -eq "0" -a $EXTERNAL -eq 0 ] ; then
+			##if [ "${REMOVABLE}" -eq "0" -a $EXTERNAL -eq 0 ] ; then
 				# mount the first non-removable internal device on /media/hdd
-				DEVICETYPE="hdd"
-			else
+				##DEVICETYPE="hdd"
+			##else
 				if [ -z "${LABEL}" ] ; then
 					MODEL=`cat /sys/block/$DEVBASE/device/model`
 					if [ "$MODEL" == "USB CF Reader   " ]; then
@@ -85,7 +85,7 @@ case "$ACTION" in
 				else
 					DEVICETYPE="${LABEL}"
 				fi
-			fi
+			##fi
 			# Use mkdir as 'atomic' action, failure means someone beat us to the punch
 			MOUNTPOINT="/media/$DEVICETYPE"
 			if ! mkdir "${MOUNTPOINT}" ; then
