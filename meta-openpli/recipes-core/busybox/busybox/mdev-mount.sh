@@ -82,9 +82,9 @@ case "$ACTION" in
 					else
 						DEVICETYPE="usb"
 					fi
-				else
-					DEVICETYPE="${LABEL}"
 				fi
+			else
+				DEVICETYPE="${LABEL}"
 			fi
 			# Use mkdir as 'atomic' action, failure means someone beat us to the punch
 			MOUNTPOINT="/media/$DEVICETYPE"
