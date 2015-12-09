@@ -6,7 +6,6 @@ BRANCH = "vuplus_experimental"
 S = "${WORKDIR}/git"
 SRC_URI = "git://code.vuplus.com/git/dvbapp.git;protocol=http;branch=${BRANCH} \
         file://move-youtube-menu-entry.patch \
-        file://fix-hbbtv-crash-on-rtl-and-fox.patch \
 "
 
 inherit gitpkgv
