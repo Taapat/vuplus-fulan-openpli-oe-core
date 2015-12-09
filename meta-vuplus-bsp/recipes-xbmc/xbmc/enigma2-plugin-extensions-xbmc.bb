@@ -5,8 +5,8 @@ SRCDATE = "20150506.0_beta"
 PV = "1.0"
 PR = "${SRCDATE}_r0"
 
-DEPENDS += "enigma2 virtual/xbmc"
-RDEPENDS_${PN} += "virtual/xbmc"
+DEPENDS += "enigma2 vuplus-xbmc-${MACHINE}"
+RDEPENDS_${PN} += "vuplus-xbmc-${MACHINE}"
 
 SRC_URI = "http://archive.vuplus.com/download/build_support/e2xbmc-plugin_${SRCDATE}.tar.gz"
 
