@@ -8,7 +8,9 @@ PR = "${SRCDATE}_r0"
 DEPENDS += "enigma2 vuplus-xbmc-${MACHINE}"
 RDEPENDS_${PN} += "vuplus-xbmc-${MACHINE}"
 
-SRC_URI = "http://archive.vuplus.com/download/build_support/e2xbmc-plugin_${SRCDATE}.tar.gz"
+SRC_URI = "http://archive.vuplus.com/download/build_support/e2xbmc-plugin_${SRCDATE}.tar.gz \
+	file://Remove-not-exist-ps-flags.patch;striplevel=1;apply=yes \
+"
 
 S = "${WORKDIR}/plugin"
 

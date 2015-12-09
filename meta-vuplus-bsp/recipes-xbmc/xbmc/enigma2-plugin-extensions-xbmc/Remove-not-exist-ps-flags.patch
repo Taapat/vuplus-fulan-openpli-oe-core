@@ -1,0 +1,11 @@
+--- a/plugin.py	2015-05-05 18:15:01.000000000 +0300
++++ b/plugin.py	2015-12-09 20:23:38.891932478 +0200
+@@ -220,7 +220,7 @@
+         self.close()
+ 
+     def _cbCheckXBMCTimer(self):
+-        data = os.popen('ps -ef | grep xbmc.bin | grep -v grep').read().strip()
++        data = os.popen('ps | grep xbmc.bin | grep -v grep').read().strip()
+ 	if data is None or data == "":
+ 	    self.checkXBMCTimer.stop()
+             os.system('xbmc.helper --stop')
