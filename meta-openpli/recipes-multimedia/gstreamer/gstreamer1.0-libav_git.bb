@@ -1,3 +1,5 @@
+DEFAULT_PREFERENCE = "1"
+
 include gstreamer1.0-libav.inc
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
@@ -10,20 +12,31 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
                     file://gst-libs/ext/libav/COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
 SRC_URI = " \
-    http://gstreamer.freedesktop.org/src/gst-libav/gst-libav-${PV}.tar.xz \
-    file://0001-Disable-yasm-for-libav-when-disable-yasm.patch \
+	git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master \
+	file://0001-Disable-yasm-for-libav-when-disable-yasm.patch \
 "
 
-SRC_URI[md5sum] = "058b22411e1690eee5b71d1ab44eab25"
-SRC_URI[sha256sum] = "24d5e8e8b8c825af1a19aa80a27aba268ec383c8133fd4ef66e0e572ff6137a9"
+S = "${WORKDIR}/git"
+
+SRCREV = "${AUTOREV}"
+ 
+inherit gitpkgv
+PV = "1.7.0+git${SRCPV}"
+PKGV = "1.7.0+git${GITPKGV}"
+
 
 LIBAV_EXTRA_CONFIGURE_COMMON_ARG = "--target-os=linux \
   --cc='${CC}' --as='${CC}' --ld='${CC}' --nm='${NM}' --ar='${AR}' \
   --ranlib='${RANLIB}' \
-  ${@base_contains('TARGET_FPU', 'soft', '--disable-mipsfpu', '--enable-mipsfpu', d)} \
+  ${@base_contains('TARGET_FPU', 'soft', ' --disable-mipsfpu', ' --enable-mipsfpu', d)} \
   --disable-mipsdspr1 \
   --disable-mipsdspr2 \
   ${GSTREAMER_1_0_DEBUG} \
   --cross-prefix='${HOST_PREFIX}'"
 
-S = "${WORKDIR}/gst-libav-${PV}"
+do_configure_prepend() {
+	cd ${S}
+	./autogen.sh --noconfigure
+	cd ${B}
+}
+
