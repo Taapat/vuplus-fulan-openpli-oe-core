@@ -124,6 +124,7 @@ GST_GOOD_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
 
 GST_BAD_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
 	gstreamer1.0-plugins-bad-dashdemux \
+	gstreamer1.0-plugins-bad-hls \
 	gstreamer1.0-plugins-bad-mms \
 	gstreamer1.0-plugins-bad-mpegpsdemux \
 	gstreamer1.0-plugins-bad-mpegtsdemux \
