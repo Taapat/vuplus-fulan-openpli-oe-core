@@ -15,7 +15,7 @@ SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata
 S = "${WORKDIR}/trunk"
 B = "${S}"
 
-FILES_${PN} = "/var/emu/oscam"
+FILES_${PN} = "/var/emu/oscam-demux-gcc5"
 
 EXTRA_OECMAKE += "\
 	-DOSCAM_SYSTEM_NAME=Tuxbox \
@@ -25,4 +25,5 @@ EXTRA_OECMAKE += "\
 do_install() {
 	install -d ${D}/var/emu
 	install -m 0755 ${B}/oscam ${D}/var/emu
+	mv ${D}/var/emu/oscam ${D}/var/emu/oscam-demux-gcc5
 }
