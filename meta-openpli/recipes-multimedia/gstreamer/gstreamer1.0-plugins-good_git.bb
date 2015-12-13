@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "${AUTOREV}"
+SRCREV = "4d72fd98842f519c2ec3c0352642b159ffc6ca57"
 SRC_URI = " \
 	git://anongit.freedesktop.org/gstreamer/gst-plugins-good;branch=master \
 	file://0001-gstrtpmp4gpay-set-dafault-value-for-MPEG4-without-co.patch \
