@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=c54ce9345727175ff66d17b67ff51f58 \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "055ed65d92bb6f620376495d45e24557283cde85"
+SRCREV = "b0c834df1b1e1ad7f1bfa5f5b326aacadb974c81"
 SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=master"
 SRC_URI += " \
 	file://get-caps-from-src-pad-when-query-caps.patch \
