@@ -13,6 +13,7 @@ SRC_URI = " \
 	git://anongit.freedesktop.org/gstreamer/gst-plugins-good;branch=master \
 	file://0001-gstrtpmp4gpay-set-dafault-value-for-MPEG4-without-co.patch \
 	file://0001-fix-compile-error-261pay.patch \
+	file://0001-Revert-qtdemux-respect-qt-segments-in-push-mode-for-empty-starts.patch \
 "
 
 inherit gitpkgv
