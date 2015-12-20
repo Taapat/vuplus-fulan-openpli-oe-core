@@ -13,7 +13,7 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libdca"
 
 GSTVERSION = "1.0"
 
-SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmediasink.git"
+SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmediasink.git;branch=experimental"
 SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
