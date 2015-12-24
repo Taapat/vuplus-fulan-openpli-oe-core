@@ -1,23 +1,8 @@
 From fa89009a1869844f9a9360eb07c45d457446ac0e Mon Sep 17 00:00:00 2001
 From: Arnd Bergmann <arnd@arndb.de>
 Date: Thu, 5 Jun 2014 22:48:15 +0200
-Subject: staging: rtl8712, rtl8712: avoid lots of build warnings
+Subject: [PATCH] staging: rtl8712, rtl8712: avoid lots of build warnings
 
-commit 0c9f3a65c5eb7fe1fc611a22eb8a8b71ea865998 upstream.
-
-The rtl8712 driver has an 'extern inline' function that contains an
-'if', which causes lots of warnings with CONFIG_PROFILE_ALL_BRANCHES
-overriding the definition of 'if':
-
-drivers/staging/rtl8712/ieee80211.h:759:229: warning: '______f' is static but declared in inline function 'ieee80211_get_hdrlen' which is not static [enabled by default]
-
-This changes the driver to use 'static inline' instead, which happens
-to be the correct annotation anyway.
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Cc: Larry Finger <Larry.Finger@lwfinger.net>
-Cc: Florian Schilhabel <florian.c.schilhabel@googlemail.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
  drivers/staging/rtl8187se/ieee80211/ieee80211.h |  4 ++--
  drivers/staging/rtl8192u/ieee80211/ieee80211.h  | 10 +++++-----
@@ -111,6 +96,5 @@ index da4000e..8269be8 100644
  {
  	int hdrlen = 24;
  
--- 
-cgit v0.11.2
-
+--
+libgit2 0.22.2
