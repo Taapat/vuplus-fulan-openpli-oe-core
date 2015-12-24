@@ -1,10 +1,9 @@
-#! /bin/sh 
+#!/bin/sh
 
 smbd=/usr/sbin/smbd
 test -x "$smbd" || exit 0
 nmbd=/usr/sbin/nmbd
 test -x "$nmbd" || exit 0
-
 
 case "$1" in
   start)
@@ -49,4 +48,3 @@ case "$1" in
     exit 1
 esac
 
-exit 0
