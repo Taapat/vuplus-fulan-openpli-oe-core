@@ -7,12 +7,12 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "c589c6db058d257a32ba51b27a48920f4d185876"
+SRCREV = "59f5866cd28ef8ac4bb81bcf3eacbf9e6bc947dd"
 SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly;branch=master"
 
 inherit gitpkgv
-PV = "1.7.0+git${SRCPV}"
-PKGV = "1.7.0+git${GITPKGV}"
+PV = "1.7.1+git${SRCPV}"
+PKGV = "1.7.1+git${GITPKGV}"
 
 do_configure_prepend() {
 	cd ${S}

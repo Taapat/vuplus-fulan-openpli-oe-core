@@ -9,13 +9,13 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=73a5855a8119deb017f5f13cf327095d \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "384987341b636d545b259cda53ef195b57f64794"
+SRCREV = "bb7d9314750dccd2736cdcfa70fdf506c66dad38"
 SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=master"
 SRC_URI += "file://0001-rtmp-fix-seeking-and-potential-segfault.patch"
 
 inherit gitpkgv
-PV = "1.7.0+git${SRCPV}"
-PKGV = "1.7.0+git${GITPKGV}"
+PV = "1.7.1+git${SRCPV}"
+PKGV = "1.7.1+git${GITPKGV}"
 
 do_configure_prepend() {
 	cd ${S}

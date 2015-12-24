@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "2538fee2fd8fdb74b05f0a511281bc4707e7cc44"
+SRCREV = "75f21c86988bed75495bc263330bb4f9b88d95ad"
 SRC_URI = " \
 	git://anongit.freedesktop.org/gstreamer/gst-plugins-good;branch=master \
 	file://0001-gstrtpmp4gpay-set-dafault-value-for-MPEG4-without-co.patch \
@@ -17,8 +17,8 @@ SRC_URI = " \
 "
 
 inherit gitpkgv
-PV = "1.7.0+git${SRCPV}"
-PKGV = "1.7.0+git${GITPKGV}"
+PV = "1.7.1+git${SRCPV}"
+PKGV = "1.7.1+git${GITPKGV}"
 
 do_configure_prepend() {
 	cd ${S}

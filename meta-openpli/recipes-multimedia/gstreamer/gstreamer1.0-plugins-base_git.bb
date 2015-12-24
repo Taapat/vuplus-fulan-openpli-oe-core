@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=c54ce9345727175ff66d17b67ff51f58 \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "d43f1b2a5a4361f156ab1281f7e4442a899d4de7"
+SRCREV = "7de6b06adeb31539f97cac20eaad2d22aaa38bc4"
 SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=master"
 SRC_URI += " \
 	file://get-caps-from-src-pad-when-query-caps.patch \
@@ -19,8 +19,8 @@ SRC_URI += " \
 	"
 
 inherit gitpkgv
-PV = "1.7.0+git${SRCPV}"
-PKGV = "1.7.0+git${GITPKGV}"
+PV = "1.7.1+git${SRCPV}"
+PKGV = "1.7.1+git${GITPKGV}"
 
 do_configure_prepend() {
 	cd ${S}
