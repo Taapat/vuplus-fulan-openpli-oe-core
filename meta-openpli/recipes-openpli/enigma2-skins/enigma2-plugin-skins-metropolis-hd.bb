@@ -1,7 +1,7 @@
 DESCRIPTION = "Skin MetropolisHD by Franc modified by Taapat"
 MAINTAINER = "Taapat"
 LICENSE = "Proprietary"
-LIC_FILES_CHKSUM = "file://README.md;md5=8a6e78776d75ad75429a878d767db4a8"
+LIC_FILES_CHKSUM = "file://README.md;md5=78503eee4263584d3f878da381495a3e"
 
 inherit gitpkgv allarch
 
