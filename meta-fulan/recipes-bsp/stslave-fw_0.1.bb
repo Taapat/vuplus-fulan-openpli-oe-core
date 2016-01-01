@@ -2,7 +2,6 @@ DESCRIPTION = "STM ST-231 Coprocessor firmware"
 LICENSE = "CLOSED"
 SECTION = "base"
 PACKAGE_ARCH = "all"
-require conf/license/license-close.inc
 
 # fix architecture mismatch QA error
 INSANE_SKIP_${PN} = "arch"
