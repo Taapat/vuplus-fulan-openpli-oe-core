@@ -50,7 +50,6 @@ IMAGE_FSTYPES ?= "jffs2"
 #IMAGE_FSTYPES += "spark71xx-usbimg "
 #INHERIT += "usb_image-spark71xx"
 
-IMAGE_CLASSES += "usb_image-spark71xx"
 INITRAMFS_FSTYPES = "ext2.gz spark-updt"
 
 IMAGE_CMD_jffs2_prepend = " \
