@@ -1,4 +1,4 @@
-HOMEPAGE = "https://github/Duckbox-Developers/apps"
+HOMEPAGE = "https://github/Taapat/apps"
 SECTION = "base"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
@@ -10,7 +10,7 @@ PV = "1.0"
 PKGV = "1.0"
 
 SRC_URI = " \
-    git://github.com/Duckbox-Developers/apps.git;protocol=git \
+    git://github.com/Taapat/apps.git;protocol=git \
 "
 
 S = "${WORKDIR}/git/tools"
