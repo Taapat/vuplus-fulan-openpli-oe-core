@@ -1,6 +1,6 @@
 SUMMARY = "Fulan driver modules from TDT"
 DESCRIPTION = "Fulan driver modules from TDT"
-HOMEPAGE = "http://github.com/Duckbox-Developers"
+HOMEPAGE = "http://github.com/Taapat"
 SECTION = "kernel/modules"
 
 LICENSE = " GPLv2"
@@ -22,7 +22,7 @@ PV = "${KV}+${SRCDATE}"
 PTI_NP_PATH ?= "/data/pti_np"
 
 SRC_URI = " \
-    git://github.com/Duckbox-Developers/driver.git;protocol=git \
+    git://github.com/Taapat/driver.git;protocol=git \
     file://aotom_spark_procfs.patch;patch=1 \
     file://aotom_progress.patch;patch=1 \
     file://fix_videomode_names.patch;patch=1 \
