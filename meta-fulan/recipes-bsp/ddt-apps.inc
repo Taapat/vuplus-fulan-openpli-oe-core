@@ -4,7 +4,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 DEPENDS = "fulan-dvb-modules"
 
-SRCREV = "6d79026a12591038663721c14adb76f8f5c3cc42"
+SRCREV = "${AUTOREV}"
 INC_PR = "r1"
 PV = "1.0"
 PKGV = "1.0"
