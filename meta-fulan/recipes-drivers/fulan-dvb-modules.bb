@@ -10,7 +10,7 @@ RDEPENDS_${PN} = "stinit"
 
 SRCDATE = "20151113"
 KV = "2.6.32.61-stm24-0217"
-SRCREV = "68dd588335a29d3cc4fab7bbbf51a29c2132af2d"
+SRCREV = "${AUTOREV}"
 
 inherit module
 
