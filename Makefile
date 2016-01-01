@@ -22,6 +22,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-openembedded/meta-networking \
 	$(CURDIR)/meta-openembedded/meta-python \
 	$(CURDIR)/openembedded-core/meta \
+	$(CURDIR)/meta-fulan \
 	$(CURDIR)/meta-openpli \
 	$(CURDIR)/meta-vuplus-bsp \
 	$(CURDIR)/meta-local
