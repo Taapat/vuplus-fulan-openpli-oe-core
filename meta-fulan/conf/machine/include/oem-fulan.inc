@@ -88,14 +88,6 @@ MACHINE_EXTRA_RRECOMMENDS = " \
     enigma2-plugin-systemplugins-sh4osdadjustment \
     "
 
-EXTRA_IMAGEDEPENDS += "\
-    enigma2-plugin-systemplugins-vfdcontrol \
-    "
-
-MACHINE_EXTRA_RDEPENDS = "\
-    enigma2-plugin-systemplugins-vfdcontrol \
-    "
-
 include conf/machine/include/autoload-filesystems.inc
 
 require conf/machine/include/tune-sh4.inc
