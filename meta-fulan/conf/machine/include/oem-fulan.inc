@@ -4,15 +4,11 @@ include conf/machine/include/build-extras.inc
 BRAND_OEM = "fulan"
 
 MACHINE_NAME = "${@base_contains('MACHINEBUILD', 'dynaspark7162', 'SPARK 7162' , 'SPARK', d)}"
+MACHINE_BRAND = "${@base_contains('MACHINEBUILD', 'dynaspark7162', 'Dynavision' , 'Spark', d)}"
 
-MACHINE_BRAND = "${@base_contains('MACHINEBUILD', 'dynaspark7162', 'Dynavision' , 'SPARK', d)}"
-
-IMAGEDIR ?= "${@base_contains('MACHINEBUILD', 'dynaspark7162', 'enigma2' , 'SPARK', d)}"
-
-MTD_KERNEL = "${@base_contains('MACHINEBUILD', 'dynaspark7162', 'mtd5' , 'SPARK', d)}"
-
-MTD_ROOTFS = "${@base_contains('MACHINEBUILD', 'dynaspark7162', 'mtd6' , 'SPARK', d)}"
-
+IMAGEDIR ?= "enigma2"
+MTD_KERNEL = "mtd5"
+MTD_ROOTFS = "mtd6"
 KERNEL_FILE = "uImage"
 ROOTFS_FILE = "e2jffs2.img"
 
