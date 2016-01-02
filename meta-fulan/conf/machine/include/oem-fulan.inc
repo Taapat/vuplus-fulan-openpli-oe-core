@@ -16,7 +16,7 @@ MACHINE_KERNEL_PR = "r14"
 
 TARGET_ARCH = "sh4"
 
-GCCVERSION = "4.8%"
+GCCVERSION = "4.9%"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-fulan"
 PREFERRED_VERSION_linux-libc-headers = "2.6.32"
