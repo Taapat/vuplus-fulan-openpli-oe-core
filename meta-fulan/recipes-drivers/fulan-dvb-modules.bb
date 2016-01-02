@@ -23,16 +23,7 @@ PTI_NP_PATH ?= "/data/pti_np"
 
 SRC_URI = " \
     git://github.com/Taapat/driver.git;protocol=git \
-    file://aotom_spark_procfs.patch;patch=1 \
-    file://aotom_progress.patch;patch=1 \
-    file://fix_videomode_names.patch;patch=1 \
-    file://silence_tuner_printk.patch;patch=1 \
-    file://silence_stmfb_printk.patch;patch=1 \
-    file://fix_makefile.patch;patch=1 \
-    file://disable_video_free_on_release.patch;patch=1 \
-    file://add_hdmi_colorspace_proc.patch;patch=1 \
     file://ddbootup \
-    file://sh4booster \
     file://modules.conf \
     file://modules-conf.conf \
     file://COPYING \
