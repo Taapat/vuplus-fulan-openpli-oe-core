@@ -8,7 +8,7 @@ INSANE_SKIP_${PN} = "arch"
 
 PR = "r7"
 
-BINARY_STSLAVE_FW_PATH ?= "/data/stslave_fw"
+BINARY_STSLAVE_FW_PATH ?= "${DL_DIR}/stslave_fw"
 
 SRC_URI = "file://${BINARY_STSLAVE_FW_PATH}/${MACHINE}/audio.elf \
     file://${BINARY_STSLAVE_FW_PATH}/${MACHINE}/video.elf \
