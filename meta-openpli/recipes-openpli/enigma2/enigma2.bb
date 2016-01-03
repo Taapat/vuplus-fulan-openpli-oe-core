@@ -1,6 +1,6 @@
 SUMMARY = "GUI frontend for Open Source Linux based receivers"
 DESCRIPTION = "Enigma2 is a framebuffer based frontend for DVB functions on Linux settop boxes"
-MAINTAINER = "OpenPLi team <info@openpli.org>"
+MAINTAINER = "Taapat <taapat@gmail.com>"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
@@ -208,6 +208,8 @@ ENIGMA2_TAAPAT_URI = "git://bitbucket.org/Taapat/enigma2-pli-arp-taapat.git;bran
 
 SRC_URI = "${@base_contains("MACHINE_FEATURES", "fulan", "${ENIGMA2_TAAPAT_URI}" , "${ENIGMA2_GITHUB_URI}", d)}"
 
+SRC_URI =+ "${@base_contains("MACHINE_FEATURES", "fulan", "file://fulanfixes.patch" , "", d)}"
+
 LDFLAGS_prepend = "${@base_contains('GST_VERSION', '1.0', ' -lxml2 ', '', d)}"
 
 S = "${WORKDIR}/git"
@@ -235,6 +237,7 @@ EXTRA_OECONF = "\
 	${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "colorlcd", "--with-colorlcd" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
+	${@base_contains("MACHINE_FEATURES", "fulan", "--enable-${MACHINE}" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "fulan", "--with-lcd=no" , "", d)} \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
