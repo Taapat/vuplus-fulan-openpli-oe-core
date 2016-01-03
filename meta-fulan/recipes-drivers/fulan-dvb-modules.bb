@@ -132,8 +132,6 @@ do_install() {
     install -d ${D}/${sysconfdir}/rcS.d
     install -m 0755 ${WORKDIR}/ddbootup ${D}${sysconfdir}/init.d
     ln -sf ../init.d/ddbootup ${D}${sysconfdir}/rcS.d/S04ddbootup
-	install -m 0755 ${WORKDIR}/sh4booster ${D}${sysconfdir}/init.d
-	ln -sf ../init.d/sh4booster ${D}${sysconfdir}/rcS.d/S05sh4booster
 
     # if no pti_np sources are available and a custom pti.ko is present, overwrite the tdt one
     if [ ! -e ${PTI_NP_PATH}/Makefile ]; then
