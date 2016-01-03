@@ -16,16 +16,18 @@ begin remote
   gap          107250
   toggle_bit_mask 0x0
 
+# Dynavision
+
       begin codes
           KEY_POWER                0xDA25		# POWER
-          KEY_TVSAT                0x5AA5		# TV/SAT
+          KEY_TVSAT                0x3AC5		# TV/SAT
           KEY_VMODE                0x52AD		# V.FORMAT
           KEY_SLEEP                0x728D		# TIME
           KEY_MUTE                 0x7A85		# MUTE
-          KEY_PICASA               0x1AE5		# PICASA
-          KEY_SHOUTCAST            0x12ED		# SHOUTCAST
-          KEY_YOUTUBE              0x32CD		# YOUTUBE
-          KEY_SPARK                0x3AC5		# SPARK
+          KEY_TIME                 0x1AE5		# TimeShift
+          KEY_SHOUTCAST            0x12ED		# PROG2
+          KEY_F1                   0x32CD		# F1
+          KEY_SPARK                0x5AA5		# PROG1
           KEY_1                    0x4AB5		# 1BUTTON
           KEY_2                    0x6A95		# 2BUTTON
           KEY_3                    0x42BD		# 3BUTTON
@@ -38,39 +40,39 @@ begin remote
           KEY_TV                   0x8877		# TV/RADIO
           KEY_0                    0xA857		# 0BUTTON
           KEY_RECALL               0x807F		# RECALL
-          KEY_SAT                  0x629D		# SAT
-          KEY_FAVORITES            0xBA45		# FAV
+          KEY_SAT                  0xE21D		# SAT
+          KEY_FAVORITES            0x7887		# FAV
           KEY_VOLUMEDOWN           0x38c7		# VOL-
           KEY_VOLUMEUP             0x22dd		# VOL+
-          KEY_CHANNELUP            0xA05F		# PAGE+
           KEY_CHANNELDOWN          0xF807		# PAGE-
-          KEY_INFO                 0xE21D		# INFO
-          KEY_EPG                  0x7887		# EPG
+          KEY_CHANNELUP            0xA05F		# PAGE+
+          KEY_INFO                 0x58A7		# INFO
+          KEY_EPG                  0x708F		# EPG
           KEY_MENU                 0x9A65		# MENU
-          KEY_EXIT                 0x58A7		# EXIT
-          KEY_FIND                 0xB24D		# FIND
-          KEY_RECORD               0x708F		# REC
+          KEY_EXIT                 0xB24D		# EXIT
+          KEY_FIND                 0x629D		# FIND
+          KEY_RECORD               0xBA45		# REC
           KEY_UP                   0xD827		# UP
           KEY_DOWN                 0xF00F		# DOWN
           KEY_LEFT                 0x926D		# LEFT
           KEY_RIGHT                0x50AF		# RIGHT
           KEY_OK                   0xD02F		# OK
-          KEY_RED                  0x8A75		# RED
-          KEY_GREEN                0x08F7		# GREEN
-          KEY_YELLOW               0xC837		# YELLOW
-          KEY_BLUE                 0x48B7		# BLUE
-          KEY_REWIND               0xAA55		# REWIND
-          KEY_PLAY                 0x28D7		# PLAY
+          KEY_RED                  0x827D		# RED
+          KEY_GREEN                0x00FF		# GREEN
+          KEY_YELLOW               0xC03F		# YELLOW
+          KEY_BLUE                 0x40BF		# BLUE
+          KEY_REWIND               0xE817		# REWIND
+          KEY_PLAY                 0x48B7		# PLAY
           KEY_FASTFORWARD          0x6897		# FASTFORWARD
-          KEY_PAUSE                0xE817		# PAUSE
-          KEY_PLAYMODE             0x20DF		# PLAYMODE
-          KEY_FILE                 0xA25D		# FILELIST
-          KEY_USB                  0xE01F		# USB
-          KEY_STOP                 0x609F		# STOP
-          KEY_F1                   0x827D		# F1
-          KEY_F2                   0x00FF		# F2
-          KEY_F3                   0xC03F		# F3
-          KEY_F4                   0x40BF		# F4
+          KEY_PAUSE                0xC837		# PAUSE
+          KEY_PLAYMODE             0xE01F		# PLAYMODE
+          KEY_FILE                 0x8A75		# FILELIST
+          KEY_USB                  0x609F		# USB
+          KEY_STOP                 0x08F7		# STOP
+          KEY_SLOW                 0xA25D		# SLOW
+          KEY_PREVIOUS             0xAA55		# PREV
+          KEY_NEXT                 0x28D7		# NEXT
+          KEY_FAST                 0x20DF		# FAST
       end codes
 
 end remote

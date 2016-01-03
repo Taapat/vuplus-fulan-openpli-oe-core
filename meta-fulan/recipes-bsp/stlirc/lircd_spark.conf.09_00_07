@@ -1,76 +1,78 @@
 begin remote
 
-  name  rc09(HOF-54D)
+  name  rc08(HOF-55C)
   bits           16
   flags SPACE_ENC|CONST_LENGTH
   eps            45
   aeps          100
 
-  header       9074  4344
-  one           694  1532
-  zero          694   417
-  ptrail        674
-  repeat       9074  2105
+  header       9011  4455
+  one           585  1656
+  zero          585   541
+  ptrail        585
+  repeat       9011  2233
   pre_data_bits   16
-  pre_data       0x9966
-  gap          107250
+  pre_data       0x44BB
+  gap          107670
   toggle_bit_mask 0x0
 
+# Golden Media  990
+
       begin codes
-          KEY_POWER                0xDA25		# POWER
-          KEY_TVSAT                0x5AA5		# TV/SAT
+          KEY_POWER                0xB24D		# POWER
+          KEY_TVSAT                0xC837		# TV/SAT
           KEY_VMODE                0x52AD		# V.FORMAT
-          KEY_SLEEP                0x728D		# TIME
-          KEY_MUTE                 0x7A85		# MUTE
-          KEY_PICASA               0x1AE5		# PICASA
-          KEY_SHOUTCAST            0x12ED		# SHOUTCAST
-          KEY_YOUTUBE              0x32CD		# YOUTUBE
-          KEY_SPARK                0x3AC5		# SPARK
-          KEY_1                    0x4AB5		# 1BUTTON
-          KEY_2                    0x6A95		# 2BUTTON
+          KEY_SLEEP                0x12ED		# TIME
+          KEY_MUTE                 0x22DD		# MUTE
+          KEY_TIME                 0xB04F		# TimeShift
+          KEY_SHOUTCAST            0x20DF		# PROG2
+          KEY_F1                   0xF00F		# F1
+          KEY_SUBTITLE             0x28D7		# SUBTITLE
+          KEY_1                    0x827D		# 1BUTTON
+          KEY_2                    0xC03F		# 2BUTTON
           KEY_3                    0x42BD		# 3BUTTON
-          KEY_4                    0x0AF5		# 4BUTTON
-          KEY_5                    0x2AD5		# 5BUTTON
-          KEY_6                    0x02FD		# 6BUTTON
-          KEY_7                    0xCA35		# 7BUTTON
-          KEY_8                    0xEA15		# 8BUTTON
-          KEY_9                    0xC23D		# 9BUTTON
-          KEY_TV                   0x8877		# TV/RADIO
-          KEY_0                    0xA857		# 0BUTTON
-          KEY_RECALL               0x807F		# RECALL
-          KEY_SAT                  0x629D		# SAT
-          KEY_FAVORITES            0xBA45		# FAV
-          KEY_VOLUMEDOWN           0x38c7		# VOL-
-          KEY_VOLUMEUP             0x22dd		# VOL+
-          KEY_CHANNELUP            0xA05F		# PAGE+
-          KEY_CHANNELDOWN          0xF807		# PAGE-
+          KEY_4                    0xA25D		# 4BUTTON
+          KEY_5                    0xE01F		# 5BUTTON
+          KEY_6                    0x629D		# 6BUTTON
+          KEY_7                    0xAA55		# 7BUTTON
+          KEY_8                    0xE817		# 8BUTTON
+          KEY_9                    0x6A95		# 9BUTTON
+          KEY_TV                   0x9A65		# TV/RADIO
+          KEY_0                    0xD827		# 0BUTTON
+          KEY_RECALL               0x5AA5		# RECALL
+          KEY_SAT                  0xD02F		# SAT
+          KEY_FAVORITES            0x08F7		# FAV
+          KEY_VOLUMEDOWN           0x4AB5		# VOL-
+          KEY_VOLUMEUP             0x728D		# VOL+
+          KEY_CHANNELDOWN          0x8877		# PAGE-
+          KEY_CHANNELUP            0x48B7		# PAGE+
           KEY_INFO                 0xE21D		# INFO
-          KEY_EPG                  0x7887		# EPG
-          KEY_MENU                 0x9A65		# MENU
-          KEY_EXIT                 0x58A7		# EXIT
-          KEY_FIND                 0xB24D		# FIND
-          KEY_RECORD               0x708F		# REC
-          KEY_UP                   0xD827		# UP
-          KEY_DOWN                 0xF00F		# DOWN
-          KEY_LEFT                 0x926D		# LEFT
-          KEY_RIGHT                0x50AF		# RIGHT
-          KEY_OK                   0xD02F		# OK
-          KEY_RED                  0x8A75		# RED
-          KEY_GREEN                0x08F7		# GREEN
-          KEY_YELLOW               0xC837		# YELLOW
-          KEY_BLUE                 0x48B7		# BLUE
-          KEY_REWIND               0xAA55		# REWIND
-          KEY_PLAY                 0x28D7		# PLAY
+          KEY_EPG                  0xDA25		# EPG
+          KEY_MENU                 0xA05F		# MENU
+          KEY_EXIT                 0xD22D		# EXIT
+          KEY_FIND                 0xCA35		# FIND
+          KEY_RECORD               0x10EF		# REC
+          KEY_UP                   0x609F		# UP
+          KEY_DOWN                 0x50AF		# DOWN
+          KEY_LEFT                 0xC23D		# LEFT
+          KEY_RIGHT                0x807F		# RIGHT
+          KEY_OK                   0x40BF		# OK
+          KEY_RED                  0xFA05		# RED
+          KEY_GREEN                0x7887		# GREEN
+          KEY_YELLOW               0x3AC5		# YELLOW
+          KEY_BLUE                 0xB847		# BLUE
+          KEY_REWIND               0x2AD5		# REWIND
+          KEY_PLAY                 0x8A75		# PLAY
           KEY_FASTFORWARD          0x6897		# FASTFORWARD
-          KEY_PAUSE                0xE817		# PAUSE
-          KEY_PLAYMODE             0x20DF		# PLAYMODE
-          KEY_FILE                 0xA25D		# FILELIST
-          KEY_USB                  0xE01F		# USB
-          KEY_STOP                 0x609F		# STOP
-          KEY_F1                   0x827D		# F1
-          KEY_F2                   0x00FF		# F2
-          KEY_F3                   0xC03F		# F3
-          KEY_F4                   0x40BF		# F4
+          KEY_PAUSE                0x0AF5		# PAUSE
+          KEY_PLAYMODE             0x906F		# PLAYMODE
+          KEY_FILE                 0x1AE5		# FILELIST
+          KEY_USB                  0xF20D		# USB
+          KEY_STOP                 0x58A7		# STOP
+          KEY_SLOW                 0xEA15		# SLOW
+          KEY_PREVIOUS             0x708F		# PREV
+          KEY_NEXT                 0xA857		# NEXT
+          KEY_FAST                 0x6897		# FAST
       end codes
 
 end remote

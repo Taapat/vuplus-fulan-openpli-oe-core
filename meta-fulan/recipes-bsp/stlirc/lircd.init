@@ -1,16 +1,32 @@
 #!/bin/sh
 
 test -f /usr/sbin/lircd || exit 0
-test -f /etc/lircd.conf || exit 0
 
 # if /var/run does not exist, we are screwed anyway...
 test -d /var/run/lirc || mkdir /var/run/lirc
 
+# create link to lirc from lirc0
+test -e /dev/lirc || ln -s lirc0 /dev/lirc
+
+# determine boxtype
+boxver()
+{
+	STB_ID=`sed 's/.*STB_ID=//;s/ .*//;/[:]/!d;s/:/_/g' /proc/cmdline`
+	[ -z "$STB_ID" ] && STB_ID=`sed 's/.*ethaddr://;s/ .*//;/[:]/!d;s/^24/09/;s/:/_/g' /proc/cmdline`
+	BOX_ID=${STB_ID:0:8}
+	echo "STB_ID = $STB_ID" 
+	echo "BOX_ID = $BOX_ID"
+}
+
 case "$1" in
   start)
     echo -n "Starting lirc daemon: lircd"
-    start-stop-daemon --start --quiet --exec /usr/sbin/lircd -- -u --device=/dev/lirc0
+    boxver	# determine boxtype
+    # if a /etc/lircd.conf.$BOX_ID exists, use it...
+    [ -z "$LIRCD_OPTS" ] && [ -e /etc/lircd.conf.$BOX_ID ] && LIRCD_OPTS=/etc/lircd.conf.$BOX_ID
+    start-stop-daemon --start --quiet --exec /usr/sbin/lircd -- -u --device=/dev/lirc $LIRCD_OPTS
     echo "."
+    echo "LIRCD_OPTS = $LIRCD_OPTS"
     ;;
   stop)
     echo -n "Stopping lirc daemon: lircd"
