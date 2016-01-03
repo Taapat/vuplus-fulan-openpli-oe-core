@@ -11,7 +11,16 @@
  	bsod.h \
 --- git/lib/gdi/picload.cpp.orig	2015-08-01 01:10:55.666375534 +0200
 +++ git/lib/gdi/picload.cpp	2015-08-01 01:15:00.510518640 +0200
-@@ -477,7 +477,7 @@
+@@ -7,6 +7,8 @@
+ #include "libmmeimage/libmmeimage.h"
+ 
+ extern "C" {
++#define HAVE_BOOLEAN
++#define boolean int
+ #include <jpeglib.h>
+ #include <gif_lib.h>
+ }
+@@ -477,7 +479,7 @@
  	int cmaps;
  	int extcode;
  
@@ -20,7 +29,7 @@
  	if (gft == NULL) {
  		eDebug("[Picload] Error open gif %i", ErrorCode);
  		return;
-@@ -569,11 +569,11 @@
+@@ -569,11 +571,11 @@
  	}
  	while (rt != TERMINATE_RECORD_TYPE);
  
