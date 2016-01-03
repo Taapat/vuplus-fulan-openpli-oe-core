@@ -19,6 +19,7 @@ DEPENDS = " \
 	swig-native \
 	tuxtxt-enigma2 \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
+	${@base_contains("MACHINE_FEATURES", "fulan", "libmmeimage" , "", d)} \
 	"
 
 RDEPENDS_${PN} = " \

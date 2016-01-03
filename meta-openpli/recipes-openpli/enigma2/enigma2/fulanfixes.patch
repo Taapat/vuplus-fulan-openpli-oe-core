@@ -11,15 +11,6 @@
  	bsod.h \
 --- git/lib/gdi/picload.cpp.orig	2015-08-01 01:10:55.666375534 +0200
 +++ git/lib/gdi/picload.cpp	2015-08-01 01:15:00.510518640 +0200
-@@ -4,7 +4,7 @@
- 
- #include <lib/base/cfile.h>
- #include <lib/gdi/picload.h>
--#include "libmmeimage/libmmeimage.h"
-+#include "mmeimage/libmmeimage.h"
- 
- extern "C" {
- #include <jpeglib.h>
 @@ -477,7 +477,7 @@
  	int cmaps;
  	int extcode;
