@@ -11,7 +11,9 @@ S = "${WORKDIR}/git"
 
 SRCREV = "bb7d9314750dccd2736cdcfa70fdf506c66dad38"
 SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=master"
-SRC_URI += "file://0001-rtmp-fix-seeking-and-potential-segfault.patch"
+SRC_URI += "file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
+            file://0001-fix-compile-error.patch \
+           "
 
 inherit gitpkgv
 PV = "1.7.1+git${SRCPV}"

@@ -14,3 +14,14 @@ index fede7f5..12baa55 100644
    Gob gobs[MAX_NUM_GOB];
    Gob *gob;
    Macroblock last_mb_in_previous_packet = { 0 };
+--- a/gst/isomp4/qtdemux.c	2016-01-03 15:40:48.362345952 +0200
++++ a/gst/isomp4/qtdemux.c	2016-01-03 17:08:05.964317821 +0200
+@@ -3245,7 +3245,7 @@
+ 
+   for (i = 0; i < sample_count; ++i) {
+     GstStructure *properties;
+-    guint16 n_subsamples;
++    guint16 n_subsamples = 0;
+     guint8 *data;
+     guint iv_size;
+     GstBuffer *buf;

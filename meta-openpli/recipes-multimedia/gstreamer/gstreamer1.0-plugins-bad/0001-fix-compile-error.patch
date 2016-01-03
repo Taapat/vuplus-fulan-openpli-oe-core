@@ -1,0 +1,16 @@
+// Compilation fails on Uninitialized variable.So
+// just inititialeze the variable to make the compiler happy.
+//
+--- a/gst/rtp/gstrtph261pay.c
++++ b/gst/rtp/gstrtph261pay.c
+--- a/gst-libs/gst/codecparsers/gstvc1parser.c	2016-01-03 17:15:44.014589169 +0200
++++ a/gst-libs/gst/codecparsers/gstvc1parser.c	2016-01-03 17:14:39.898271237 +0200
+@@ -1729,7 +1729,7 @@
+     GstVC1SeqLayer * seqlayer)
+ {
+   guint32 tmp;
+-  guint8 tmp8;
++  guint8 tmp8 = 0;
+   guint8 structA[8] = { 0, };
+   guint8 structB[12] = { 0, };
+   GstBitReader br;
