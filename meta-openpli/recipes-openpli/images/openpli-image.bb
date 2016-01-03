@@ -20,7 +20,7 @@ IMAGE_INSTALL = " \
 	packagegroup-base \
 	packagegroup-core-boot \
 	parted \
-	${@bb.utils.contains('TUNE_FEATURES', 'sh4', '', 'samba', d)} \
+	${@base_contains("MACHINE_FEATURES", "fulan", "" , "samba", d)} \
 	sdparm \
 	tuxbox-common \
 	tuxbox-links \
