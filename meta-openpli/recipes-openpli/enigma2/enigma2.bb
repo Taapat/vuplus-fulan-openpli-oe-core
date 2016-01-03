@@ -204,7 +204,7 @@ ENIGMA2_BRANCH ?= "master"
 GITHUB_URI ?= "git://github.com"
 ENIGMA2_URI = "${@base_contains("MACHINE_FEATURES", "uianimation", "Taapat/enigma2-openpli-vuplus" , "OpenPLi/${BPN}", d)}"
 ENIGMA2_GITHUB_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
-ENIGMA2_TAAPAT_URI = "git://bitbucket.org/Taapat/enigma2-pli-arp-taapat.git;branch=${ENIGMA2_BRANCH}"
+ENIGMA2_TAAPAT_URI = "git://bitbucket.org/Taapat/enigma2-pli-arp-taapat.git;branch=${ENIGMA2_BRANCH};protocol=https"
 
 SRC_URI = "${@base_contains("MACHINE_FEATURES", "fulan", "${ENIGMA2_TAAPAT_URI}" , "${ENIGMA2_GITHUB_URI}", d)}"
 
