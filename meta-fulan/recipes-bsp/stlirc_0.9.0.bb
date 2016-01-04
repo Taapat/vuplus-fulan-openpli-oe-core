@@ -23,12 +23,12 @@ PR = "r4"
 SRC_URI = "http://prdownloads.sourceforge.net/lirc/lirc-${PV}.tar.bz2 \
            file://fix-libusb-config.patch \
            file://${PN}.patch \
-           file://lircd_spark.conf \
-           file://lircd_spark.conf.09_00_07 \
-           file://lircd_spark.conf.09_00_08 \
-           file://lircd_spark.conf.09_00_0B \
-           file://lircd_spark.conf.09_00_1D \
-           file://lircd_spark.conf.09_00_0D \
+           file://lircd.conf \
+           file://lircd.conf.09_00_07 \
+           file://lircd.conf.09_00_08 \
+           file://lircd.conf.09_00_0B \
+           file://lircd.conf.09_00_1D \
+           file://lircd.conf.09_00_0D \
            file://lircd.init \
            file://lircmd.init \
            file://lircexec.init \
@@ -66,7 +66,7 @@ do_install_append() {
     cp -pPR ${S}/remotes ${D}${datadir}/lirc/
     rm -rf ${D}/dev
     rm -rf  ${D}/bin/pronto2lirc
-    install -m 0644 ${WORKDIR}/lircd_spark.* ${D}${sysconfdir}
+    install -m 0644 ${WORKDIR}/lircd.conf* ${D}${sysconfdir}
 }
 
 PACKAGES =+ "stlirc-exec stlirc-remotes"
