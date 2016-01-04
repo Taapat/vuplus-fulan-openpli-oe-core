@@ -19,7 +19,7 @@ DEPENDS = " \
 	swig-native \
 	tuxtxt-enigma2 \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "fulan", "libmmeimage" , "", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "libmmeimage" , "", d)} \
 	"
 
 RDEPENDS_${PN} = " \
@@ -207,9 +207,9 @@ ENIGMA2_URI = "${@base_contains("MACHINE_FEATURES", "uianimation", "Taapat/enigm
 ENIGMA2_GITHUB_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
 ENIGMA2_TAAPAT_URI = "git://bitbucket.org/Taapat/enigma2-pli-arp-taapat.git;branch=${ENIGMA2_BRANCH};protocol=https"
 
-SRC_URI = "${@base_contains("MACHINE_FEATURES", "fulan", "${ENIGMA2_TAAPAT_URI}" , "${ENIGMA2_GITHUB_URI}", d)}"
+SRC_URI = "${@base_contains("TARGET_ARCH", "sh4", "${ENIGMA2_TAAPAT_URI}" , "${ENIGMA2_GITHUB_URI}", d)}"
 
-SRC_URI =+ "${@base_contains("MACHINE_FEATURES", "fulan", "file://fulanfixes.patch" , "", d)}"
+SRC_URI_append_sh4 = "file://fulanfixes.patch"
 
 LDFLAGS_prepend = "${@base_contains('GST_VERSION', '1.0', ' -lxml2 ', '', d)}"
 
@@ -238,8 +238,8 @@ EXTRA_OECONF = "\
 	${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "colorlcd", "--with-colorlcd" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "fulan", "--enable-${MACHINE}" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "fulan", "--with-lcd=no" , "", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "--enable-${MACHINE}" , "", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "--with-lcd=no" , "", d)} \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \
