@@ -236,7 +236,6 @@ EXTRA_OECONF = "\
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@base_contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)} \
 	${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "colorlcd", "--with-colorlcd" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
 	${@base_contains("TARGET_ARCH", "sh4", "--enable-${MACHINE}" , "", d)} \
 	${@base_contains("TARGET_ARCH", "sh4", "--with-lcd=no" , "", d)} \
