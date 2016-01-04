@@ -14,9 +14,11 @@ PKGV = "1.0+git${GITPKGV}"
 PR = "r1"
 
 GITHUB_URI ?= "git://github.com"
-SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git \
-           ${@base_contains("TARGET_ARCH", "sh4", "file://aio-grab-sh4.patch" , "", d)} \
-          "
+SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
+
+SRC_URI_append_sh4 = " \
+    file://aio-grab-sh4.patch"
+"
 
 S = "${WORKDIR}/git"
 
