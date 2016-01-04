@@ -17,7 +17,7 @@ GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
 
 SRC_URI_append_sh4 = " \
-    file://aio-grab-sh4.patch"
+    file://aio-grab-sh4.patch \
 "
 
 S = "${WORKDIR}/git"
