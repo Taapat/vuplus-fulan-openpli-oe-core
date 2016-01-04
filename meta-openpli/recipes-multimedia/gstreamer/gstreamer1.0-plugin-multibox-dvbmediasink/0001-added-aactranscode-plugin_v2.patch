@@ -27,12 +27,12 @@ index ed319cd..a359e25 100644
  libgstdvbaudiosink_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS)
  
  # headers we need but don't want installed
--noinst_HEADERS = gstdvbvideosink.h gstdvbaudiosink.h gstdtsdownmix.h
-+noinst_HEADERS = gstdvbvideosink.h gstdvbaudiosink.h gstdtsdownmix.h gstaactranscode.h
+-noinst_HEADERS = gstdvbvideosink.h gstdvbaudiosink.h gstdtsdownmix.h gstmpeg4p2unpack.h
++noinst_HEADERS = gstdvbvideosink.h gstdvbaudiosink.h gstdtsdownmix.h gstmpeg4p2unpack.h gstaactranscode.h
  
  if HAVE_DTSDOWNMIX
  plugin_LTLIBRARIES += libgstdtsdownmix.la
-@@ -42,3 +42,18 @@ libgstdtsdownmix_la_CFLAGS = $(GST_CFLAGS)
+@@ -51,3 +51,18 @@ libgstdtsdownmix_la_CFLAGS = $(GST_CFLAGS)
  libgstdtsdownmix_la_LIBADD = $(GST_LIBS) -lgstbase-$(GST_MAJORMINOR) $(DTS_LIBS)
  libgstdtsdownmix_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS)
  endif
@@ -63,7 +63,7 @@ diff --git a/configure.ac b/configure.ac
 index 4bf6908..4266281 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -229,4 +229,12 @@ DTS_LIBS="-ldca $LIBM"
+@@ -261,4 +261,12 @@ DTS_LIBS="-ldca $LIBM"
  AC_SUBST(DTS_LIBS)
  AM_CONDITIONAL(HAVE_DTSDOWNMIX, test "$have_dtsdownmix" = "yes")
  
