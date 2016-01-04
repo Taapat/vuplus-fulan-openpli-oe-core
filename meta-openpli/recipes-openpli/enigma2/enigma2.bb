@@ -209,7 +209,9 @@ ENIGMA2_TAAPAT_URI = "git://bitbucket.org/Taapat/enigma2-pli-arp-taapat.git;bran
 
 SRC_URI = "${@base_contains("TARGET_ARCH", "sh4", "${ENIGMA2_TAAPAT_URI}" , "${ENIGMA2_GITHUB_URI}", d)}"
 
-SRC_URI_append_sh4 = "file://fulanfixes.patch"
+SRC_URI_append_sh4 = " \
+    file://fulanfixes.patch \
+"
 
 LDFLAGS_prepend = "${@base_contains('GST_VERSION', '1.0', ' -lxml2 ', '', d)}"
 
