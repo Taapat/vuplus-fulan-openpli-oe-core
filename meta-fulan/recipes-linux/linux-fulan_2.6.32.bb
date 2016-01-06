@@ -138,10 +138,15 @@ FILES_kernel-headers = "${exec_prefix}/src/linux*"
 
 pkg_postinst_kernel-image() {
     if [ "x$D" == "x" ]; then
-        if [ -f /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
-            flash_erase /dev/${MTD_KERNEL} 0 0
-            nandwrite -p /dev/${MTD_KERNEL} /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
-            rm -f /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+        if [ -f ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
+            if grep -q root=/dev/mtdblock6 /proc/cmdline; then
+                flash_eraseall /dev/${MTD_KERNEL}
+                nandwrite -p /dev/${MTD_KERNEL} ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+                rm -f ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+            else
+                flash_erase /dev/${MTD_KERNEL} 0x400000 0x20
+                nandwrite -s 0x400000 -p /dev/${MTD_KERNEL} ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+            fi
         fi
     fi
     true
