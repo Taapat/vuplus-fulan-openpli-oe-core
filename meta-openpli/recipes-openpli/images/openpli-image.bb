@@ -15,6 +15,7 @@ IMAGE_INSTALL = " \
 	${@base_contains("TARGET_ARCH", "sh4", "flash-tools" , "", d)} \
 	kernel-params \
 	modutils-loadscript \
+	${@base_contains("TARGET_ARCH", "sh4", "mountspark" , "", d)} \
 	nfs-utils-client \
 	openpli-bootlogo \
 	opkg \
