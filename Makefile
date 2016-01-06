@@ -151,8 +151,12 @@ $(CURDIR)/site.conf:
 	@echo 'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' >> $@
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
 	@echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@
-	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
+	@echo 'DL_DIR = "~/sources"' >> $@
 	@echo 'INHERIT += "rm_work"' >> $@
+	@echo 'DISTRO_FEED_URI = " http://taapat.ho.ua/openpli/${FEED_NAME}"' >> $@
+	@echo 'RM_OLD_IMAGE = "1"' >> $@
+	@echo 'PTI_NP_PATH = "~/sources/pti"' >> $@
+	@echo 'RM_WORK_EXCLUDE += "openpli-enigma2-image"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
 	'BBLAYERS_CONF_VERSION = "0"' \
