@@ -123,3 +123,22 @@
  	fi
  	AC_MSG_RESULT([$PYTHON_SITE_PKG])
  	AC_SUBST([PYTHON_SITE_PKG])
+--- a/tools/enigma2.sh.in	2015-08-13 18:30:39.481256249 +0300
++++ b/tools/enigma2.sh.in	2016-01-06 22:03:59.257810651 +0200
+@@ -48,14 +48,14 @@
+ 	3)
+ 		cat /etc/videomode > /proc/stb/video/videomode
+ 		echo "0" > /proc/progress
+-		@bindir@/showiframe -p /boot/bootlogo.mvi &
++		@bindir@/showiframe /boot/bootlogo.mvi
+ 		;;
+ 	4)
+ 		/sbin/reboot
+ 		;;
+ 	5)
+ 		if ! grep -q config.misc.RestartUI /etc/enigma2/settings; then
+-			echo "config.misc.RestartUI=true" >>/etc/enigma2/settings
++			echo "config.misc.RestartUI=true" >>/etc/enigma2/settings;
+ 		fi
+ 		;;
+ 	42)
