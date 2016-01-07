@@ -30,7 +30,7 @@
  		while(pos <= (s.st_size-4) && !(seq_end_avail = (!iframe[pos] && !iframe[pos+1] && iframe[pos+2] == 1 && iframe[pos+3] == 0xB7)))
  			++pos;
  		if ((iframe[3] >> 4) != 0xE) // no pes header
-@@ -103,9 +105,22 @@
+@@ -103,10 +105,24 @@
  		if (!seq_end_avail)
  			write_all(fd, seq_end, sizeof(seq_end));
  		write_all(fd, stuffing, 8192);
@@ -54,5 +54,7 @@
 +		ioctl(fd, VIDEO_STOP, 0);
 +		ioctl(fd, VIDEO_SELECT_SOURCE, VIDEO_SOURCE_DEMUX);
  	}
++	close(fd);
  	return 0;
  }
+ 
