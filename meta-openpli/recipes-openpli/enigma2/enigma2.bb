@@ -203,15 +203,10 @@ PKGV = "2.7+git${GITPKGV}"
 
 ENIGMA2_BRANCH ?= "master"
 GITHUB_URI ?= "git://github.com"
-ENIGMA2_URI = "${@base_contains("MACHINE_FEATURES", "uianimation", "Taapat/enigma2-openpli-vuplus" , "OpenPLi/${BPN}", d)}"
-ENIGMA2_GITHUB_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
-ENIGMA2_TAAPAT_URI = "git://bitbucket.org/Taapat/enigma2-pli-arp-taapat.git;branch=${ENIGMA2_BRANCH};protocol=https"
+ENIGMA2_URI1 = "${@base_contains("MACHINE_FEATURES", "uianimation", "Taapat/enigma2-openpli-vuplus" , "OpenPLi/${BPN}", d)}"
+ENIGMA2_URI = "${@base_contains("TARGET_ARCH", "sh4", "Taapat/enigma2-openpli-fulan" , "${ENIGMA2_URI1}", d)}"
 
-SRC_URI = "${@base_contains("TARGET_ARCH", "sh4", "${ENIGMA2_TAAPAT_URI}" , "${ENIGMA2_GITHUB_URI}", d)}"
-
-SRC_URI_append_sh4 = " \
-    file://fulanfixes.patch \
-"
+SRC_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
 
 LDFLAGS_prepend = "${@base_contains('GST_VERSION', '1.0', ' -lxml2 ', '', d)}"
 
