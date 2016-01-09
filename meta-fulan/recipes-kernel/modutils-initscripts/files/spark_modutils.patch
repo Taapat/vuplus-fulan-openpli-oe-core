@@ -8,3 +8,10 @@
  	done
  }
  
+@@ -49,4 +50,6 @@
+ done
+ [ "$VERBOSE" != no ] && echo
+ 
++echo "1" > /proc/sys/kernel/printk #for more log change level or remake line
++
+ exit 0
