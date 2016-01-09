@@ -15,6 +15,8 @@ SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
 "
 
+INHIBIT_PACKAGE_STRIP = "1"
+
 inherit autotools pkgconfig
 
 EXTRA_OECONF = " \
