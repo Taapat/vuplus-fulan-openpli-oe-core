@@ -5,3 +5,5 @@ require ddt-apps.inc
 DEPEND += "libass ffmpeg"
 RDEPENDS_${PN} = "libass ffmpeg"
 
+FILES_${PN}-dbg += "${bindir}/meta"
+
