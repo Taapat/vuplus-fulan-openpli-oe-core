@@ -1,0 +1,10 @@
+--- a/modutils.sh	2016-01-07 20:08:00.424807185 +0200
++++ b/modutils.sh	2016-01-09 14:08:01.915455500 +0200
+@@ -36,6 +36,7 @@
+ 		[ "$VERBOSE" != no ] && echo -n "$module "
+ 		eval "$LOAD_MODULE $module $args >/dev/null 2>&1"
+ 		loaded_modules="${loaded_modules}${module} "
++		[ "$module" == "stmfb" ] && echo "LOAD" > /dev/vfd
+ 	done
+ }
+ 
