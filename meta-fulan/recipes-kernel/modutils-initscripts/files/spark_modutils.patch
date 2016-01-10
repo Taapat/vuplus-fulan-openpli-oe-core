@@ -19,7 +19,7 @@
 +if [ -e /dev/zram0 ]; then
 +	[ "$VERBOSE" != no ] && echo "Enable swap in ram"
 +	mkswap /dev/zram0
-+	swapon /dev/zram0
++	swapon -p 100 /dev/zram0
 +fi
 +
  exit 0
