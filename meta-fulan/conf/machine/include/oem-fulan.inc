@@ -82,7 +82,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
     "
 
 MACHINE_EXTRA_RRECOMMENDS = " \
-    gstreamer1.0-plugin-multibox-dvbmediasink \
+    ${@base_contains("MACHINE_FEATURES", "libeplayer", "", "gstreamer1.0-plugin-multibox-dvbmediasink", d)} \
     enigma2-plugin-systemplugins-sh4osdadjustment \
     "
 
