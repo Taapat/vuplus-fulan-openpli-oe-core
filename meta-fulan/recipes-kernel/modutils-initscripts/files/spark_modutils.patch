@@ -1,17 +1,25 @@
 --- a/modutils.sh	2016-01-07 20:08:00.424807185 +0200
-+++ b/modutils.sh	2016-01-09 14:08:01.915455500 +0200
-@@ -36,6 +36,7 @@
++++ b/modutils.sh	2016-01-10 10:15:03.431318040 +0200
+@@ -36,6 +36,8 @@
  		[ "$VERBOSE" != no ] && echo -n "$module "
  		eval "$LOAD_MODULE $module $args >/dev/null 2>&1"
  		loaded_modules="${loaded_modules}${module} "
 +		[ "$module" == "stmfb" ] && echo "LOAD" > /dev/vfd
++		[ "$module" == "zram" ] && echo "16777216" > /sys/block/zram0/disksize # Use 16Mb for swap in ram
  	done
  }
  
-@@ -49,4 +50,6 @@
+@@ -49,4 +51,13 @@
  done
  [ "$VERBOSE" != no ] && echo
  
 +echo "1" > /proc/sys/kernel/printk #for more log change level or remake line
++
++# Enable swap in ram
++if [ -e /dev/zram0 ]; then
++	[ "$VERBOSE" != no ] && echo "Enable swap in ram"
++	mkswap /dev/zram0
++	swapon /dev/zram0
++fi
 +
  exit 0
