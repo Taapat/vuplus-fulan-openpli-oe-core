@@ -6,3 +6,8 @@ SRC_URI_remove_sh4 = "\
     file://0070-libstdc-musl.patch \
 "
 
+SRC_URI_append_sh4 = "\
+    file://gcc-4.9.3-stm.patch \
+"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
