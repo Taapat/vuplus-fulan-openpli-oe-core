@@ -6,11 +6,13 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 SRCREV = "${AUTOREV}"
 
+GST_DEPENDS = "${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)}"
+
 DEPENDS = " \
 	ethtool \
 	freetype \
 	gettext-native \
-	${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)} \
+	${@base_contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_DEPENDS}", d)} \
 	hotplug-e2-helper \
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-1.2 giflib libxml2 \
@@ -31,14 +33,18 @@ RDEPENDS_${PN} = " \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
 	"
 
-RRECOMMENDS_${PN} = " \
-	enigma2-plugin-skins-pli-hd \
+GST_RRECOMMENDS = " \
 	${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)} \
-	glib-networking \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
 	${GST_BAD_RDEPS} \
 	${GST_UGLY_RDEPS} \
+	"
+
+RRECOMMENDS_${PN} = " \
+	enigma2-plugin-skins-pli-hd \
+	glib-networking \
+	${@base_contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_RRECOMMENDS}", d)} \
 	"
 
 PYTHON_RDEPS = " \
@@ -208,7 +214,8 @@ ENIGMA2_URI = "${@base_contains("TARGET_ARCH", "sh4", "Taapat/enigma2-openpli-fu
 
 SRC_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
 
-LDFLAGS_prepend = "${@base_contains('GST_VERSION', '1.0', ' -lxml2 ', '', d)}"
+GST_LDFLAGS = "${@base_contains("GST_VERSION", "1.0", " -lxml2 ", "", d)}"
+LDFLAGS_prepend = "${@base_contains("MACHINE_FEATURES", "libeplayer", "", "${GST_LDFLAGS}", d)}"
 
 S = "${WORKDIR}/git"
 
@@ -227,11 +234,13 @@ PKGV_enigma2-fonts = "${PV_enigma2-fonts}"
 PKGR_enigma2-fonts = "${PR_enigma2-fonts}"
 FILES_enigma2-fonts = "${datadir}/fonts"
 
+GST_OECONF = "${@base_contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)}"
+
 EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
 	ac_cv_prog_c_openmp=-fopenmp \
-	${@base_contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)} \
+	${@base_contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "${GST_OECONF}", d)} \
 	${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
 	${@base_contains("TARGET_ARCH", "sh4", "--enable-${MACHINE}" , "", d)} \
