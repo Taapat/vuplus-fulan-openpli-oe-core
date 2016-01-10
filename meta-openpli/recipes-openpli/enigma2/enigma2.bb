@@ -182,7 +182,6 @@ DESCRIPTION_append_enigma2-plugin-extensions-cutlisteditor = "enables you to cut
 RDEPENDS_enigma2-plugin-extensions-cutlisteditor = "aio-grab"
 DESCRIPTION_append_enigma2-plugin-extensions-graphmultiepg = "shows a graphical timeline EPG."
 DESCRIPTION_append_enigma2-plugin-extensions-pictureplayer = "displays photos on the TV."
-DESCRIPTION_append_enigma2-plugin-systemplugins-frontprocessorupdate = "keeps your frontprocessor up to date."
 DESCRIPTION_append_enigma2-plugin-systemplugins-positionersetup = "helps you installing a motorized dish."
 DESCRIPTION_append_enigma2-plugin-systemplugins-satelliteequipmentcontrol = "allows you to fine-tune DiSEqC-settings."
 DESCRIPTION_append_enigma2-plugin-systemplugins-satfinder = "helps you to align your dish."
@@ -280,7 +279,7 @@ FILES_${PN}-src = "\
 	"
 do_openpli_branding() {
 	if [ -n "${BRANDINGDIR}" -a -d "${BRANDINGDIR}/enigma2" ] ; then
-		cp -rp ${BRANDINGDIR}/enigma2/* ${S}/data/
+		cp -r --preserve=mode,links ${BRANDINGDIR}/enigma2/* ${S}/data/
 	fi
 	if [ -n "${CRASHADDR}" ] ; then
 		sed "s/^#define CRASH_EMAILADDR .*/#define CRASH_EMAILADDR \"${CRASHADDR}\"/" ${S}/main/bsod.cpp > ${S}/main/bsod.cpp.new && \

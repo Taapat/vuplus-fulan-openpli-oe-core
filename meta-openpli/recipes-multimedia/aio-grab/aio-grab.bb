@@ -1,11 +1,11 @@
 DESCRIPTION="AiO screenshot grabber"
 MAINTAINER = "PLi team"
-LICENSE = "GPL"
+LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS = "jpeg libpng zlib"
 
-SRCREV = "8e4962322b72f5de27d3f435a55df287c72162ab"
+SRCREV = "21d3320215d20401845069e2e7de4da464e3d307"
 
 inherit gitpkgv
 
