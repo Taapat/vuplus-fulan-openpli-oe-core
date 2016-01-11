@@ -6,7 +6,8 @@ require conf/license/openpli-gplv2.inc
 # Use the PLi download server, regardless of where we are. Even for "private" feeds,
 # the 3rd party plugins originate here.
 DISTRO_HOST = "downloads.pli-images.org"
-FEEDS = "3rd-party 3rd-party-${MACHINE}"
+FEEDS = "3rd-party"
+FEEDS =+ "${@base_contains("TARGET_ARCH", "sh4", "" , " 3rd-party-${MACHINE}", d)}"
 
 do_compile() {
     [ ! -d ${S}/${sysconfdir}/opkg ] && mkdir -p ${S}/${sysconfdir}/opkg
