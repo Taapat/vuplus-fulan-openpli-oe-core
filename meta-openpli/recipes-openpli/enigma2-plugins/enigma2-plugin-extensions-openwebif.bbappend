@@ -3,6 +3,8 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 python do_package_prepend () {
     boxtypes = [
+        ('spark', 'spark.jpg', 'spark.png'),
+        ('spark7162', 'spark.jpg', 'spark.png'),
         ('formuler1', 'formuler1.jpg', 'formuler1.png'),
         ('formuler3', 'formuler3.jpg', 'formuler1.png'),
         ('dm500hd', 'dm500hd.jpg', 'dm_normal.png'),
