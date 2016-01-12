@@ -9,9 +9,9 @@ KERNEL_WIFI_DRIVERS = " \
 	firmware-rtl8712u \
 	firmware-zd1211 \
 	\
-	kernel-module-ath9k-htc \
-	kernel-module-carl9170 \
-	kernel-module-r8712u \
+	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-ath" , "kernel-module-ath9k-htc", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-ar9170usb" , "kernel-module-carl9170", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-8712u" , "kernel-module-r8712u", d)} \
 	kernel-module-rt2500usb \
 	kernel-module-rt2800usb \
 	kernel-module-rt73usb \
@@ -22,8 +22,8 @@ KERNEL_WIFI_DRIVERS = " \
 EXTRA_KERNEL_WIFI_DRIVERS = " \
 	firmware-rtl8192cu \
 	\
-	kernel-module-r8188eu \
-	kernel-module-rtl8192cu \
+	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-8188eu" , "kernel-module-r8188eu", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-8192cu" , "kernel-module-rtl8192cu", d)} \
 	"
 
 EXTERNAL_WIFI_DRIVERS = " \
