@@ -84,7 +84,13 @@ case "$ACTION" in
 					fi
 				#fi
 			else
-				DEVICETYPE="${LABEL}"
+				if [ "${LABEL}" == "HDD" ]; then
+					DEVICETYPE="hdd"
+				elif [ "${LABEL}" == "USB" ]; then
+					DEVICETYPE="usb"
+				else
+					DEVICETYPE="${LABEL}"
+				fi
 			fi
 			# Use mkdir as 'atomic' action, failure means someone beat us to the punch
 			MOUNTPOINT="/media/$DEVICETYPE"

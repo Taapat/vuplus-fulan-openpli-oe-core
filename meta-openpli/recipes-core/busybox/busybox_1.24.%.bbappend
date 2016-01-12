@@ -1,3 +1,5 @@
+PR = "r1"
+
 SRC_URI_IGNORED = " \
 			file://0001-ifupdown-support-post-up-pre-down-hooks.patch \
 			file://0002-ifupdown-code-shrink.patch \
