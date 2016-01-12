@@ -26,7 +26,7 @@ SERIAL_CONSOLE = "115200 ttyAS0"
 
 DVBPROVIDER = "kernel"
 
-MACHINE_FEATURES = "alsa hdmicec switchoff kernel26 ext2 usbhost serial singlecore no-nmap omb skins1080 directfb sdl fulan"
+MACHINE_FEATURES = "alsa hdmicec switchoff kernel26 ext2 usbhost serial singlecore no-nmap omb skins1080 directfb sdl fulan wlan kernelwifi extrakernelwifi"
 
 #Use libeplayer3, disable this if you want to use gstreamer
 MACHINE_FEATURES =+ " libeplayer"
