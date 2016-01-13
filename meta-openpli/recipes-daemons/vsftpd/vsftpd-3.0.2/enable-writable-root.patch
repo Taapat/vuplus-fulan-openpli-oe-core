@@ -1,0 +1,20 @@
+Enable run with writable root inside chroot()
+
+--- a/secutil.c	2012-03-28 06:08:28.000000000 +0300
++++ b/secutil.c	2012-09-14 23:32:10.448520213 +0300
+@@ -132,13 +132,13 @@
+   /* Misconfiguration check: don't ever chroot() to a directory writable by
+    * the current user.
+    */
+-  if ((options & VSF_SECUTIL_OPTION_CHROOT) &&
++/*  if ((options & VSF_SECUTIL_OPTION_CHROOT) &&
+       !(options & VSF_SECUTIL_OPTION_ALLOW_WRITEABLE_ROOT))
+   {
+     if (vsf_sysutil_write_access("/"))
+     {
+       die("vsftpd: refusing to run with writable root inside chroot()");
+     }
+-  }
++  }   */
+ }
+ 

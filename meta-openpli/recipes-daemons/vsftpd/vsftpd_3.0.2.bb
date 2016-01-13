@@ -3,7 +3,7 @@ HOMEPAGE = "https://security.appspot.com/vsftpd.html"
 SECTION = "network"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a6067ad950b28336613aed9dd47b1271"
-PR = "r1"
+PR = "r2"
 
 DEPENDS = "libcap openssl"
 
@@ -13,6 +13,10 @@ SRC_URI = "https://security.appspot.com/downloads/vsftpd-${PV}.tar.gz \
            file://makefile-strip.patch \
            file://vsftpd.conf \
            file://login-blank-password.patch \
+           file://0005-whitespaces.patch \
+           file://0006-greedy.patch \
+           file://0010-remote-dos.patch \
+           file://enable-writable-root.patch \
 "
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=a6067ad950b28336613aed9dd47b1271 \
