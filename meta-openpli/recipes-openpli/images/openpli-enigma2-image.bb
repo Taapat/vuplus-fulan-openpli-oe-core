@@ -8,6 +8,7 @@ KERNEL_WIFI_DRIVERS = " \
 	firmware-rt73 \
 	firmware-rtl8712u \
 	firmware-zd1211 \
+	${@base_contains("TARGET_ARCH", "sh4", "firmware-rt3070 firmware-mt7601u" , "", d)} \
 	\
 	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-ath" , "kernel-module-ath9k-htc", d)} \
 	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-ar9170usb" , "kernel-module-carl9170", d)} \
