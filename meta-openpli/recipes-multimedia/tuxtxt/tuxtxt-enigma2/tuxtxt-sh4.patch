@@ -1,0 +1,49 @@
+diff --git a/tuxtxt.c b/tuxtxt.c
+index 37f875f..907a878 100644
+--- a/tuxtxt.c
++++ b/tuxtxt.c
+@@ -204,11 +204,22 @@ int tuxtxt_run_ui(int pid, int demux)
+ 	tuxtxt_cache.vtxtpid = pid;
+ 
+ 	/* open Framebuffer */
++#if defined(__sh__)
++	if ((renderinfo.fb=open("/dev/fb/0", O_RDWR)) == -1)
++	{
++		if ((renderinfo.fb=open("/dev/fb0", O_RDWR)) == -1)
++		{
++			perror("TuxTxt <open /dev/fb/0 || /dev/fb0>");
++			return 0;
++		}
++	}
++#else
+ 	if ((renderinfo.fb=open("/dev/fb/0", O_RDWR)) == -1)
+ 	{
+ 		perror("TuxTxt <open /dev/fb/0>");
+ 		return 0;
+ 	}
++#endif
+ 	rc[0] = rc[1] =-1;
+ 	while(rc_num < 2)
+ 	{
+@@ -225,13 +236,21 @@ int tuxtxt_run_ui(int pid, int demux)
+ 		}
+ 		if (ioctl(rc[rc_num], EVIOCGNAME(128), tmp) < 0)
+ 			perror("EVIOCGNAME failed");
++#if defined(__sh__)
++		if (!strstr(tmp, "TDT RC event driver"))
++#else
+ 		if (!strstr(tmp, "remote control"))
++#endif
+ 		{
+ 			close(rc[rc_num]);
+ 			rc[rc_num] = -1;
+ 		}
+ 		else
++#if defined(__sh__)
++			break;
++#else
+ 			++rc_num;
++#endif
+ 		++cnt;
+ 	}
+ 

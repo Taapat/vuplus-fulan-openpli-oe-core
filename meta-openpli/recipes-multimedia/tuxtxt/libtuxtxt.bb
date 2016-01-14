@@ -9,6 +9,10 @@ SRCREV = "1aa27e906756a4a383a3479db180fdb933f3ac19"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/tuxtxt.git"
 
+SRC_URI_append_sh4 = " \
+    file://libtuxtxt-sh4.patch \
+"
+
 S = "${WORKDIR}/git/libtuxtxt"
 
 PV = "2.0+git${SRCPV}"
