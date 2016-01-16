@@ -7336,11 +7336,11 @@ diff -ruN gcc-4.8.4/gcc/defaults.h gcc-4.8.4-stm.150128/gcc/defaults.h
  /* By default, the C++ compiler will use the lowest bit of the pointer
     to function to indicate a pointer-to-member-function points to a
     virtual member function.  However, if FUNCTION_BOUNDARY indicates
-diff -ruN gcc-4.8.4/gcc/doc/invoke.texi gcc-4.8.4-stm.150128/gcc/doc/invoke.texi
---- gcc-4.8.4/gcc/doc/invoke.texi	2015-01-05 11:14:25.733084000 +0100
-+++ gcc-4.8.4-stm.150128/gcc/doc/invoke.texi	2015-01-08 12:12:35.697526000 +0100
+diff -ruN gcc-4.8.5/gcc/doc/invoke.texi gcc-4.8.4-stm.150128/gcc/doc/invoke.texi
+--- gcc-4.8.5/gcc/doc/invoke.texi	2015-01-05 11:14:25.733084000 +0100
++++ gcc-4.8.5-stm.150128/gcc/doc/invoke.texi	2015-01-08 12:12:35.697526000 +0100
 @@ -1,4 +1,5 @@
- @c Copyright (C) 1988-2013 Free Software Foundation, Inc.
+ @c Copyright (C) 1988-2015 Free Software Foundation, Inc.
 +@c Copyright (c) 2015  STMicroelectronics.
  @c This is part of the GCC manual.
  @c For copying conditions, see the file gcc.texi.
