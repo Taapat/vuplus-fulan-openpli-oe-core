@@ -9,3 +9,40 @@
  
  /*
   * Size of encrypted user password in bytes
+--- linux-sh4/include/net/af_unix.h	2009-11-22 00:08:19.000000000 +0100
++++ linux-sh4/include/net/af_unix.h	2009-11-22 00:08:47.000000000 +0100
+@@ -12,7 +12,7 @@
+ extern void wait_for_unix_gc(void);
+ extern struct sock *unix_get_socket(struct file *filp);
+ 
+-#define UNIX_HASH_SIZE	256
++#define UNIX_HASH_SIZE	16
+ 
+ extern unsigned int unix_tot_inflight;
+
+--- linux-sh4/include/linux/tty.h	2009-11-22 01:01:58.000000000 +0100
++++ linux-sh4/include/linux/tty.h	2009-11-22 01:02:52.000000000 +0100
+@@ -23,7 +23,11 @@
+  */
+ #define NR_UNIX98_PTY_DEFAULT	4096      /* Default maximum for Unix98 ptys */
+ #define NR_UNIX98_PTY_MAX	(1 << MINORBITS) /* Absolute limit */
++#if defined(CONFIG_SH_RELOOK511) || defined(CONFIG_SH_CUBEREVO_MINI) || defined(CONFIG_SH_CUBEREVO_250HD) || defined(CONFIG_SH_CUBEREVO_MINI_FTA) || defined(CONFIG_SH_CUBEREVO_2000HD) || defined(CONFIG_SH_OCTAGON1008)
+ #define NR_LDISCS		20
++#else 
++#define NR_LDISCS		4
++#endif 
+ 
+ /* line disciplines */
+ #define N_TTY		0
+
+--- linux-sh4/include/net/protocol.h	2009-11-24 16:02:46.000000000 +0100
++++ linux-sh4/include/net/protocol.h	2009-11-24 16:03:54.000000000 +0100
+@@ -29,7 +29,7 @@
+ #include <linux/ipv6.h>
+ #endif
+ 
+-#define MAX_INET_PROTOS	256		/* Must be a power of 2		*/
++#define MAX_INET_PROTOS	32		/* Must be a power of 2		*/
+ 
+ 
+ /* This is used to register protocols. */

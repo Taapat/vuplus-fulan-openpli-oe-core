@@ -361,37 +361,8 @@
  		pr_info("%s: unexpected status %08x\n", __func__, intr_status);
  	/* Clear the interrupt by writing a logic 1 to the CSR5[15-0] */
  	writel((intr_status & 0x1ffff), ioaddr + DMA_STATUS);
-*** linux-sh4/drivers/mtd/nand/nand_ecc.c_org
---- linux-sh4/drivers/mtd/nand/nand_ecc.c
-***************
-*** 492,503 ****
-  	}
-  	/* count nr of bits; use table lookup, faster than calculating it */
-  	if ((bitsperbyte[b0] + bitsperbyte[b1] + bitsperbyte[b2]) == 1) {
-! 		printk(KERN_DEBUG "%s: ignoring error in ECC, data ok: [",
-! 		       __func__);
-  		return 1;	/* error in ecc data; no action needed */
-  	}
-  
-! 	printk(KERN_ERR "%s: uncorrectable error: [", __func__);
-  	return -1;
-  }
-  EXPORT_SYMBOL(__nand_correct_data);
---- 492,503 ----
-  	}
-  	/* count nr of bits; use table lookup, faster than calculating it */
-  	if ((bitsperbyte[b0] + bitsperbyte[b1] + bitsperbyte[b2]) == 1) {
-! 		/*printk(KERN_DEBUG "%s: ignoring error in ECC, data ok: [",
-! 		       __func__);*/
-  		return 1;	/* error in ecc data; no action needed */
-  	}
-  
-! 	//printk(KERN_ERR "%s: uncorrectable error: [", __func__);
-  	return -1;
-  }
-  EXPORT_SYMBOL(__nand_correct_data);
-*** linux-sh4/drivers/mtd/nand/nand_base.c_org
---- linux-sh4/drivers/mtd/nand/nand_base.c
+--- linux-sh4/drivers/mtd/nand/nand_base.c	2015-01-21 16:04:58.000000000 +0100
++++ linux-sh4/drivers/mtd/nand/nand_base.c.patched	2015-01-23 03:01:23.000000000 +0100
 @@ -1386,20 +1386,15 @@
  
  			/* Now read the page into the buffer */

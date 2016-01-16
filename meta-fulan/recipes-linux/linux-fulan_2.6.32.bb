@@ -5,7 +5,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 KV = "2.6.32"
 
-MACHINE_KERNEL_PR_append = ".4"
+MACHINE_KERNEL_PR_append = ".5"
 
 DEPENDS_spark7162 += " \
            stlinux24-sh4-stx7105-fdma-firmware \
@@ -33,45 +33,45 @@ RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION}"
 
 SRC_URI = "git://git.stlinux.com/stm/linux-sh4-2.6.32.y.git;protocol=git;branch=stmicro \
     file://linux-kbuild-generate-modules-builtin_stm24_${STM_PATCH_STR}.patch \
-    file://linux-sh4-linuxdvb_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-linuxdvb_stm24_${STM_PATCH_STR}_ca.patch;patch=1 \
-    file://linux-sh4-sound_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-time_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-init_mm_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-copro_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-strcpy_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-ext23_as_ext4_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-bpa2_procfs_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-ftdi_sio.c_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-lzma-fix_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-tune_stm24.patch;patch=1 \
-    file://linux-sh4-permit_gcc_command_line_sections_stm24.patch;patch=1 \
-    file://linux-sh4-mmap_stm24.patch;patch=1 \
-    file://linux-ratelimit-bug_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-patch_swap_notify_core_support_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-console_missing_argument_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-cpuinfo.patch;patch=1 \
-    file://linux-sh4-add_missing_eid.patch;patch=1 \
-    file://silence_conv_i2sspdif_warning.patch;patch=1 \
-    file://linux-sh4-fix-crash-usb-reboot.patch;patch=1 \
-    file://linux-sh4-linux_yaffs2.patch;patch=1 \
+    file://linux-sh4-linuxdvb_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-linuxdvb_stm24_${STM_PATCH_STR}_ca.patch \
+    file://linux-sh4-sound_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-time_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-init_mm_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-copro_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-strcpy_stm24_${STM_PATCH_STR}.patch \
+    file://linux-squashfs-lzma_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-ext23_as_ext4_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-bpa2_procfs_stm24_${STM_PATCH_STR}.patch \
+    file://linux-ftdi_sio.c_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-lzma-fix_stm24_${STM_PATCH_STR}.patch \
+    file://perf-warning-fix.patch \
+    file://linux-tune_stm24.patch \
+    file://linux-sh4-permit_gcc_command_line_sections_stm24.patch \
+    file://linux-ratelimit-bug_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-mmap_stm24.patch \
+    file://linux-patch_swap_notify_core_support_stm24_${STM_PATCH_STR}.patch \
+    file://silence_conv_i2sspdif_warning.patch \
+    file://linux-sh4-linux_yaffs2.patch \
+    file://linux-sh4-fix-crash-usb-reboot.patch \
+    file://linux-sh4-stmmac_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-console_missing_argument_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-cpuinfo.patch \
+    file://linux-sh4-add_missing_eid.patch \
+    file://linux-sh4-lmb_stm24_${STM_PATCH_STR}.patch \
     file://defconfig \
     file://st-coprocessor.h \
 "
 
 SRC_URI_append_spark7162 = " \
-    file://linux-sh4-stmmac_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-lmb_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-spark7162_setup_stm24_${STM_PATCH_STR}.patch;patch=1 \
+    file://linux-sh4-spark7162_setup_stm24_${STM_PATCH_STR}.patch \
 "
 
 SRC_URI_append_spark = " \
-    file://linux-sh4-stmmac_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-lmb_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-spark_setup_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-lirc_stm_stm24_${STM_PATCH_STR}.patch;patch=1 \
-    file://linux-sh4-spark-af901x-NXP-TDA18218.patch;patch=1 \
-    file://linux-sh4-spark-dvb-as102.patch;patch=1 \
+    file://linux-sh4-spark_setup_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-lirc_stm_stm24_${STM_PATCH_STR}.patch \
+    file://linux-sh4-spark-af901x-NXP-TDA18218.patch \
+    file://linux-sh4-spark-dvb-as102.patch \
 "
 
 S = "${WORKDIR}/git"
@@ -116,7 +116,7 @@ do_shared_workdir_append() {
 }
 
 do_install_append() {
-    install -d ${D}${includedir}/linux	
+    install -d ${D}${includedir}/linux
     install -m 644 ${WORKDIR}/st-coprocessor.h ${D}${includedir}/linux
     oe_runmake headers_install INSTALL_HDR_PATH=${D}${exec_prefix}/src/linux-${KERNEL_VERSION} ARCH=$ARCH
     mv ${D}${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION} ${D}${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
@@ -125,7 +125,7 @@ do_install_append() {
 # hack to override kernel.bbclass...
 # uimages are already built in kernel compile
 do_uboot_mkimage() {
-	:
+    :
 }
 
 FILES_kernel-dev += "${includedir}/linux"
