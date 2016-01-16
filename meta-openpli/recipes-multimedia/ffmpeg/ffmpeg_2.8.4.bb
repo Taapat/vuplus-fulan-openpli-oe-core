@@ -13,6 +13,8 @@ SRC_URI[sha256sum] = "83cc8136a7845546062a43cda9ae3cf0a02f43ef5e434d2f997f055231
 
 SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
+    file://ffmpeg-buffer-size.patch \
+    file://ffmpeg-aac.patch \
 "
 
 INHIBIT_PACKAGE_STRIP = "1"
