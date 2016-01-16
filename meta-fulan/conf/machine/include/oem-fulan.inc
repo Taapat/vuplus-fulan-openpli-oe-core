@@ -49,7 +49,7 @@ IMAGE_FSTYPES += "tar.gz "
 IMAGE_FSTYPES += "spark71xx-usbimg "
 INHERIT += "usb_image-spark71xx"
 
-INITRAMFS_FSTYPES = "ext2.gz spark-updt"
+INITRAMFS_FSTYPES = "ext2.gz"
 
 IMAGE_CMD_jffs2_prepend = " \
     rm -rf ${IMAGE_ROOTFS}/tmp/*; \
