@@ -8,8 +8,8 @@ DEPENDS = "libbluray rtmpdump libxml2"
 RDEPENDS_${PN} = "libbluray rtmpdump libxml2"
 
 SRC_URI = "http://ffmpeg.org/releases/${PN}-${PV}.tar.bz2"
-SRC_URI[md5sum] = "5a312bebaf71688703644c18ef3f26e8"
-SRC_URI[sha256sum] = "83cc8136a7845546062a43cda9ae3cf0a02f43ef5e434d2f997f055231a75f8e"
+SRC_URI[md5sum] = "989d9024313c2b7e2eeaed58b751c0ee"
+SRC_URI[sha256sum] = "3b6d9951533323ee64a21d0aa7667a780b3470bfe4e0fb7c1b33307ce290615a"
 
 SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
