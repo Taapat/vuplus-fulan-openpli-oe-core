@@ -157,6 +157,7 @@ $(CURDIR)/site.conf:
 	@echo 'RM_OLD_IMAGE = "1"' >> $@
 	@echo 'PTI_NP_PATH = "$(HOME_DIR)/sources/pti"' >> $@
 	@echo 'RM_WORK_EXCLUDE += "openpli-enigma2-image"' >> $@
+	@echo 'PREFERRED_PROVIDER_ffmpeg = "ffmpeg"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
 	'BBLAYERS_CONF_VERSION = "0"' \
