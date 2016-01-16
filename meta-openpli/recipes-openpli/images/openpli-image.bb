@@ -22,7 +22,7 @@ IMAGE_INSTALL = " \
 	packagegroup-base \
 	packagegroup-core-boot \
 	parted \
-	${@base_contains("TARGET_ARCH", "sh4", "" , "samba", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "" , "samba-base", d)} \
 	sdparm \
 	tuxbox-common \
 	tuxbox-links \
