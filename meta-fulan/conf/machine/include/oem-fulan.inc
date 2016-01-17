@@ -46,8 +46,8 @@ IMAGE_FSTYPES ?= "jffs2"
 
 # enable this for debug
 IMAGE_FSTYPES += "tar.gz "
-IMAGE_FSTYPES += "spark71xx-usbimg "
-INHERIT += "usb_image-spark71xx"
+#IMAGE_FSTYPES += "spark71xx-usbimg "
+#INHERIT += "usb_image-spark71xx"
 
 INITRAMFS_FSTYPES = "ext2.gz"
 
