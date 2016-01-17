@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "59f5866cd28ef8ac4bb81bcf3eacbf9e6bc947dd"
+SRCREV = "deb1b257f4d68a781e120c513b99d3c70c98b6c4"
 SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly;branch=master"
 
 inherit gitpkgv

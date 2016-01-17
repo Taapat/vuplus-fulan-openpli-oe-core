@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=73a5855a8119deb017f5f13cf327095d \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "bb7d9314750dccd2736cdcfa70fdf506c66dad38"
+SRCREV = "eba01f84e53329dd14508cb72891c7a8e85888e0"
 SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=master"
 SRC_URI += "file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
             file://0001-fix-compile-error.patch \
