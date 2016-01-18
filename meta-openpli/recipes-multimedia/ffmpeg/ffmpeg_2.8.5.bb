@@ -3,6 +3,8 @@ HOMEPAGE = "http://ffmpeg.org/"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://${OPENPLI_BASE}/LICENSE;md5=eb723b61539feef013de476e68b5c50a"
 
+PR = "r1"
+
 DEPENDS = "libbluray rtmpdump libxml2"
 
 RDEPENDS_${PN} = "libbluray rtmpdump libxml2"
@@ -247,8 +249,8 @@ EXTRA_OECONF = " \
     --enable-pthreads \
     --target-os=linux \
     --cross-prefix=${TARGET_PREFIX} \
-    --extra-cflags="${TARGET_CFLAGS} -ffunction-sections -fdata-sections" \
-    --extra-ldflags="${TARGET_LDFLAGS} -Wl,--gc-sections,-lrt" \
+    --extra-cflags="-ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
+    --extra-ldflags="-Wl,--gc-sections,-lrt" \
     --arch=${TARGET_ARCH} \
     --sysroot="${STAGING_DIR_TARGET}" \
     --prefix=${prefix} \
