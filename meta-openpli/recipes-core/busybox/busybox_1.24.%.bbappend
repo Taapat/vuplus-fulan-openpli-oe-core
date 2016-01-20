@@ -1,4 +1,4 @@
-PR = "r2"
+PR = "r3"
 
 SRC_URI_IGNORED = " \
 			file://0001-ifupdown-support-post-up-pre-down-hooks.patch \
@@ -17,6 +17,7 @@ SRC_URI_IGNORED += " \
 
 SRC_URI += " \
 			file://mount_single_uuid.patch \
+			file://Revert-sed-implement-N-range-end.patch \
 			file://mdev-mount.sh \
 			file://inetd \
 			file://inetd.conf \
