@@ -1,0 +1,13 @@
+Change NationalSubset to 15, to fix cyrillic teletext
+
+--- a/data/tuxtxt2.conf	2016-01-22 13:11:23.769012935 +0200
++++ b/data/tuxtxt2.conf	2016-01-22 13:12:49.867873863 +0200
+@@ -3,7 +3,7 @@
+ Brightness 16
+ MenuLanguage 1
+ AutoNational 1
+-NationalSubset 5
++NationalSubset 15
+ SwapUpDown 0
+ ShowHexPages 0
+ Transparency 0xA
