@@ -69,6 +69,7 @@ do_configure_prepend () {
     rm -f .config 
     printf "export CONFIG_PLAYER_191=y\nexport CONFIG_MULTICOM324=y\n" > .config
     export KERNEL_LOCATION="${STAGING_KERNEL_DIR}"
+    cp -R ${S}/multicom-3.2.4 ${STAGING_KERNEL_DIR}/multicom
 }
 
 do_compile() {
