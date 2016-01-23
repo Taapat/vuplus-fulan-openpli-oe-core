@@ -17,7 +17,7 @@ S = "${WORKDIR}/git/tools"
 
 inherit autotools 
 
-EXTRA_OECONF = "--enable-silent-rules --enable-maintainer-mode --prefix="
+EXTRA_OECONF = "--enable-silent-rules --prefix="
 
 LDFLAGS += "-lpthread -lrt"
 
