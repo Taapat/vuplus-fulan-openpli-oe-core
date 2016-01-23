@@ -21,7 +21,7 @@ DEPENDS = " \
 	swig-native \
 	tuxtxt-enigma2 \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "libmmeimage vdstandby" , "", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "libmmeimage libmme-host vdstandby" , "", d)} \
 	"
 
 RDEPENDS_${PN} = " \
@@ -31,7 +31,7 @@ RDEPENDS_${PN} = " \
 	glibc-gconv-iso8859-15 \
 	${PYTHON_RDEPS} \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "vdstandby python-subprocess" , "", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "libmme-host vdstandby python-subprocess" , "", d)} \
 	"
 
 GST_RRECOMMENDS = " \
