@@ -35,7 +35,6 @@ EXTERNAL_WIFI_DRIVERS = " \
 	"
 
 ENIGMA2_PLUGINS = " \
-	enigma2-plugin-extensions-audiosync \
 	enigma2-plugin-extensions-cutlisteditor \
 	enigma2-plugin-extensions-graphmultiepg \
 	enigma2-plugin-extensions-mediaplayer \
@@ -67,7 +66,7 @@ ENIGMA2_PLUGINS = " \
 	${@base_contains('OPENPLI_FEATURES', 'ci', 'enigma2-plugin-systemplugins-commoninterfaceassignment', '', d)} \
 	${@base_contains('OPENPLI_FEATURES', 'dvd', 'enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-dvdplayer', '', d)} \
 	${@base_contains('OPENPLI_FEATURES', 'fan', 'enigma2-plugin-systemplugins-tempfancontrol', '', d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd" , "", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd" , "enigma2-plugin-extensions-audiosync", d)} \
 	"
 
 DEPENDS += " \
