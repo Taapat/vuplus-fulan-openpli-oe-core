@@ -30,17 +30,12 @@ SRCREV = "${AUTOREV}"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
 
-SRC_URI_append = "${@base_contains("MACHINE_FEATURES", "libeplayer", " file://enigma2-plugins-use-libeplayer.patch ", "", d)}"
-
-GST_OECONF = "${@base_contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)}"
-
 EXTRA_OECONF = " \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \
 	STAGING_LIBDIR=${STAGING_LIBDIR} \
 	--without-debug \
-	${@base_contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "${GST_OECONF}", d)} \
 "
 
 CONFFILES_${PN} += "${sysconfdir}/enigma2/movietags"
