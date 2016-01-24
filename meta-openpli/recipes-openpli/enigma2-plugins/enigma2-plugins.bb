@@ -30,6 +30,8 @@ SRCREV = "${AUTOREV}"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
 
+SRC_URI_append = "${@base_contains("MACHINE_FEATURES", "libeplayer", " file://shoutcast-fix-palying-with-libeplayer.patch ", "", d)}"
+
 EXTRA_OECONF = " \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
