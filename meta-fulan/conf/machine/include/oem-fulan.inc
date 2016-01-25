@@ -84,6 +84,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
 MACHINE_EXTRA_RRECOMMENDS = " \
     ${@base_contains("MACHINE_FEATURES", "libeplayer", "", "gstreamer1.0-plugin-multibox-dvbmediasink", d)} \
     enigma2-plugin-systemplugins-sh4osdadjustment \
+    ntfs-3g \
     "
 
 include conf/machine/include/autoload-filesystems.inc
