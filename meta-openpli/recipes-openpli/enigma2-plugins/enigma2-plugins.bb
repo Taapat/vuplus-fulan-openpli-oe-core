@@ -23,8 +23,8 @@ PROVIDES += "\
 
 inherit gitpkgv pythonnative pkgconfig
 
-PV = "experimental-git${SRCPV}"
-PKGV = "experimental-git${GITPKGV}"
+PV = "x-git${SRCPV}"
+PKGV = "x-git${GITPKGV}"
 
 SRCREV = "${AUTOREV}"
 GITHUB_URI ?= "git://github.com"
@@ -40,8 +40,20 @@ EXTRA_OECONF = " \
 	--without-debug \
 "
 
-CONFFILES_${PN} += "${sysconfdir}/enigma2/movietags"
-FILES_${PN} += " /usr/share/enigma2 /usr/share/fonts "
+# Main package should be empty
+FILES_${PN} = ""
+# But something makes the packages think they depend on it, so just
+# deliver an empty hulk for them.
+ALLOW_EMPTY_${PN} = "1"
+
+FILES_enigma2-plugin-extensions-movietagger += "${sysconfdir}/enigma2/movietags"
+CONFFILES_enigma2-plugin-extensions-movietagger += "${sysconfdir}/enigma2/movietags"
+
+FILES_enigma2-plugin-extensions-babelzapper += "${sysconfdir}/babelzapper"
+
+FILES_enigma2-plugin-extensions-netcaster += "${sysconfdir}/NETcaster.conf"
+CONFFILES_enigma2-plugin-extensions-netcaster += "${sysconfdir}/NETcaster.conf"
+
 FILES_${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta"
 PACKAGE_ARCH = "all"
@@ -54,7 +66,7 @@ inherit autotools-brokensep
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "enigma2 \
+DEPENDS = " \
 	python-pyopenssl \
 	python-gdata \
 	streamripper \
