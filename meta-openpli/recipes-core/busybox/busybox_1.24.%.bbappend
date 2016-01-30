@@ -34,7 +34,7 @@ CONFFILES_${PN}-inetd = "${sysconfdir}/inetd.conf"
 FILES_${PN}-inetd = "${sysconfdir}/init.d/inetd.${BPN} ${sysconfdir}/inetd.conf"
 RDEPENDS_${PN}-inetd += "${PN}"
 
-RRECOMMENDS_${PN} += "${PN}-inetd"
+RRECOMMENDS_${PN} = "${PN}-udhcpc ${PN}-inetd"
 
 PACKAGES =+ "${PN}-cron"
 INITSCRIPT_PACKAGES += "${PN}-cron"
