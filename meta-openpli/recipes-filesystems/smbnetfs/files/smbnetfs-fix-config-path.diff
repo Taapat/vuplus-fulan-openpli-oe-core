@@ -1,0 +1,20 @@
+--- a/src/reconfigure.c	2016-01-30 17:04:05.069337063 +0200
++++ b/src/reconfigure.c	2016-01-30 17:04:32.325472219 +0200
+@@ -31,7 +31,7 @@
+ };
+ 
+ 
+-const char	*config_dir_postfix	= "/.smb";
++const char	*config_dir_postfix	= "/";
+ char		config_file[256]	= "smbnetfs.conf";
+ char		config_dir[2048]	= "/";
+ int		config_cmd_opts_cnt	= 0;
+@@ -106,7 +106,7 @@
+     }
+     auth_set_default_login_name(user);
+ 
+-    home = getenv("HOME");
++    home = "/etc";
+     if ((home == NULL) || (*home != '/')){
+ 	home = ((pwd != NULL) && 
+ 	        (pwd->pw_dir  != NULL) &&
