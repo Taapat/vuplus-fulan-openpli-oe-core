@@ -96,7 +96,7 @@ case "$ACTION" in
 						elif [ "$MODEL" == "MS/MS-Pro       " ]; then
 							DEVICETYPE="mmc1"
 						else
-							DEVICETYPE="usb"
+							DEVICETYPE="hdd"
 						fi
 					#fi
 				fi
@@ -107,6 +107,15 @@ case "$ACTION" in
 					DEVICETYPE="usb"
 				else
 					DEVICETYPE="${LABEL}"
+				fi
+				# Remount existing /media/hdd if is device with label hdd
+				if [ "${DEVICETYPE}" == "hdd" ] && [ -d /media/hdd ]; then
+					DEVICETYPE=`grep "/media/hdd" /proc/mounts | cut -d'/' -f 3 | cut -d' ' -f 1`
+					umount "/media/hdd" || umount "/dev/${DEVICETYPE}"
+					if ! mount -t auto /dev/$MDEV "/media/hdd" ; then
+						rmdir "/media/hdd"
+					fi
+					MDEV="${DEVICETYPE}"
 				fi
 			fi
 			# Use mkdir as 'atomic' action, failure means someone beat us to the punch
