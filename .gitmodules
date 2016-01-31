@@ -14,18 +14,3 @@
 	path = meta-openpli/recipes-openpli/e2openplugins
 	url = git://github.com/E2OpenPlugins/e2openplugins.git
 	ignore = dirty
-[submodule "meta-formuler"]
-	path = meta-formuler
-	url = https://github.com/formuler/meta-formuler.git
-[submodule "meta-hd"]
-	path = meta-hd
-	url = https://github.com/HD-Digital/meta-hd.git
-[submodule "meta-xtrend"]
-	path = meta-xtrend
-	url = https://github.com/Xtrend-Official/meta-xtrend.git
-[submodule "meta-xp"]
-	path = meta-xp
-	url = https://github.com/XP-Master/meta-xp.git
-[submodule "meta-xsarius"]
-	path = meta-xsarius
-	url = https://github.com/pli3/meta-xsarius.git
