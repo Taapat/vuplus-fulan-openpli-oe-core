@@ -111,11 +111,15 @@ case "$ACTION" in
 				# Remount existing /media/hdd if is device with label hdd
 				if [ "${DEVICETYPE}" == "hdd" ] && [ -d /media/hdd ]; then
 					DEVICETYPE=`grep "/media/hdd" /proc/mounts | cut -d'/' -f 3 | cut -d' ' -f 1`
-					umount "/media/hdd" || umount "/dev/${DEVICETYPE}"
-					if ! mount -t auto /dev/$MDEV "/media/hdd" ; then
-						rmdir "/media/hdd"
+					if [ ! -z ${DEVICETYPE} ]; then
+						umount "/media/hdd" || umount "/dev/${DEVICETYPE}"
+						if ! mount -t auto /dev/$MDEV "/media/hdd" ; then
+							rmdir "/media/hdd"
+						fi
+						MDEV="${DEVICETYPE}"
+					else
+						DEVICETYPE="hdd"
 					fi
-					MDEV="${DEVICETYPE}"
 				fi
 			fi
 			# Use mkdir as 'atomic' action, failure means someone beat us to the punch
