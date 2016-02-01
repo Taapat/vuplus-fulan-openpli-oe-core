@@ -1,17 +1,7 @@
-DESCRIPTION="FFmpeg is the leading multimedia framework, able to decode, encode, transcode, mux, demux, stream, filter and play pretty much anything that humans and machines have created"
-HOMEPAGE = "http://ffmpeg.org/"
-LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://${OPENPLI_BASE}/LICENSE;md5=eb723b61539feef013de476e68b5c50a"
-
-PR = "r1"
+PR = "r2"
 
 DEPENDS = "libbluray rtmpdump libxml2"
-
 RDEPENDS_${PN} = "libbluray rtmpdump libxml2"
-
-SRC_URI = "http://ffmpeg.org/releases/${PN}-${PV}.tar.bz2"
-SRC_URI[md5sum] = "989d9024313c2b7e2eeaed58b751c0ee"
-SRC_URI[sha256sum] = "3b6d9951533323ee64a21d0aa7667a780b3470bfe4e0fb7c1b33307ce290615a"
 
 SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
@@ -21,8 +11,7 @@ SRC_URI_append = " \
 
 INHIBIT_PACKAGE_STRIP = "1"
 
-inherit autotools pkgconfig
-
+# Set own EXTRA_OECONF used for libeplayer in fulan
 EXTRA_OECONF = " \
     --disable-static \
     --enable-shared \
@@ -244,21 +233,26 @@ EXTRA_OECONF = " \
     --disable-bsfs \
     --enable-librtmp \
     --pkg-config="pkg-config" \
-    --enable-cross-compile \
     --disable-debug \
     --enable-pthreads \
     --target-os=linux \
+    --enable-cross-compile \
     --cross-prefix=${TARGET_PREFIX} \
+    --ld="${CCLD}" \
+    --arch=${TARGET_ARCH} \
     --extra-cflags="-ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
     --extra-ldflags="-Wl,--gc-sections,-lrt" \
-    --arch=${TARGET_ARCH} \
     --sysroot="${STAGING_DIR_TARGET}" \
+    --enable-hardcoded-tables \
     --prefix=${prefix} \
+    --libdir=${libdir} \
+    --shlibdir=${libdir} \
+    --datadir=${datadir}/ffmpeg \
 "
 
 do_configure() {
         ${S}/configure ${EXTRA_OECONF}
 }
 
-FILES_${PN}-dbg = "/usr/share"
+FILES_${PN}-dbg += "/usr/share"
 
