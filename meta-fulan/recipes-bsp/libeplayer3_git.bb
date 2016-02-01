@@ -2,8 +2,10 @@ DESCRIPTION = "Library to play files in enigma2 using ffmpeg"
 
 require ddt-apps.inc
 
+PR = "r1"
+
 DEPENDS = "libass ffmpeg"
-RDEPENDS_${PN} = "libass ffmpeg"
+RDEPENDS_${PN} = "libass libavutil libavformat"
 
 do_install_append () {
 	install -d ${D}${includedir}/libeplayer3/include
