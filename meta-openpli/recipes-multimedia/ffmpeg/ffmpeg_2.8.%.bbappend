@@ -256,3 +256,5 @@ do_configure() {
 
 FILES_${PN}-dbg += "/usr/share"
 
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
