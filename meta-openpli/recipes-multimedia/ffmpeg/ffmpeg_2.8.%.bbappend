@@ -1,6 +1,6 @@
 PR = "r2"
 
-DEPENDS = "libbluray rtmpdump libxml2"
+DEPENDS = "libbluray rtmpdump libxml2 openssl"
 RDEPENDS_${PN} = "libbluray rtmpdump libxml2"
 
 SRC_URI_append = " \
@@ -9,12 +9,8 @@ SRC_URI_append = " \
     file://ffmpeg-aac.patch \
 "
 
-INHIBIT_PACKAGE_STRIP = "1"
-
-# Set own EXTRA_OECONF used for libeplayer in fulan
-EXTRA_OECONF = " \
+EXTRA_FFCONF = " \
     --disable-static \
-    --enable-shared \
     --disable-runtime-cpudetect \
     --disable-ffserver \
     --disable-ffplay \
@@ -224,8 +220,6 @@ EXTRA_OECONF = " \
     --disable-protocol=md5 \
     --disable-protocol=pipe \
     --disable-protocol=unix \
-    --enable-nonfree \
-    --enable-openssl \
     --disable-indevs \
     --disable-outdevs \
     --enable-bzlib \
@@ -234,25 +228,12 @@ EXTRA_OECONF = " \
     --enable-librtmp \
     --pkg-config="pkg-config" \
     --disable-debug \
-    --enable-pthreads \
-    --target-os=linux \
-    --enable-cross-compile \
-    --cross-prefix=${TARGET_PREFIX} \
-    --ld="${CCLD}" \
-    --arch=${TARGET_ARCH} \
     --extra-cflags="-ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
     --extra-ldflags="-Wl,--gc-sections,-lrt" \
-    --sysroot="${STAGING_DIR_TARGET}" \
-    --enable-hardcoded-tables \
     --prefix=${prefix} \
-    --libdir=${libdir} \
-    --shlibdir=${libdir} \
-    --datadir=${datadir}/ffmpeg \
 "
 
-do_configure() {
-        ${S}/configure ${EXTRA_OECONF}
-}
+PACKAGECONFIG = "avdevice avfilter openssl"
 
 FILES_${PN}-dbg += "/usr/share"
 
