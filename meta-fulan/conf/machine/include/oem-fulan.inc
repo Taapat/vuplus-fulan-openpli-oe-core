@@ -67,7 +67,12 @@ IMAGE_CMD_jffs2_append = " ; \
     rm -f ${DEPLOY_DIR_IMAGE}/.manifest; \
     rm -rf ${IMAGEDIR}; \
     "
-	
+
+# Add uImage in tar image boot directory
+IMAGE_CMD_tar_prepend = " \
+    cp ${DEPLOY_DIR_IMAGE}/uImage ${IMAGE_ROOTFS}/boot/${KERNEL_FILE}; \
+    "
+
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
     stlinux24-sh4-stx7111-fdma-firmware \
     stlinux24-sh4-stmfb-firmware-stx7111 \
