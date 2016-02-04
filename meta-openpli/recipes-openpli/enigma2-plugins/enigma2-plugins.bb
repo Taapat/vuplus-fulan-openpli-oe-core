@@ -61,6 +61,7 @@ PACKAGE_ARCH = "all"
 PACKAGE_ARCH_enigma2-plugin-extensions-moviecut = "${TUNE_PKGARCH}"
 PACKAGE_ARCH_enigma2-plugin-systemplugins-networkbrowser = "${TUNE_PKGARCH}"
 PACKAGE_ARCH_enigma2-plugin-systemplugins-vps = "${TUNE_PKGARCH}"
+PACKAGE_ARCH_enigma2-plugin-extensions-shoutcast = "${TUNE_PKGARCH}"
 
 inherit autotools-brokensep
 
