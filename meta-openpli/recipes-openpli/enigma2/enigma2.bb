@@ -9,15 +9,13 @@ SRCREV = "${AUTOREV}"
 GST_DEPENDS = "${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)}"
 
 DEPENDS = " \
-	ethtool \
 	freetype \
 	gettext-native \
 	${@base_contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_DEPENDS}", d)} \
-	hotplug-e2-helper \
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-1.2 giflib libxml2 \
 	openssl \
-	python python-imaging python-twisted python-wifi \
+	python-imaging python-twisted python-wifi \
 	swig-native \
 	tuxtxt-enigma2 \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
