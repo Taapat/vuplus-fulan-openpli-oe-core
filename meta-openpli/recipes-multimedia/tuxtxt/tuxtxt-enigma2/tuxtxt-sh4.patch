@@ -7,18 +7,18 @@ index 37f875f..907a878 100644
  
  	/* open Framebuffer */
 +#if defined(__sh__)
-+	if ((renderinfo.fb=open("/dev/fb/0", O_RDWR)) == -1)
++	if ((renderinfo.fb=open(FB_DEV, O_RDWR)) == -1)
 +	{
 +		if ((renderinfo.fb=open("/dev/fb0", O_RDWR)) == -1)
 +		{
-+			perror("TuxTxt <open /dev/fb/0 || /dev/fb0>");
++			printf("TuxTxt <open %s>: %m", FB_DEV);
 +			return 0;
 +		}
 +	}
 +#else
- 	if ((renderinfo.fb=open("/dev/fb/0", O_RDWR)) == -1)
+ 	if ((renderinfo.fb=open(FB_DEV, O_RDWR)) == -1)
  	{
- 		perror("TuxTxt <open /dev/fb/0>");
+ 		printf("TuxTxt <open %s>: %m", FB_DEV);
  		return 0;
  	}
 +#endif
@@ -32,7 +32,7 @@ index 37f875f..907a878 100644
 +#if defined(__sh__)
 +		if (!strstr(tmp, "TDT RC event driver"))
 +#else
- 		if (!strstr(tmp, "remote control"))
+ 		if (!strstr(tmp, "remote control") && !strstr(tmp, "key"))
 +#endif
  		{
  			close(rc[rc_num]);
