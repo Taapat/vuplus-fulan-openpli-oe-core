@@ -1,5 +1,5 @@
---- a/main.c.orig	2015-12-13 11:08:22.101489624 +0200
-+++ b/main.c	2015-12-13 11:52:15.854549701 +0200
+--- a/main.c	2016-02-04 23:54:49.227698760 +0200
++++ b/main.c	2016-02-04 23:54:24.271575010 +0200
 @@ -37,10 +37,48 @@
  #include <sys/mman.h>
  #include <linux/types.h>
@@ -53,12 +53,12 @@
  void (*resize)(const unsigned char *source, unsigned char *dest, int xsource, int ysource, int xdest, int ydest, int colors);
  void combine(unsigned char *output, const unsigned char *video, const unsigned char *osd, int vleft, int vtop, int vwidth, int vheight, int xres, int yres);
  
--static enum {UNKNOWN, PALLAS, VULCAN, XILLEON, BRCM7366ARM, BRCM7400, BRCM7401, BRCM7405, BRCM7325, BRCM7335, BRCM7358, BRCM7362, BRCM7241, BRCM7346, BRCM7356, BRCM7424, BRCM7425, BRCM7435, BRCM7552} stb_type = UNKNOWN;
-+//static enum {UNKNOWN, PALLAS, VULCAN, XILLEON, BRCM7366ARM, BRCM7400, BRCM7401, BRCM7405, BRCM7325, BRCM7335, BRCM7358, BRCM7362, BRCM7241, BRCM7346, BRCM7356, BRCM7424, BRCM7425, BRCM7435, BRCM7552} stb_type = UNKNOWN;
+-static enum {UNKNOWN, PALLAS, VULCAN, WETEKPLAY, XILLEON, BRCM7366ARM, BRCM7400, BRCM7401, BRCM7405, BRCM7325, BRCM7335, BRCM7358, BRCM7362, BRCM7241, BRCM7346, BRCM7356, BRCM7424, BRCM7425, BRCM7435, BRCM7552} stb_type = UNKNOWN;
++//static enum {UNKNOWN, PALLAS, VULCAN, WETEKPLAY, XILLEON, BRCM7366ARM, BRCM7400, BRCM7401, BRCM7405, BRCM7325, BRCM7335, BRCM7358, BRCM7362, BRCM7241, BRCM7346, BRCM7356, BRCM7424, BRCM7425, BRCM7435, BRCM7552} stb_type = UNKNOWN;
+ 
  
  static int chr_luma_stride = 0x40;
- static int chr_luma_register_offset = 0;
-@@ -112,6 +150,7 @@
+@@ -113,6 +151,7 @@
  
  	const char* filename = "/tmp/screenshot.bmp";
  
@@ -66,7 +66,7 @@
  	// detect STB
  	char buf[256];
  	FILE *fp = fopen("/proc/fb","r");
-@@ -339,6 +378,7 @@
+@@ -335,6 +374,7 @@
  		default:
  			break;
  	}
@@ -74,7 +74,7 @@
  
  	// process command line
  	while ((c = getopt (argc, argv, "dhj:lbnopqr:sv")) != -1)
-@@ -421,14 +461,17 @@
+@@ -417,14 +457,17 @@
  
  	int mallocsize=1920*1080;
  
@@ -93,7 +93,7 @@
  
  	output = (unsigned char *)malloc(mallocsize*4);
  
-@@ -444,6 +487,7 @@
+@@ -440,6 +483,7 @@
  		getvideo(video,&xres_v,&yres_v);
  	}
  
@@ -101,7 +101,7 @@
  	// get aspect ratio
  	if (stb_type == VULCAN || stb_type == PALLAS)
  	{
-@@ -458,6 +502,10 @@
+@@ -454,6 +498,10 @@
  	else
  	{
  		fp = fopen("/proc/stb/vmpeg/0/aspect", "r");
@@ -112,7 +112,7 @@
  		if (fp)
  		{
  			while (fgets(buf,sizeof(buf), fp))
-@@ -494,7 +542,10 @@
+@@ -490,7 +538,10 @@
  		}
  		if (dst_width == 720) dst_width = 0;
  		if (dst_height == 576) dst_height = 0;
@@ -123,7 +123,7 @@
  
  	// resizing
   	if (video_only)
-@@ -776,7 +827,16 @@
+@@ -772,7 +823,16 @@
  	int stride = 0;
  	FILE *fp;
  	char buf[256];
@@ -141,7 +141,7 @@
  	if (stb_type == BRCM7366ARM)
  	{
  		int fd_video = open("/dev/dvb/adapter0/video0", O_RDONLY);
-@@ -792,13 +852,226 @@
+@@ -788,13 +848,226 @@
  		*yres = 1080;
  		return;
  	}
@@ -369,15 +369,15 @@
  	if (stb_type > XILLEON)
  	{
  		// grab bcm pic from decoder memory
-@@ -1162,6 +1435,7 @@
+@@ -1212,6 +1485,7 @@
+ 		return;
  
- 		free(memory_tmp);
  	}
 +#endif
  
  	close(mem_fd);
  
-@@ -1187,22 +1461,26 @@
+@@ -1237,22 +1511,26 @@
  			int GV=yuv2rgbtable_gv[V];
  			int BV=yuv2rgbtable_bv[V];
  
@@ -404,7 +404,7 @@
  			video[out1+rgbstride]=CLAMP((Y + RU)>>16);
  			video[out1+1+rgbstride]=CLAMP((Y - GV - GU)>>16);
  			video[out1+2+rgbstride]=CLAMP((Y + BV)>>16);
-@@ -1212,12 +1490,14 @@
+@@ -1262,12 +1540,14 @@
  
  			Y=yuv2rgbtable_y[luma[pos]];
  
@@ -419,7 +419,7 @@
  			video[out1+rgbstride]=CLAMP((Y + RU)>>16);
  			video[out1+1+rgbstride]=CLAMP((Y - GV - GU)>>16);
  			video[out1+2+rgbstride]=CLAMP((Y + BV)>>16);
-@@ -1340,6 +1620,7 @@
+@@ -1390,6 +1670,7 @@
  			return;
  		}
  
@@ -427,7 +427,7 @@
  		if (stb_type == VULCAN) // DM500/5620 stores the colors as a 16bit word with yuv values, so we have to convert :(
  		{
  			unsigned short yuv;
-@@ -1380,6 +1661,7 @@
+@@ -1430,6 +1711,7 @@
  			fprintf(stderr, "unsupported framebuffermode\n");
  			return;
  		}
