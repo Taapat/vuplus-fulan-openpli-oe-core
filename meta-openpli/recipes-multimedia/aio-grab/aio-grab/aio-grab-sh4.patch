@@ -1,5 +1,5 @@
---- a/main.c	2016-02-04 23:54:49.227698760 +0200
-+++ b/main.c	2016-02-04 23:54:24.271575010 +0200
+--- a/main.c	2016-02-05 05:54:26.814696240 +0200
++++ b/main.c	2016-02-05 05:53:48.070504119 +0200
 @@ -37,10 +37,48 @@
  #include <sys/mman.h>
  #include <linux/types.h>
@@ -419,6 +419,19 @@
  			video[out1+rgbstride]=CLAMP((Y + RU)>>16);
  			video[out1+1+rgbstride]=CLAMP((Y - GV - GU)>>16);
  			video[out1+2+rgbstride]=CLAMP((Y + BV)>>16);
+@@ -1292,10 +1572,10 @@
+ 	struct fb_fix_screeninfo fix_screeninfo;
+ 	struct fb_var_screeninfo var_screeninfo;
+ 
+-	fb=open((stb_type == WETEKPLAY) ? "/dev/fb/2" : "/dev/fb/0", O_RDWR);
++	fb=open("/dev/fb/0", O_RDWR);
+ 	if (fb == -1)
+ 	{
+-		fb=open((stb_type == WETEKPLAY) ? "/dev/fb2" : "/dev/fb0", O_RDWR);
++		fb=open("/dev/fb0", O_RDWR);
+ 		if (fb == -1)
+ 		{
+ 			fprintf(stderr, "Framebuffer failed\n");
 @@ -1390,6 +1670,7 @@
  			return;
  		}
