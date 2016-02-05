@@ -25,8 +25,8 @@ PROVIDES += "\
 
 inherit gitpkgv pythonnative pkgconfig
 
-PV = "y-git${SRCPV}"
-PKGV = "y-git${GITPKGV}"
+PV = "x-git${SRCPV}"
+PKGV = "x-git${GITPKGV}"
 
 SRCREV = "${AUTOREV}"
 GITHUB_URI ?= "git://github.com"
@@ -58,6 +58,11 @@ CONFFILES_enigma2-plugin-extensions-netcaster += "${sysconfdir}/NETcaster.conf"
 
 FILES_${PN}-meta = "${datadir}/meta"
 PACKAGES += "${PN}-meta"
+PACKAGE_ARCH = "all"
+
+PACKAGE_ARCH_enigma2-plugin-extensions-moviecut = "${TUNE_PKGARCH}"
+PACKAGE_ARCH_enigma2-plugin-systemplugins-networkbrowser = "${TUNE_PKGARCH}"
+PACKAGE_ARCH_enigma2-plugin-systemplugins-vps = "${TUNE_PKGARCH}"
 PACKAGE_ARCH_enigma2-plugin-extensions-shoutcast = "${TUNE_PKGARCH}"
 
 inherit autotools-brokensep
