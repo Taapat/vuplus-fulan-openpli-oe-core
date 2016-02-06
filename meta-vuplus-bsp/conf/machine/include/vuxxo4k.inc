@@ -26,6 +26,7 @@ DEFAULTTUNE = "armv7ahf-neon"
 DVBMEDIASINK_CONFIG = "--with-wmv --with-pcm --with-eac3"
 
 PREFERRED_VERSION_linux-${MACHINE} = "3.14.28"
+PREFERRED_VERSION_samba = "4.%"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-${MACHINE}"
 

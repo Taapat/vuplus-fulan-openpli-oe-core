@@ -6,8 +6,6 @@ DEPENDS = "readline virtual/libiconv zlib popt attr"
 
 PR = "r0"
 
-DEFAULT_PREFERENCE_sh4 = "1"
-
 inherit autotools-brokensep update-rc.d
 
 SAMBA_MIRROR = "http://samba.org/samba/ftp"
