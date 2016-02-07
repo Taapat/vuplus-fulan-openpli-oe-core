@@ -10,7 +10,7 @@ PV = "svn${SRCREV}"
 PKGV = "${PV}"
 SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep \
 	file://oscam-demux.patch \
-	file://oscam-config-camd35_tpc.patch \
+	file://oscam-config-camd35_tcp.patch \
 "
 
 S = "${WORKDIR}/trunk"
