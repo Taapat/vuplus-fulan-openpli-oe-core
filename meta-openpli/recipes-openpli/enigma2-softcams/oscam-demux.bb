@@ -10,7 +10,7 @@ PV = "svn${SRCREV}"
 PKGV = "${PV}"
 SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep \
 	file://oscam-demux.patch \
-	file://oscam-config-camd35_tpc-newcamd.patch \
+	file://oscam-config-camd35_tpc.patch \
 "
 
 S = "${WORKDIR}/trunk"
@@ -26,5 +26,5 @@ EXTRA_OECMAKE += "\
 do_install() {
 	install -d ${D}/var/emu
 	install -m 0755 ${B}/oscam ${D}/var/emu
-	mv ${D}/var/emu/oscam ${D}/var/emu/oscam-demux-gcc5
+	mv ${D}/var/emu/oscam ${D}/var/emu/oscam-demux-${TUNE_PKGARCH}
 }
