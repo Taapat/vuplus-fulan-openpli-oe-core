@@ -14,6 +14,3 @@
 	path = meta-openpli/recipes-openpli/e2openplugins
 	url = git://github.com/E2OpenPlugins/e2openplugins.git
 	ignore = dirty
-[submodule "meta-zgemma"]
-	path = meta-zgemma
-	url = http://github.com/zgemma-star/meta-zgemma.git
