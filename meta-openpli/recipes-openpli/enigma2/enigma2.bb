@@ -34,7 +34,6 @@ RDEPENDS_${PN} = " \
 
 GST_RRECOMMENDS = " \
 	${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)} \
-	hotplug-e2-helper \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
 	${GST_BAD_RDEPS} \
@@ -43,6 +42,7 @@ GST_RRECOMMENDS = " \
 
 RRECOMMENDS_${PN} = " \
 	enigma2-plugin-skins-pli-hd \
+	hotplug-e2-helper \
 	glib-networking \
 	${@base_contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_RRECOMMENDS}", d)} \
 	"
