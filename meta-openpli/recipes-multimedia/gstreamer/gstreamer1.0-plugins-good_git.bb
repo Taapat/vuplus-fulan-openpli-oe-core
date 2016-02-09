@@ -12,7 +12,6 @@ SRCREV = "3738ce8ba1ba466a5029b442122ab7fd465b5933"
 SRC_URI = " \
 	git://anongit.freedesktop.org/gstreamer/gst-plugins-good;branch=master \
 	file://0001-gstrtpmp4gpay-set-dafault-value-for-MPEG4-without-co.patch \
-	file://0001-fix-compile-error-261pay.patch \
 	file://0001-Revert-qtdemux-respect-qt-segments-in-push-mode-for-empty-starts.patch \
 "
 
