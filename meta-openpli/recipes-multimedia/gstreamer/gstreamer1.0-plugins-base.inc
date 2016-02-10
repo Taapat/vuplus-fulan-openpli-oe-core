@@ -33,3 +33,5 @@ EXTRA_OECONF += " \
 "
 
 CACHED_CONFIGUREVARS_append_i586 = " ac_cv_header_emmintrin_h=no ac_cv_header_xmmintrin_h=no"
+
+FILES_${PN}-dbg += "/usr/share"
