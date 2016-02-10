@@ -6,9 +6,6 @@ DEPENDS += "gstreamer1.0-plugins-base bzip2 libpng jpeg libdca"
 
 S = "${WORKDIR}/gst-plugins-bad-${PV}"
 
-SRC_URI += "file://configure-allow-to-disable-libssh2.patch \
-           "
-
 inherit gettext
 
 # opengl packageconfig factored out to make it easy for distros
@@ -55,7 +52,6 @@ PACKAGECONFIG[rsvg]            = "--enable-rsvg,--disable-rsvg,librsvg"
 PACKAGECONFIG[sndfile]         = "--enable-sndfile,--disable-sndfile,libsndfile1"
 PACKAGECONFIG[webp]            = "--enable-webp,--disable-webp,libwebp"
 PACKAGECONFIG[rtmp]            = "--enable-rtmp,--disable-rtmp,librtmp"
-PACKAGECONFIG[libssh2]         = "--enable-libssh2,--disable-libssh2,libssh2"
 PACKAGECONFIG[dtls]            = "--enable-dtls,--disable-dtls,openssl"
 PACKAGECONFIG[gtk]             = "--enable-gtk3,--disable-gtk3,gtk+3"
 PACKAGECONFIG[srtp]            = "--enable-srtp,--disable-srtp,libsrtp"
