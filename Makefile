@@ -17,12 +17,12 @@ DEPDIR = $(TOPDIR)/.deps
 HOME_DIR = $(shell echo ~)
 
 BBLAYERS ?= \
-	$(CURDIR)/meta-openembedded/meta-oe \
-	$(CURDIR)/meta-openembedded/meta-filesystems \
-	$(CURDIR)/meta-openembedded/meta-multimedia \
-	$(CURDIR)/meta-openembedded/meta-networking \
-	$(CURDIR)/meta-openembedded/meta-python \
-	$(CURDIR)/openembedded-core/meta \
+	$(CURDIR)/oe-meta-openembedded/meta-oe \
+	$(CURDIR)/oe-meta-openembedded/meta-filesystems \
+	$(CURDIR)/oe-meta-openembedded/meta-multimedia \
+	$(CURDIR)/oe-meta-openembedded/meta-networking \
+	$(CURDIR)/oe-meta-openembedded/meta-python \
+	$(CURDIR)/oe-openembedded-core/meta \
 	$(CURDIR)/meta-fulan \
 	$(CURDIR)/meta-openpli \
 	$(CURDIR)/meta-vuplus-bsp \
@@ -104,7 +104,7 @@ $(TOPDIR)/env.source: $(DEPDIR)/.env.source.$(BITBAKE_ENV_HASH)
 	@echo 'Generating $@'
 	@echo 'export BB_ENV_EXTRAWHITE="MACHINE"' > $@
 	@echo 'export MACHINE' >> $@
-	@echo 'export PATH=$(CURDIR)/openembedded-core/scripts:$(CURDIR)/bitbake/bin:$${PATH}' >> $@
+	@echo 'export PATH=$(CURDIR)/oe-openembedded-core/scripts:$(CURDIR)/oe-bitbake/bin:$${PATH}' >> $@
 
 OPENPLI_CONF_HASH := $(call hash, \
 	'OPENPLI_CONF_VERSION = "1"' \
