@@ -38,7 +38,7 @@ SRC_URI += "${@base_contains('DISTRO_FEATURES', 'pam', '', '${NOPAM_SRC}', d)}"
 CONFFILES_${PN} = "${sysconfdir}/vsftpd.conf"
 LDFLAGS_append =" -lcrypt -lcap"
 
-EXTRA_OEMAKE = "-e MAKEFLAGS="
+EXTRA_OEMAKE = "-e "
 
 do_configure() {
     # Fix hardcoded /usr, /etc, /var mess.
