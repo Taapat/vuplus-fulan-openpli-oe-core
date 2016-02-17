@@ -34,6 +34,8 @@ FILES = ""
 
 S = "${WORKDIR}/git"
 
+EXTRA_OEMAKE = "-e MAKEFLAGS="
+
 do_configure_prepend () {
 
     # if a custom pti source is present, add it to the sources
