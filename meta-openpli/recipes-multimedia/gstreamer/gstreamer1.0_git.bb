@@ -13,11 +13,11 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "682516402d2e2179238ee8e388ac7a304286c1c8"
+SRCREV = "9e33bfa2c7a5f43da2c49b0a8235fd43cba9feaf"
 
 inherit gitpkgv
-PV = "1.7.1+git${SRCPV}"
-PKGV = "1.7.1+git${GITPKGV}"
+PV = "1.7.2+git${SRCPV}"
+PKGV = "1.7.2+git${GITPKGV}"
 
 do_configure_prepend() {
 	cd ${S}

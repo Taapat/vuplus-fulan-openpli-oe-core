@@ -18,11 +18,11 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "81934eaf90cea01088f2dca6fa9aa43dcc50e250"
+SRCREV = "6c4878b6abc916b7f6f25b8926c4859119acf1ec"
 
 inherit gitpkgv
-PV = "1.7.1+git${SRCPV}"
-PKGV = "1.7.1+git${GITPKGV}"
+PV = "1.7.2+git${SRCPV}"
+PKGV = "1.7.2+git${GITPKGV}"
 
 
 LIBAV_EXTRA_CONFIGURE_COMMON_ARG = "--target-os=linux \

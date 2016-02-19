@@ -7,17 +7,18 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=73a5855a8119deb017f5f13cf327095d \
                     file://COPYING.LIB;md5=21682e4e8fea52413fd26c60acb907e5 \
                     file://gst/tta/crc32.h;beginline=12;endline=29;md5=27db269c575d1e5317fffca2d33b3b50"
 
-S = "${WORKDIR}/git"
-
-SRCREV = "13f66a68edfc54f51c7743ac671d1a3eea164d38"
 SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=master"
 SRC_URI += "file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
             file://0001-fix-compile-error.patch \
            "
 
+S = "${WORKDIR}/git"
+
+SRCREV = "50ae46cc0f8827bf966920d9c221e5cf86e811ba"
+
 inherit gitpkgv
-PV = "1.7.1+git${SRCPV}"
-PKGV = "1.7.1+git${GITPKGV}"
+PV = "1.7.2+git${SRCPV}"
+PKGV = "1.7.2+git${GITPKGV}"
 
 do_configure_prepend() {
 	cd ${S}
