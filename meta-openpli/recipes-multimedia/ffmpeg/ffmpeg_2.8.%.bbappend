@@ -1,12 +1,20 @@
 PR = "r2"
 
-DEPENDS = "libbluray rtmpdump libxml2 openssl"
-RDEPENDS_${PN} = "libbluray rtmpdump libxml2"
+LIBPL_DEPS = "libbluray rtmpdump libxml2"
+
+DEPENDS = " ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_DEPS} openssl', 'openssl', d)} "
+RDEPENDS_${PN} = " ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_DEPS}', '', d)} "
 
 SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
     file://ffmpeg-buffer-size.patch \
     file://ffmpeg-aac.patch \
+"
+
+LIBPL_FFCONF = " \
+    --enable-libbluray \
+    --enable-protocol=bluray \
+    --enable-librtmp \
 "
 
 EXTRA_FFCONF = " \
@@ -213,19 +221,17 @@ EXTRA_FFCONF = " \
     --disable-demuxer=image_webp_pipe \
     --disable-demuxer=image_jpeg_pipe \
     --disable-filters \
-    --enable-libbluray \
-    --enable-protocol=bluray \
     --disable-protocol=data \
     --disable-protocol=icecast \
     --disable-protocol=md5 \
     --disable-protocol=pipe \
     --disable-protocol=unix \
+    ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_FFCONF}', '', d)} \
     --disable-indevs \
     --disable-outdevs \
     --enable-bzlib \
     --disable-zlib \
     --disable-bsfs \
-    --enable-librtmp \
     --pkg-config="pkg-config" \
     --disable-debug \
     --extra-cflags="-ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
