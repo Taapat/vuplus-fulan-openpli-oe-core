@@ -1,4 +1,4 @@
-PR = "r2"
+PR = "r4"
 
 LIBPL_DEPS = "libbluray rtmpdump libxml2"
 

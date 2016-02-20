@@ -19,7 +19,7 @@ inherit gitpkgv
 PV = "1.7.2+git${SRCPV}"
 PKGV = "1.7.2+git${GITPKGV}"
 
-PR = "r1"
+PR = "r3"
 
 CFLAGS_append = " -Wno-deprecated-declarations "
 
