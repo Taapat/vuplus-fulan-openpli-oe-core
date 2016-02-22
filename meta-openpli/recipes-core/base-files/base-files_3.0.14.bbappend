@@ -1,3 +1,4 @@
+PR = "r90"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
