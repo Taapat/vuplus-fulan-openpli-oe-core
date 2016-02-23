@@ -4,10 +4,10 @@
 	ignore = dirty
 [submodule "oe-bitbake"]
 	path = oe-bitbake
-	url = git@github.com:openembedded/bitbake.git
+	url = git://github.com/openembedded/bitbake.git
 [submodule "oe-meta-openembedded"]
 	path = oe-meta-openembedded
-	url = git@github.com:openembedded/meta-openembedded.git
+	url = git://github.com/openembedded/meta-openembedded.git
 [submodule "oe-openembedded-core"]
 	path = oe-openembedded-core
-	url = git@github.com:openembedded/openembedded-core.git
+	url = git://github.com/openembedded/openembedded-core.git
