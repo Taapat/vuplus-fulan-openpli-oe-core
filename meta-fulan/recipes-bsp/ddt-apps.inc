@@ -5,9 +5,11 @@ LIC_FILES_CHKSUM = "file://${OPENPLI_BASE}/LICENSE;md5=eb723b61539feef013de476e6
 DEPENDS = "fulan-dvb-modules"
 
 SRCREV = "${AUTOREV}"
-INC_PR = "r1"
-PV = "1.0"
-PKGV = "1.0"
+
+inherit gitpkgv
+
+PV = "2.0+git${SRCPV}"
+PKGV = "2.0+git${GITPKGV}"
 
 SRC_URI = " \
     git://github.com/Taapat/apps.git;protocol=git \
