@@ -1,4 +1,4 @@
-PR = "r4"
+PR = "r0"
 
 LIBPL_DEPS = "libbluray rtmpdump libxml2"
 
@@ -93,10 +93,6 @@ EXTRA_FFCONF = " \
     --disable-neon \
     --disable-inline-asm \
     --disable-yasm \
-    --disable-mips32r2 \
-    --disable-mipsdspr1 \
-    --disable-mipsdspr2 \
-    --disable-mipsfpu \
     --disable-fast-unaligned \
     --disable-muxers \
     --disable-encoders \
@@ -184,6 +180,7 @@ EXTRA_FFCONF = " \
     --disable-demuxer=brstm \
     --disable-demuxer=c93 \
     --disable-demuxer=cdg \
+    --disable-demuxer=dnxhd \
     --disable-demuxer=dsicin \
     --disable-demuxer=dfa \
     --disable-demuxer=dxa \
@@ -246,6 +243,7 @@ EXTRA_FFCONF = " \
     --disable-protocol=pipe \
     --disable-protocol=unix \
     ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_FFCONF}', '${GST_FFCONF}', d)} \
+    ${@base_contains('TARGET_ARCH', 'sh4', ' --disable-mips32r2 --disable-mipsdsp --disable-mipsdspr2 --disable-mipsfpu ' , '', d)} \
     --disable-indevs \
     --disable-outdevs \
     --enable-bzlib \
