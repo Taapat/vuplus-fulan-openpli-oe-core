@@ -242,9 +242,11 @@ EXTRA_FFCONF = " \
     --disable-protocol=md5 \
     --disable-protocol=pipe \
     --disable-protocol=unix \
-    ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_FFCONF}', '${GST_FFCONF}', d)} \
-    ${@base_contains('TARGET_ARCH', 'sh4', ' --disable-mips32r2 --disable-mipsdsp --disable-mipsdspr2  --disable-mipsfpu' , '', d)} \
+    --disable-mips32r2 \
+    --disable-mipsdsp \
+    --disable-mipsdspr2 \
     ${@base_contains('TARGET_FPU', 'soft', ' --disable-mipsfpu', '', d)} \
+    ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_FFCONF}', '${GST_FFCONF}', d)} \
     --disable-indevs \
     --disable-outdevs \
     --enable-bzlib \
