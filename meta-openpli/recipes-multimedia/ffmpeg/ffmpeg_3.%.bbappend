@@ -1,8 +1,8 @@
 PR = "r0"
 
-LIBPL_DEPS = "libbluray rtmpdump libxml2"
+LIBPL_DEPS = "libbluray rtmpdump libxml2 openssl"
 
-DEPENDS = " ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_DEPS} openssl', 'openssl', d)} "
+DEPENDS = " ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_DEPS}', '', d)} "
 RDEPENDS_${PN} = " ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_DEPS}', '', d)} "
 
 SRC_URI_append = " \
@@ -257,7 +257,8 @@ EXTRA_FFCONF = " \
     --prefix=${prefix} \
 "
 
-PACKAGECONFIG = "avdevice avfilter openssl"
+PACKAGECONFIG = " avdevice avfilter "
+PACKAGECONFIG =+ "${@base_contains('MACHINE_FEATURES', 'libeplayer', 'openssl', '', d)} "
 
 FILES_${PN}-dbg += "/usr/share"
 
