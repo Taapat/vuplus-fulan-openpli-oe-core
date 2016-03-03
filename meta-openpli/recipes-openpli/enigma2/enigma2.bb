@@ -29,7 +29,7 @@ RDEPENDS_${PN} = " \
 	glibc-gconv-iso8859-15 \
 	${PYTHON_RDEPS} \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "libmme-host vdstandby python-subprocess" , "", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "libmme-host vdstandby" , "", d)} \
 	"
 
 GST_RRECOMMENDS = " \
@@ -237,8 +237,7 @@ EXTRA_OECONF = "\
 	${@base_contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "${GST_OECONF}", d)} \
 	${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	${@base_contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "--enable-${MACHINE}" , "", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "--with-lcd=no" , "", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "--enable-${MACHINE} --with-lcd=no" , "", d)} \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \
