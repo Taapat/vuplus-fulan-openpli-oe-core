@@ -14,11 +14,11 @@ SRC_URI += "file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "50ae46cc0f8827bf966920d9c221e5cf86e811ba"
+SRCREV = "3ebfefd2205a17013c5be0bc310d69e84f0a7e56"
 
 inherit gitpkgv
-PV = "1.7.2+git${SRCPV}"
-PKGV = "1.7.2+git${GITPKGV}"
+PV = "1.7.90+git${SRCPV}"
+PKGV = "1.7.90+git${GITPKGV}"
 
 do_configure_prepend() {
 	cd ${S}
