@@ -17,3 +17,5 @@ inherit distutils-openplugins
 
 DEPENDS = "libbluray"
 RDEPENDS_${PN} = "libbluray"
+
+FILES_${PN}-dbg += "/usr/lib/enigma2/python/Plugins/Extensions/BlurayPlayer/.debug"
