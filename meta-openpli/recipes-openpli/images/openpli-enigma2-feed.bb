@@ -33,7 +33,6 @@ OPTIONAL_PACKAGES += " \
 	inadyn-mt \
 	iperf \
 	joe \
-	libbluray \
 	mc \
 	minisatip \
 	mtd-utils \
@@ -76,7 +75,6 @@ ENIGMA2_OPTIONAL = " \
 	enigma2-plugin-drivers-usbserial \
 	enigma2-plugin-extensions-dlnabrowser \
 	enigma2-plugin-extensions-dlnaserver \
-	enigma2-plugin-extensions-blurayplayer \
 	enigma2-plugin-extensions-xmltvimport \
 	enigma2-plugin-extensions-modifyplifullhd \
 	enigma2-plugin-systemplugins-signalfinder \

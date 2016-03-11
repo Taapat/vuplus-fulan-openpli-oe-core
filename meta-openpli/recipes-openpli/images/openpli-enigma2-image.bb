@@ -43,6 +43,7 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-pictureplayer \
 	\
 	enigma2-plugin-extensions-alternativesoftcammanager \
+	enigma2-plugin-extensions-blurayplayer \
 	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-skins-metropolis-hd \
 	\
@@ -79,6 +80,7 @@ IMAGE_INSTALL += " \
 	enigma2 \
 	enigma2-src \
 	libavahi-client \
+	libbluray \
 	settings-autorestore \
 	tuxbox-common \
 	${ENIGMA2_PLUGINS} \
