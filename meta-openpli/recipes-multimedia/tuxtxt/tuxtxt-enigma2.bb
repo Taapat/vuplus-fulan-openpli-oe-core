@@ -37,3 +37,7 @@ EXTRA_OECONF = "--with-boxtype=generic --with-configdir=/etc \
 	"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+do_install_append() {
+	rm ${D}/usr/lib/enigma2/python/Plugins/Extensions/Tuxtxt/*.pyc
+}
