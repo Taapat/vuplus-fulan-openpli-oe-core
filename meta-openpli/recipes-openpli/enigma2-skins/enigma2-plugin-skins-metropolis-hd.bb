@@ -8,7 +8,6 @@ inherit gitpkgv allarch
 PV = "0.1+git${SRCPV}"
 PKGV = "0.1+git${GITPKGV}"
 PR = "r1"
-
 SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/Taapat/skin-MetropolisHD.git"
@@ -22,6 +21,5 @@ do_compile() {
 
 do_install() {
 	install -d ${D}/usr
-	cp -rp ${S}/usr/* ${D}/usr/
-	chmod -R a+rX ${D}/usr/
+	cp -r ${S}/usr/* ${D}/usr/
 }
