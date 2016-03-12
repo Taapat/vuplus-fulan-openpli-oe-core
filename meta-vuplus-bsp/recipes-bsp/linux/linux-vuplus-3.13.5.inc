@@ -51,6 +51,6 @@ pkg_postinst_kernel-image () {
 		flash_eraseall /dev/mtd2
 		nandwrite -p /dev/mtd2 /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz
 	fi
-	rm -f /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz
+	rm -Rf /${KERNEL_IMAGEDEST}
 	true
 }
