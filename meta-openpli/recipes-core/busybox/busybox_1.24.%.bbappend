@@ -21,24 +21,38 @@ SRC_URI += " \
 			file://mdev-mount.sh \
 			file://inetd \
 			file://inetd.conf \
+			file://rdate \
 			"
 
-# we do not really depend on mtd-utils, but as mtd-utils replaces 
+SRC_URI_append_sh4 = "\
+    file://rdate-sh4.patch;patchdir=.. \
+"
+
+# we do not really depend on mtd-utils, but as mtd-utils replaces
 # include/mtd/* we cannot build in parallel with mtd-utils
 DEPENDS += "mtd-utils"
 
 PACKAGES =+ "${PN}-inetd"
 INITSCRIPT_PACKAGES += "${PN}-inetd"
-INITSCRIPT_NAME_${PN}-inetd = "inetd.${BPN}" 
+INITSCRIPT_NAME_${PN}-inetd = "inetd.${BPN}"
 CONFFILES_${PN}-inetd = "${sysconfdir}/inetd.conf"
 FILES_${PN}-inetd = "${sysconfdir}/init.d/inetd.${BPN} ${sysconfdir}/inetd.conf"
 RDEPENDS_${PN}-inetd += "${PN}"
 
-RRECOMMENDS_${PN} = "${PN}-udhcpc ${PN}-inetd"
+PACKAGES =+ "${PN}-rdate"
+INITSCRIPT_PACKAGES += "${PN}-rdate"
+INITSCRIPT_NAME_${PN}-rdate = "${BPN}-rdate"
+INITSCRIPT_PARAMS_${PN}-rdate = "start 83 S ."
+FILES_${PN}-rdate = "${sysconfdir}/rdate ${sysconfdir}/init.d/${BPN}-rdate"
+RDEPENDS_${PN}-rdate += "${PN}"
+
+RRECOMMENDS_${PN} = "${PN}-udhcpc ${PN}-inetd \
+	${@base_contains('TARGET_ARCH', 'sh4', '${PN}-rdate' , '', d)} \
+"
 
 PACKAGES =+ "${PN}-cron"
 INITSCRIPT_PACKAGES += "${PN}-cron"
-INITSCRIPT_NAME_${PN}-cron = "${BPN}-cron" 
+INITSCRIPT_NAME_${PN}-cron = "${BPN}-cron"
 FILES_${PN}-cron = "${sysconfdir}/cron ${sysconfdir}/init.d/${BPN}-cron"
 RDEPENDS_${PN}-cron += "${PN}"
 
@@ -49,6 +63,7 @@ do_install_append() {
 	install -d ${D}${sysconfdir}/mdev
 	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
 	sed -i "/[/][s][h]*$/d" ${D}${sysconfdir}/busybox.links.nosuid
+	install -m 0755 ${WORKDIR}/rdate ${D}${sysconfdir}/init.d/${BPN}-rdate
 }
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"

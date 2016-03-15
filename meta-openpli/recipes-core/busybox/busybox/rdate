@@ -1,0 +1,12 @@
+#!/bin/sh
+
+RDATE=time.nist.gov
+RDATE_ALT=ntp2.fau.de
+
+#Check network
+ping -c2 $RDATE || ping -c2 $RDATE_ALT
+if [ $? -eq 0 ] ; then
+	#Set date from NIST internet time server
+	echo "Running rdate -s $RDATE..."
+	rdate -s $RDATE || (echo "Running rdate -s $RDATE_ALT..."; rdate -s $RDATE_ALT)
+fi
