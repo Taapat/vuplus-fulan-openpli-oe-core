@@ -27,7 +27,7 @@ PREFERRED_VERSION_samba = "3.%"
 
 DVBPROVIDER = "kernel"
 
-MACHINE_FEATURES = "hdmicec switchoff kernel26 ext2 usbhost serial singlecore no-nmap omb skins1080 directfb sdl fulan wlan kernelwifi extrakernelwifi"
+MACHINE_FEATURES = "hdmicec switchoff kernel26 ext2 serial singlecore no-nmap omb skins1080 directfb sdl fulan wlan kernelwifi extrakernelwifi"
 
 #Use libeplayer3, disable this if you want to use gstreamer
 MACHINE_FEATURES =+ " libeplayer"
