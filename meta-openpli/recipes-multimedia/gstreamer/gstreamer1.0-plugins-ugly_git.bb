@@ -9,11 +9,11 @@ SRC_URI = "git://anongit.freedesktop.org/gstreamer/gst-plugins-ugly;branch=maste
 
 S = "${WORKDIR}/git"
 
-SRCREV = "7d021628cfc83f0eea240a98daed75672f156d1c"
+SRCREV = "abec6b6dfdd8d041b532901a81ba6ffdb5e3b6bb"
 
 inherit gitpkgv
-PV = "1.7.90+git${SRCPV}"
-PKGV = "1.7.90+git${GITPKGV}"
+PV = "1.7.91+git${SRCPV}"
+PKGV = "1.7.91+git${GITPKGV}"
 
 do_configure_prepend() {
 	cd ${S}

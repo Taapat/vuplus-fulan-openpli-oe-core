@@ -13,13 +13,13 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "6655aabebccdf390804b3e35663dfe97151200b8"
+SRCREV = "7a8828f68a838eef6616fa39bbaba46c8029b4a6"
 
 inherit gitpkgv
-PV = "1.7.90+git${SRCPV}"
-PKGV = "1.7.90+git${GITPKGV}"
+PV = "1.7.91+git${SRCPV}"
+PKGV = "1.7.91+git${GITPKGV}"
 
-PR = "r4"
+PR = "r0"
 
 CFLAGS_append = " -Wno-deprecated-declarations "
 
