@@ -55,6 +55,8 @@ ssh_allow_empty_password () {
 }
 license_create_manifest() {
 }
+write_image_manifest () {
+}
 
 ROOTFS_POSTPROCESS_COMMAND += "rootfsremoveopkgleftovers;"
 
