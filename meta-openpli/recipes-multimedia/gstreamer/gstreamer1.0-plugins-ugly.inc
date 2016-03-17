@@ -10,7 +10,7 @@ inherit gettext
 
 PACKAGECONFIG ??= " \
     orc a52dec lame mad mpeg2dec \
-    cdio dvdread amrnb amrwb mad \
+    cdio dvdread x264 \
     "
 
 PACKAGECONFIG[a52dec]   = "--enable-a52dec,--disable-a52dec,liba52"
