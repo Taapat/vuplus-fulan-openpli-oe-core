@@ -43,7 +43,6 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-extensions-pictureplayer \
 	\
 	enigma2-plugin-extensions-alternativesoftcammanager \
-	enigma2-plugin-extensions-blurayplayer \
 	enigma2-plugin-extensions-youtube \
 	enigma2-plugin-skins-metropolis-hd \
 	\
@@ -66,7 +65,7 @@ ENIGMA2_PLUGINS = " \
 	${@base_contains('OPENPLI_FEATURES', 'ci', 'enigma2-plugin-systemplugins-commoninterfaceassignment', '', d)} \
 	${@base_contains('OPENPLI_FEATURES', 'dvd', 'enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-dvdplayer', '', d)} \
 	${@base_contains('OPENPLI_FEATURES', 'fan', 'enigma2-plugin-systemplugins-tempfancontrol', '', d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto enigma2-plugin-systemplugins-autovolume" , "enigma2-plugin-extensions-audiosync", d)} \
+	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto enigma2-plugin-systemplugins-autovolume" , "enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-blurayplayer", d)} \
 	"
 
 DEPENDS += " \
