@@ -1,6 +1,10 @@
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
+SRCREV = "${AUTOREV}"
+PV = "2+git${SRCPV}"
+PKGV = "2+git${GITPKGV}"
+
 python do_package_prepend () {
     boxtypes = [
         ('spark', 'spark.jpg', 'spark.png'),
