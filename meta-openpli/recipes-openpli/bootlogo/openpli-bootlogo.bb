@@ -15,7 +15,7 @@ S = "${WORKDIR}/"
 INITSCRIPT_NAME = "bootlogo"
 INITSCRIPT_PARAMS = "start 21 S ."
 
-inherit update-rc.d
+inherit allarch update-rc.d
 
 # This needs a small explanation; when the machine has 'switchoff' support, it switches itself off, so we don't need switchoff.mvi...
 SWITCHOFFMVI = "${@base_contains("MACHINE_FEATURES", "switchoff", "" , "switchoff.mvi", d)}"
@@ -107,5 +107,4 @@ pkg_postrm_${PN}_dreambox() {
 	fi
 }
 
-PACKAGE_ARCH := "${MACHINE_ARCH}"
 FILES_${PN} = "/boot /usr/share /etc/init.d"
