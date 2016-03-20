@@ -1,4 +1,4 @@
-PR = "r1"
+PR = "r2"
 
 # Remove acl, cups etc. support.
 PACKAGECONFIG = "${@base_contains('DISTRO_FEATURES', 'pam', 'pam', '', d)} \
@@ -30,7 +30,7 @@ SRC_URI += " \
            file://samba.sh \
            "
 
-FILES_${PN}-base += "${sysconfdir}/init.d/samba.sh"
+FILES_${PN}-base += "${sysconfdir}/samba"
 
 # Get the cross-answers from cross-execute
 CROSS_METHOD = "exec"
