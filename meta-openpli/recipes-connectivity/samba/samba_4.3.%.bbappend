@@ -1,3 +1,4 @@
+PR = "r1"
 
 # Remove acl, cups etc. support.
 PACKAGECONFIG = "${@base_contains('DISTRO_FEATURES', 'pam', 'pam', '', d)} \
