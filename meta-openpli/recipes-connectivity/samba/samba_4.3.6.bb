@@ -158,21 +158,21 @@ FILES_${PN}-base = "${sbindir}/nmbd \
 # done
 
 FILES_lib${PN}-base = "\
-                    ${libdir}/libdcerpc-binding.so.0.0.1 \
-                    ${libdir}/libgensec.so.0.0.1 \
-                    ${libdir}/libndr-krb5pac.so.0.0.1 \
-                    ${libdir}/libndr-nbt.so.0.0.1 \
-                    ${libdir}/libndr-standard.so.0.0.1 \
-                    ${libdir}/libndr.so.0.0.5 \
-                    ${libdir}/libnetapi.so.0 \
-                    ${libdir}/libsamba-credentials.so.0.0.1 \
-                    ${libdir}/libsamba-hostconfig.so.0.0.1 \
-                    ${libdir}/libsamba-passdb.so.0.24.1 \
-                    ${libdir}/libsamba-util.so.0.0.1 \
-                    ${libdir}/libsamdb.so.0.0.1 \
-                    ${libdir}/libsmbconf.so.0 \
-                    ${libdir}/libtevent-util.so.0.0.1 \
-                    ${libdir}/libwbclient.so.0.12 \
+                    ${libdir}/libdcerpc-binding.so.* \
+                    ${libdir}/libgensec.so.* \
+                    ${libdir}/libndr-krb5pac.so.* \
+                    ${libdir}/libndr-nbt.so.* \
+                    ${libdir}/libndr-standard.so.* \
+                    ${libdir}/libndr.so.* \
+                    ${libdir}/libnetapi.so.* \
+                    ${libdir}/libsamba-credentials.so.* \
+                    ${libdir}/libsamba-hostconfig.so.* \
+                    ${libdir}/libsamba-passdb.so.* \
+                    ${libdir}/libsamba-util.so.* \
+                    ${libdir}/libsamdb.so.* \
+                    ${libdir}/libsmbconf.so.* \
+                    ${libdir}/libtevent-util.so.* \
+                    ${libdir}/libwbclient.so.* \
                     ${libdir}/samba/libCHARSET3-samba4.so \
                     ${libdir}/samba/libaddns-samba4.so \
                     ${libdir}/samba/libads-samba4.so \
@@ -195,7 +195,7 @@ FILES_lib${PN}-base = "\
                     ${libdir}/samba/libinterfaces-samba4.so \
                     ${libdir}/samba/libiov-buf-samba4.so \
                     ${libdir}/samba/libkrb5samba-samba4.so \
-                    ${libdir}/samba/libldb.so.1.1.21 \
+                    ${libdir}/samba/libldb.so.* \
                     ${libdir}/samba/libldbsamba-samba4.so \
                     ${libdir}/samba/liblibcli-lsa3-samba4.so \
                     ${libdir}/samba/liblibcli-netlogon3-samba4.so \
@@ -229,16 +229,17 @@ FILES_lib${PN}-base = "\
                     ${libdir}/samba/libsocket-blocking-samba4.so \
                     ${libdir}/samba/libsys-rw-samba4.so \
                     ${libdir}/samba/libtalloc-report-samba4.so \
-                    ${libdir}/samba/libtalloc.so.2.1.3 \
+                    ${libdir}/samba/libtalloc.so.* \
                     ${libdir}/samba/libtdb-wrap-samba4.so \
-                    ${libdir}/samba/libtdb.so.1.3.7 \
-                    ${libdir}/samba/libtevent.so.0.9.25 \
+                    ${libdir}/samba/libtdb.so.* \
+                    ${libdir}/samba/libtevent.so.* \
                     ${libdir}/samba/libtime-basic-samba4.so \
                     ${libdir}/samba/libutil-cmdline-samba4.so \
                     ${libdir}/samba/libutil-reg-samba4.so \
                     ${libdir}/samba/libutil-setid-samba4.so \
                     ${libdir}/samba/libutil-tdb-samba4.so \
                     ${libdir}/samba/libwinbind-client-samba4.so \
+                    ${libdir}/samba/pdb/*.so \
 "
 
 FILES_winbind-dbg = "${libdir}/idmap/.debug/*.so \
@@ -322,3 +323,4 @@ FILES_${PN}-python-dbg = "${libdir}/python${PYTHON_BASEVERSION}/site-packages/.d
 
 RDEPENDS_${PN}-pidl_append = " perl"
 FILES_${PN}-pidl = "${bindir}/pidl ${PERL_VERNDORLIB}/* ${datadir}/perl5/*"
+
