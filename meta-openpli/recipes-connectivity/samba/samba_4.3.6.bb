@@ -140,18 +140,18 @@ FILES_${PN}-base = "${sbindir}/nmbd \
 "
 
 # figured out by
-# FILES="tmp/work/cortexa9hf-vfp-neon-poky-linux-gnueabi/samba/4.1.12-r0/image/usr/sbin/smbd tmp/work/cortexa9hf-vfp-neon-poky-linux-gnueabi/samba/4.1.12-r0/image/usr/sbin/nmbd"
+# FILES="tmp/work/mips32el-oe-linux/samba/4.3.6-r1/image/usr/sbin/smbd tmp/work/mips32el-oe-linux/samba/4.3.6-r1/image/usr/sbin/nmbd"
 #
 # while [ "${FILES}" != "${OLDFILES}" ]
 # do
 #     OLDFILES="${FILES}"
-#     NEEDED=`tmp/sysroots/x86_64-linux/usr/libexec/arm-poky-linux-gnueabi.gcc-cross-initial-arm/gcc/arm-poky-linux-gnueabi/5.2.0/objdump -x ${FILES} | grep NEEDED | egrep -E 'so(.[0-9]|$)' | sort -u | perl -MData::Dumper -le 'while (<>) {chomp; push @lib, (split)[1]}; print "(", join("|", @lib), ")"'`
-#     NF=`find tmp/work/cortexa9hf-vfp-neon-poky-linux-gnueabi/samba/4.1.12-r0/image/usr/lib -type f | egrep "${NEEDED}" | sort -u`
+#     NEEDED=`tmp/sysroots/x86_64-linux/usr/libexec/mipsel-oe-linux.gcc-cross-initial-mipsel/gcc/mipsel-oe-linux/5.3.0/objdump -x ${FILES} | grep NEEDED | egrep -E 'so(.[0-9]|$)' | sort -u | perl -MData::Dumper -le 'while (<>) {chomp; push @lib, (split)[1]}; print "(", join("|", @lib), ")"'`
+#     NF=`find tmp/work/mips32el-oe-linux/samba/4.3.6-r1/image/usr/lib -type f | egrep "${NEEDED}" | sort -u`
 #
 #     FILES=`perl -le 'foreach (@ARGV) { $f{$_}++ }; print join(" ", sort keys %f)' ${FILES} ${NF}`
 # done
 #
-# LIBS=`echo ${FILES} | sed -e 's,tmp/work/cortexa9hf-vfp-neon-poky-linux-gnueabi/samba/4.1.12-r0/image/usr/lib,${libdir},g' -e 's,.so.[0-9]+.*$,.so.*,g'`
+# LIBS=`echo ${FILES} | sed -e 's,tmp/work/mips32el-oe-linux/samba/4.3.6-r1/image/usr/lib,${libdir},g' -e 's,.so.[0-9]+.*$,.so.*,g'`
 # for l in ${LIBS}
 # do
 #     echo $l
