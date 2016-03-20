@@ -164,7 +164,6 @@ FILES_lib${PN}-base = "\
                     ${libdir}/libndr-nbt.so.* \
                     ${libdir}/libndr-standard.so.* \
                     ${libdir}/libndr.so.* \
-                    ${libdir}/libnetapi.so.* \
                     ${libdir}/libsamba-credentials.so.* \
                     ${libdir}/libsamba-hostconfig.so.* \
                     ${libdir}/libsamba-passdb.so.* \
@@ -172,7 +171,6 @@ FILES_lib${PN}-base = "\
                     ${libdir}/libsamdb.so.* \
                     ${libdir}/libsmbconf.so.* \
                     ${libdir}/libtevent-util.so.* \
-                    ${libdir}/libwbclient.so.* \
                     ${libdir}/samba/libCHARSET3-samba4.so \
                     ${libdir}/samba/libaddns-samba4.so \
                     ${libdir}/samba/libads-samba4.so \
