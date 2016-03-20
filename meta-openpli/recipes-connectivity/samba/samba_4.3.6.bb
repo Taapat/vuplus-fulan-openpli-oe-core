@@ -285,6 +285,7 @@ FILES_libwinbind-dbg = "${base_libdir}/security/.debug/pam_winbind.so"
 FILES_libwinbind-krb5-locator = "${libdir}/winbind_krb5_locator.so"
 
 FILES_${PN}-python = "${libdir}/python${PYTHON_BASEVERSION}/site-packages/*.so \
+                      ${libdir}/python${PYTHON_BASEVERSION}/site-packages/*.py \
                       ${libdir}/python${PYTHON_BASEVERSION}/site-packages/samba/*.py \
                       ${libdir}/python${PYTHON_BASEVERSION}/site-packages/samba/*.so \
                       ${libdir}/python${PYTHON_BASEVERSION}/site-packages/samba/dcerpc/*.so \
