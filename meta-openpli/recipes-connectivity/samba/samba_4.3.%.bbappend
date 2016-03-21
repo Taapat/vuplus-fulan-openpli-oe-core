@@ -1,4 +1,4 @@
-PR = "r2"
+PR = "r3"
 
 # Remove acl, cups etc. support.
 PACKAGECONFIG = "${@base_contains('DISTRO_FEATURES', 'pam', 'pam', '', d)} \
@@ -16,6 +16,10 @@ EXTRA_OECONF += " \
                  --nopyc \
                  --disable-iprint \
                  --without-ads \
+                 --without-dnsupdate \
+                 --without-quotas \
+                 --without-winbind \
+                 --disable-python \
                 "
 
 EXTRA_OECONF_remove = " \
@@ -28,6 +32,7 @@ EXTRA_OECONF_remove = " \
 SRC_URI += " \
            file://smb.conf \
            file://samba.sh \
+           file://22-disable-python.patch \
            "
 
 FILES_${PN}-base += "${sysconfdir}/samba"
