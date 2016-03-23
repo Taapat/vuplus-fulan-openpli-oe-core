@@ -1,4 +1,4 @@
-PR = "r3"
+PR = "r4"
 
 # Remove acl, cups etc. support.
 PACKAGECONFIG = "${@base_contains('DISTRO_FEATURES', 'pam', 'pam', '', d)} \
@@ -68,5 +68,7 @@ inherit update-rc.d
 INITSCRIPT_PACKAGES = "${PN}-base"
 INITSCRIPT_NAME_${PN}-base = "samba.sh"
 INITSCRIPT_PARAMS_${PN}-base = "defaults"
+
+CONFFILES_${PN}-base = "${sysconfdir}/samba/smb.conf"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
