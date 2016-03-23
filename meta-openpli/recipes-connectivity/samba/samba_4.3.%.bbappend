@@ -19,6 +19,7 @@ EXTRA_OECONF += " \
                  --without-dnsupdate \
                  --without-quotas \
                  --without-winbind \
+                 --without-syslog \
                  --disable-python \
                 "
 
