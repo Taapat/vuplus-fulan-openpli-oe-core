@@ -11,7 +11,7 @@ RCONFLICTS_${PN} = "gst-plugin-dvbmediasink"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libdca"
 
-GSTVERSION = "1.8.0"
+GSTVERSION = "1.0"
 
 SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmediasink.git;branch=experimental"
 SRCREV = "${AUTOREV}"
@@ -20,8 +20,8 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-PV = "${GSTVERSION}+git${SRCPV}"
-PKGV = "${GSTVERSION}+git${GITPKGV}"
+PV = "1.8.0+git${SRCPV}"
+PKGV = "1.8.0+git${GITPKGV}"
 
 inherit autotools pkgconfig
 
