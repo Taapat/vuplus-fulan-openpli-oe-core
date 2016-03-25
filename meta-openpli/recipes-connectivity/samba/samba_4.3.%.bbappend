@@ -1,4 +1,4 @@
-PR = "r4"
+PR = "r5"
 
 # Remove acl, cups etc. support.
 PACKAGECONFIG = "${@base_contains('DISTRO_FEATURES', 'pam', 'pam', '', d)} \
@@ -36,7 +36,7 @@ SRC_URI += " \
            file://22-disable-python.patch \
            "
 
-FILES_${PN}-base += "${sysconfdir}/samba"
+FILES_${PN}-base += "${sysconfdir}/samba/smb.conf"
 
 # Get the cross-answers from cross-execute
 CROSS_METHOD = "exec"
