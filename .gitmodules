@@ -11,6 +11,3 @@
 [submodule "oe-openembedded-core"]
 	path = oe-openembedded-core
 	url = git://github.com/openembedded/openembedded-core.git
-[submodule "meta-edision"]
-	path = meta-edision
-	url = http://github.com/open-edision/meta-edision.git
