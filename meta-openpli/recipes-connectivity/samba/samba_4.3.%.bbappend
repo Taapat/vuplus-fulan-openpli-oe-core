@@ -73,3 +73,6 @@ INITSCRIPT_PARAMS_${PN}-base = "defaults"
 CONFFILES_${PN}-base = "${sysconfdir}/samba/smb.conf"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
+# workaround to get rid of perl dependency
+DEPENDS_remove = "perl"
