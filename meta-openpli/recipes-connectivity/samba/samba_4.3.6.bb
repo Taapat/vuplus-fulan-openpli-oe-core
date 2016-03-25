@@ -125,7 +125,7 @@ do_install_append() {
 }
 
 PACKAGES += "${PN}-python ${PN}-python-dbg ${PN}-pidl libwinbind libwinbind-dbg libwinbind-krb5-locator"
-PACKAGES =+ "libwbclient libnss-winbind winbind winbind-dbg libnetapi libsmbsharemodes \
+PACKAGES =+ "libwbclient libnss-winbind winbind winbind-dbg libsmbsharemodes \
              libsmbclient libsmbclient-dev lib${PN}-base ${PN}-base"
 
 RDEPENDS_${PN} += "${PN}-base"
@@ -164,6 +164,7 @@ FILES_lib${PN}-base = "\
                     ${libdir}/libndr-nbt.so.* \
                     ${libdir}/libndr-standard.so.* \
                     ${libdir}/libndr.so.* \
+                    ${libdir}/libnetapi.so.* \
                     ${libdir}/libsamba-credentials.so.* \
                     ${libdir}/libsamba-hostconfig.so.* \
                     ${libdir}/libsamba-passdb.so.* \
@@ -208,7 +209,6 @@ FILES_lib${PN}-base = "\
                     ${libdir}/samba/libpopt-samba3-samba4.so \
                     ${libdir}/samba/libpopt-samba4.so \
                     ${libdir}/samba/libprinting-migrate-samba4.so \
-                    ${libdir}/samba/libreplace-samba4.so \
                     ${libdir}/samba/libsamba-cluster-support-samba4.so \
                     ${libdir}/samba/libsamba-debug-samba4.so \
                     ${libdir}/samba/libsamba-modules-samba4.so \
@@ -236,7 +236,6 @@ FILES_lib${PN}-base = "\
                     ${libdir}/samba/libutil-reg-samba4.so \
                     ${libdir}/samba/libutil-setid-samba4.so \
                     ${libdir}/samba/libutil-tdb-samba4.so \
-                    ${libdir}/samba/libwinbind-client-samba4.so \
                     ${libdir}/samba/pdb/*.so \
 "
 
@@ -257,8 +256,12 @@ FILES_${PN}-dbg += "${libdir}/vfs/.debug/*.so \
                     ${libdir}/security/.debug/pam_smbpass.so \
 "
 
-FILES_libwbclient = "${libdir}/libwbclient.so.* ${libdir}/samba/libwinbind-client.so"
-FILES_libnetapi = "${libdir}/libnetapi.so.*"
+FILES_libwbclient = "${libdir}/libwbclient.so.* \
+                     ${libdir}/samba/libwinbind-client.so \
+                     ${libdir}/samba/libwinbind-client-samba4.so \
+                     ${libdir}/samba/libreplace-samba4.so \
+"
+
 FILES_libsmbsharemodes = "${libdir}/libsmbsharemodes.so.*"
 FILES_libsmbclient = "${libdir}/libsmbclient.so.*"
 FILES_libsmbclient-dev = "${libdir}/libsmbclient.so ${includedir}"
@@ -321,6 +324,3 @@ FILES_${PN}-python-dbg = "${libdir}/python${PYTHON_BASEVERSION}/site-packages/.d
 
 RDEPENDS_${PN}-pidl_append = " perl"
 FILES_${PN}-pidl = "${bindir}/pidl ${PERL_VERNDORLIB}/* ${datadir}/perl5/*"
-
-RDEPENDS_${PN}-base_remove = "samba"
-RDEPENDS_lib${PN}-base_remove = "samba"
