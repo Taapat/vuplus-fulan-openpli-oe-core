@@ -6,7 +6,7 @@ SRC_URI += " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 "
 
-SRCREV_base = "c441eddd568003bf8a22ebd57b9d0f4ceb6402b3"
+SRCREV_base = "795f63659ccb68d85ae3e2195c61017f07a9ec0c"
 PV = "1.8.0+git${SRCPV}"
 
 PACKAGECONFIG = "\
