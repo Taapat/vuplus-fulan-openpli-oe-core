@@ -10,8 +10,10 @@ SRC_URI += " \
 	file://subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 	"
 
+inherit gitpkgv
 SRCREV_base = "2d1c9f8c0fc9f482baac4ac9e71ff02297848eec"
-PV = "1.8.0+git${SRCPV}"
+PV = "1.9.0.1+git${SRCPV}"
+PKGV = "1.9.0.1+git${GITPKGV}"
 
 PACKAGECONFIG = "\
  ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \

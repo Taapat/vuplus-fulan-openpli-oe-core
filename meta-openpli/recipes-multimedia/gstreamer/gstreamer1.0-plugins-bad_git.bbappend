@@ -6,8 +6,10 @@ SRC_URI += " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 "
 
+inherit gitpkgv
 SRCREV_base = "795f63659ccb68d85ae3e2195c61017f07a9ec0c"
-PV = "1.8.0+git${SRCPV}"
+PV = "1.9.0.1+git${SRCPV}"
+PKGV = "1.9.0.1+git${GITPKGV}"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \
