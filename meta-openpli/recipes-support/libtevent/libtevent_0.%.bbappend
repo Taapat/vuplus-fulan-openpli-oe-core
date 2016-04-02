@@ -1,9 +1,7 @@
-# Get the cross-answers from cross-execute
-CROSS_METHOD = "exec"
-
-# Creates an empty cross-answers file to fix building error
+# Use cross-answers-mips file for mipsel to fix building error
+ORIG_WAF_CROSS_ANSWERS_PATH := "${WAF_CROSS_ANSWERS_PATH}"
 WAF_CROSS_ANSWERS_PATH = "${S}/patches"
 
 do_configure_prepend () {
-    echo '' >> ${WAF_CROSS_ANSWERS_PATH}/cross-answers-${TARGET_ARCH}.txt
+    cp ${ORIG_WAF_CROSS_ANSWERS_PATH}/cross-answers-mips.txt ${WAF_CROSS_ANSWERS_PATH}/cross-answers-mipsel.txt
 }
