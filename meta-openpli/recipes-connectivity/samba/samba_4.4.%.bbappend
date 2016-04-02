@@ -1,11 +1,10 @@
-PR = "r5"
+PR = "r0"
 
 # Remove acl, cups etc. support.
 PACKAGECONFIG = "${@base_contains('DISTRO_FEATURES', 'pam', 'pam', '', d)} \
                  ${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', '${SYSVINITTYPE}', '', d)} \
                  ${@base_contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)} \
                  ${@base_contains('DISTRO_FEATURES', 'zeroconf', 'zeroconf', '', d)} \
-                 aio \
                 "
 
 EXTRA_OECONF += " \
@@ -34,6 +33,7 @@ SRC_URI += " \
            file://smb.conf \
            file://samba.sh \
            file://22-disable-python.patch \
+           file://23-fix-idmap-building-without-ldap.patch \
            "
 
 FILES_${PN}-base += "${sysconfdir}/samba/smb.conf"

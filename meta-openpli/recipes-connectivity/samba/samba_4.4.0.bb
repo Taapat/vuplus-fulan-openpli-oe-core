@@ -20,8 +20,8 @@ SRC_URI = "${SAMBA_MIRROR}/stable/samba-${PV}.tar.gz \
            file://0006-avoid-using-colon-in-the-checking-msg.patch \
           "
 
-SRC_URI[md5sum] = "91e5b71b3ae7709246c67c46efa50e7b"
-SRC_URI[sha256sum] = "3251eca5b196854e79978f4a92d5fd2b55bd7b0a252a65131a9be02be6754924"
+SRC_URI[md5sum] = "e42b884d0e07528c8571641a4df40666"
+SRC_URI[sha256sum] = "c5f6fefb7fd0a4e5f404a253b19b55f74f88faa1c3612cb3329e24aa03470075"
 
 inherit systemd waf-samba cpan-base perlnative
 # remove default added RDEPENDS on perl
@@ -42,9 +42,8 @@ PACKAGECONFIG ??= "${@base_contains('DISTRO_FEATURES', 'pam', 'pam', '', d)} \
 RDEPENDS_${PN}-base += "${@bb.utils.contains('PACKAGECONFIG', 'lsb', 'lsb', '', d)}"
 
 PACKAGECONFIG[acl] = "--with-acl-support,--without-acl-support,acl"
-PACKAGECONFIG[aio] = "--with-aio-support,--without-aio-support,libaio"
 PACKAGECONFIG[fam] = "--with-fam,--without-fam,gamin"
-PACKAGECONFIG[pam] = "--with-pam --with-pam_smbpass --with-pammodulesdir=${base_libdir}/security,--without-pam --without-pam_smbpass,libpam"
+PACKAGECONFIG[pam] = "--with-pam --with-pammodulesdir=${base_libdir}/security,--without-pam,libpam"
 PACKAGECONFIG[lsb] = ",,lsb"
 PACKAGECONFIG[sysv] = ",,sysvinit"
 PACKAGECONFIG[cups] = "--enable-cups,--disable-cups,cups"
@@ -140,18 +139,18 @@ FILES_${PN}-base = "${sbindir}/nmbd \
 "
 
 # figured out by
-# FILES="tmp/work/mips32el-oe-linux/samba/4.3.6-r1/image/usr/sbin/smbd tmp/work/mips32el-oe-linux/samba/4.3.6-r1/image/usr/sbin/nmbd"
+# FILES="tmp/work/mips32el-oe-linux/samba/4.4.0-r0/image/usr/sbin/smbd tmp/work/mips32el-oe-linux/samba/4.4.0-r0/image/usr/sbin/nmbd"
 #
 # while [ "${FILES}" != "${OLDFILES}" ]
 # do
 #     OLDFILES="${FILES}"
 #     NEEDED=`tmp/sysroots/x86_64-linux/usr/libexec/mipsel-oe-linux.gcc-cross-initial-mipsel/gcc/mipsel-oe-linux/5.3.0/objdump -x ${FILES} | grep NEEDED | egrep -E 'so(.[0-9]|$)' | sort -u | perl -MData::Dumper -le 'while (<>) {chomp; push @lib, (split)[1]}; print "(", join("|", @lib), ")"'`
-#     NF=`find tmp/work/mips32el-oe-linux/samba/4.3.6-r1/image/usr/lib -type f | egrep "${NEEDED}" | sort -u`
+#     NF=`find tmp/work/mips32el-oe-linux/samba/4.4.0-r0/image/usr/lib -type f | egrep "${NEEDED}" | sort -u`
 #
 #     FILES=`perl -le 'foreach (@ARGV) { $f{$_}++ }; print join(" ", sort keys %f)' ${FILES} ${NF}`
 # done
 #
-# LIBS=`echo ${FILES} | sed -e 's,tmp/work/mips32el-oe-linux/samba/4.3.6-r1/image/usr/lib,${libdir},g' -e 's,.so.[0-9]+.*$,.so.*,g'`
+# LIBS=`echo ${FILES} | sed -e 's,tmp/work/mips32el-oe-linux/samba/4.4.0-r0/image/usr/lib,${libdir},g' -e 's,.so.[0-9]+.*$,.so.*,g'`
 # for l in ${LIBS}
 # do
 #     echo $l
@@ -159,19 +158,21 @@ FILES_${PN}-base = "${sbindir}/nmbd \
 
 FILES_lib${PN}-base = "\
                     ${libdir}/libdcerpc-binding.so.* \
-                    ${libdir}/libgensec.so.* \
                     ${libdir}/libndr-krb5pac.so.* \
                     ${libdir}/libndr-nbt.so.* \
                     ${libdir}/libndr-standard.so.* \
                     ${libdir}/libndr.so.* \
                     ${libdir}/libnetapi.so.* \
                     ${libdir}/libsamba-credentials.so.* \
+                    ${libdir}/libsamba-errors.so.* \
                     ${libdir}/libsamba-hostconfig.so.* \
                     ${libdir}/libsamba-passdb.so.* \
                     ${libdir}/libsamba-util.so.* \
                     ${libdir}/libsamdb.so.* \
                     ${libdir}/libsmbconf.so.* \
+                    ${libdir}/libtevent-unix-util.so.* \
                     ${libdir}/libtevent-util.so.* \
+                    ${libdir}/libwbclient.so.* \
                     ${libdir}/samba/libCHARSET3-samba4.so \
                     ${libdir}/samba/libaddns-samba4.so \
                     ${libdir}/samba/libads-samba4.so \
@@ -187,9 +188,9 @@ FILES_lib${PN}-base = "\
                     ${libdir}/samba/libcliauth-samba4.so \
                     ${libdir}/samba/libdbwrap-samba4.so \
                     ${libdir}/samba/libdcerpc-samba-samba4.so \
-                    ${libdir}/samba/liberrors-samba4.so \
                     ${libdir}/samba/libflag-mapping-samba4.so \
                     ${libdir}/samba/libgenrand-samba4.so \
+                    ${libdir}/samba/libgensec-samba4.so \
                     ${libdir}/samba/libgse-samba4.so \
                     ${libdir}/samba/libinterfaces-samba4.so \
                     ${libdir}/samba/libiov-buf-samba4.so \

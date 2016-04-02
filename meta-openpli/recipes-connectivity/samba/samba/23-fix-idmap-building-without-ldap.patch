@@ -1,0 +1,14 @@
+--- a/source3/include/ads.h	2016-04-02 16:00:51.075032209 +0300
++++ b/source3/include/ads.h	2016-04-02 15:49:31.359661693 +0300
+@@ -142,9 +142,9 @@
+ 
+ #include "libads/ads_proto.h"
+ 
+-#ifdef HAVE_LDAP
++//#ifdef HAVE_LDAP
+ #include "libads/ads_ldap_protos.h"
+-#endif
++//#endif
+ 
+ #include "libads/kerberos_proto.h"
+ 
