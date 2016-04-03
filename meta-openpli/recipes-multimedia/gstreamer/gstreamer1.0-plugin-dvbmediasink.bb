@@ -20,8 +20,8 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv
 
-PV = "1.8.0+git${SRCPV}"
-PKGV = "1.8.0+git${GITPKGV}"
+PV = "1.9.0.1+git${SRCPV}"
+PKGV = "1.9.0.1+git${GITPKGV}"
 
 inherit autotools pkgconfig
 

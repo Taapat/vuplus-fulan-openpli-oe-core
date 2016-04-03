@@ -3,7 +3,7 @@ DEFAULT_PREFERENCE = "1"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 inherit gitpkgv
-SRCREV_base = "c441eddd568003bf8a22ebd57b9d0f4ceb6402b3"
+SRCREV_base = "1af733a6366d0f148874bd10958a38ceb79b9be4"
 PV = "1.9.0.1+git${SRCPV}"
 PKGV = "1.9.0.1+git${GITPKGV}"
 PR = "r1"
