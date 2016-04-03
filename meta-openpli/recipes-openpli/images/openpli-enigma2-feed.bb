@@ -66,6 +66,7 @@ OPTIONAL_PACKAGES += " \
 	udpxy \
 	usb-modeswitch \
 	usb-modeswitch-data \
+	v4l-utils \
 	vim \
 	xfsprogs \
 	zeroconf \
