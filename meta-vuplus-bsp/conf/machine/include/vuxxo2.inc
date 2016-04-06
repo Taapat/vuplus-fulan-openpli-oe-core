@@ -1,6 +1,5 @@
 # We know about rtc
-# Qemu not generated introspection data perfectly
-MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc gobject-introspection-data"
+MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
 	${@base_contains("MACHINE_FEATURES", "dvbproxy", "vuplus-dvb-proxy-${MACHINE} vuplus-libgles-${MACHINE} vuplus-platform-util-${MACHINE}", "vuplus-dvb-modules-${MACHINE}", d)} \
