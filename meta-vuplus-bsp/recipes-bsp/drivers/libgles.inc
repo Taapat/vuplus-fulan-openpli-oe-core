@@ -15,7 +15,7 @@ do_install() {
 	ln -s libv3ddriver.so ${D}${libdir}/libGLESv2.so
 
 	install -d ${D}${includedir}
-	cp -a ${S}/include/* ${D}${includedir}/
+	cp -R ${S}/include/* ${D}${includedir}/
 }
 
 do_package_qa[noexec] = "1"
