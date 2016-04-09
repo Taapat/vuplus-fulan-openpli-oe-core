@@ -11,7 +11,7 @@ SRC_URI += " \
 	"
 
 inherit gitpkgv
-SRCREV_base = "7a206336dd24d368a0933df1a33c69dee3eaae86"
+SRCREV_base = "f05ea1e6a62e12d166b6a2f2d0e4b59018515d47"
 PV = "1.9.0.1+git${SRCPV}"
 PKGV = "1.9.0.1+git${GITPKGV}"
 
