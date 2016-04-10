@@ -1,0 +1,27 @@
+From b5e27ebd90ae1a7e872bdf1086b4f4e69a99e8eb Mon Sep 17 00:00:00 2001
+From: Arnaud Vrac <avrac@freebox.fr>
+Date: Sat, 9 May 2015 15:52:22 +0200
+Subject: [PATCH 1/2] mpegtsdemux: only wait for PCR when PCR pid is set
+
+Streams without PCR make senses in HLS, where the playlist timestamps
+can be used to seek or calculate the duration.
+---
+ gst/mpegtsdemux/tsdemux.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gst/mpegtsdemux/tsdemux.c b/gst/mpegtsdemux/tsdemux.c
+index bd196c3..1f29ef0 100644
+--- a/gst/mpegtsdemux/tsdemux.c
++++ b/gst/mpegtsdemux/tsdemux.c
+@@ -1634,7 +1634,7 @@ gst_ts_demux_stream_added (MpegTSBase * base, MpegTSBaseStream * bstream,
+     stream->dts = GST_CLOCK_TIME_NONE;
+     stream->raw_pts = -1;
+     stream->raw_dts = -1;
+-    stream->pending_ts = TRUE;
++    stream->pending_ts = program->pcr_pid < 0x1fff;
+     stream->nb_out_buffers = 0;
+     stream->gap_ref_buffers = 0;
+     stream->gap_ref_pts = GST_CLOCK_TIME_NONE;
+-- 
+1.9.5 (Apple Git-50.3)
+

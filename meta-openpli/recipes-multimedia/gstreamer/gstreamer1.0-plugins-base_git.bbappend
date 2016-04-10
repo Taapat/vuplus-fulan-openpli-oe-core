@@ -12,8 +12,8 @@ SRC_URI += " \
 
 inherit gitpkgv
 SRCREV_base = "f05ea1e6a62e12d166b6a2f2d0e4b59018515d47"
-PV = "1.9.0.1+git${SRCPV}"
-PKGV = "1.9.0.1+git${GITPKGV}"
+PV = "1.9.0.4+git${SRCPV}"
+PKGV = "1.9.0.4+git${GITPKGV}"
 
 PACKAGECONFIG = "\
  ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
