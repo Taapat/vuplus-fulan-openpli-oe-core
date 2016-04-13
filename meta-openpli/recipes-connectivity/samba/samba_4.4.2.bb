@@ -20,8 +20,8 @@ SRC_URI = "${SAMBA_MIRROR}/stable/samba-${PV}.tar.gz \
            file://0006-avoid-using-colon-in-the-checking-msg.patch \
           "
 
-SRC_URI[md5sum] = "e42b884d0e07528c8571641a4df40666"
-SRC_URI[sha256sum] = "c5f6fefb7fd0a4e5f404a253b19b55f74f88faa1c3612cb3329e24aa03470075"
+SRC_URI[md5sum] = "03a65a3adf08ceb1636ad59d234d7f9d"
+SRC_URI[sha256sum] = "eaecd41a85ebb9507b8db9856ada2a949376e9d53cf75664b5493658f6e5926a"
 
 inherit systemd waf-samba cpan-base perlnative
 # remove default added RDEPENDS on perl
