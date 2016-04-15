@@ -1,7 +1,7 @@
 DEFAULT_PREFERENCE = "1"
 
 inherit gitpkgv
-SRCREV_base = "eacdaa56b3ad388cd28c7ff04ae78aed82c9edd4"
+SRCREV_base = "6b707c91f10a6cb492a5962ef21d52e193af7d6a"
 PV = "1.9.0.4+git${SRCPV}"
 PKGV = "1.9.0.4+git${GITPKGV}"
 
