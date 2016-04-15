@@ -11,3 +11,5 @@ SRCREV_base = "fd7964e7462544a0c120ebf1d4c8e4b0174a1518"
 PV = "1.9.0.4+git${SRCPV}"
 PKGV = "1.9.0.4+git${GITPKGV}"
 PR = "r2"
+
+RRECOMMENDS_${PN} = ""

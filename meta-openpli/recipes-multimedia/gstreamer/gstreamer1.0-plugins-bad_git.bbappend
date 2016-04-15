@@ -22,6 +22,8 @@ PACKAGECONFIG = "\
  faac faad libmms dash webp rtmp \
  "
 
+RRECOMMENDS_${PN} = ""
+
 python handle_hls_rename () {
     d.setVar('RPROVIDES_gstreamer1.0-plugins-bad-hls', 'gstreamer1.0-plugins-bad-fragmented')
 }

@@ -20,3 +20,5 @@ PACKAGECONFIG = "\
  ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'alsa', '', d)} \
  orc ivorbis ogg theora vorbis cdparanoia \
  "
+
+RRECOMMENDS_${PN} = ""

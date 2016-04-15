@@ -12,3 +12,5 @@ PACKAGECONFIG = " \
     a52dec lame mad mpeg2dec \
     cdio dvdread amrnb amrwb x264 \
 "
+
+RRECOMMENDS_${PN} = ""
