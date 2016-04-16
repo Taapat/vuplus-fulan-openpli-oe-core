@@ -5,12 +5,14 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 SRC_URI += " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
+	file://hls-use-max-playlist-quality.patch \
 "
 
 inherit gitpkgv
 SRCREV_base = "73ebdb888e047b14ceea19ce1a0bbbeff0cd7b2a"
 PV = "1.9.0.4+git${SRCPV}"
 PKGV = "1.9.0.4+git${GITPKGV}"
+PR = "r1"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \
