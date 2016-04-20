@@ -1,65 +1,13 @@
 PR = "r0"
 
-LIBPL_DEPS = "libbluray rtmpdump libxml2 openssl"
-
-DEPENDS = " ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_DEPS}', '', d)} "
-RDEPENDS_${PN} = " ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_DEPS}', '', d)} "
+DEPENDS = "libbluray rtmpdump libxml2 openssl"
+RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl"
 
 SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
     file://ffmpeg-buffer-size.patch \
     file://ffmpeg-aac.patch \
 "
-
-LIBPL_FFCONF = " \
-    --enable-decoder=aac \
-    --enable-decoder=aac_latm \
-    --enable-decoder=adpcm_ct \
-    --enable-decoder=adpcm_g722 \
-    --enable-decoder=adpcm_g726 \
-    --enable-decoder=adpcm_g726le \
-    --enable-decoder=adpcm_ima_amv \
-    --enable-decoder=adpcm_ima_oki \
-    --enable-decoder=adpcm_ima_qt \
-    --enable-decoder=adpcm_ima_rad \
-    --enable-decoder=adpcm_ima_wav \
-    --enable-decoder=adpcm_ms \
-    --enable-decoder=adpcm_sbpro_2 \
-    --enable-decoder=adpcm_sbpro_3 \
-    --enable-decoder=adpcm_sbpro_4 \
-    --enable-decoder=adpcm_swf \
-    --enable-decoder=adpcm_yamaha \
-    --enable-decoder=flac \
-    --enable-decoder=g723_1 \
-    --enable-decoder=g729 \
-    --enable-decoder=opus \
-    --enable-decoder=qcelp \
-    --enable-decoder=qdm2 \
-    --enable-decoder=vorbis \
-    --enable-decoder=wavpack \
-    --enable-libbluray \
-    --enable-protocol=bluray \
-    --enable-librtmp \
-"
-
-GST_FFCONF = " \
-    --disable-demuxer=aac \
-    --disable-demuxer=ape \
-    --disable-demuxer=asf \
-    --disable-demuxer=avi \
-    --disable-demuxer=dv \
-    --disable-demuxer=flv \
-    --disable-demuxer=hls \
-    --disable-demuxer=matroska \
-    --disable-demuxer=mpegps \
-    --disable-demuxer=mpegts \
-    --disable-demuxer=ogg \
-    --disable-demuxer=rm \
-    --disable-demuxer=rtp \
-    --disable-demuxer=rtsp \
-    --disable-demuxer=sdp \
-    --disable-demuxer=yuv4mpegpipe \
-"   
 
 EXTRA_FFCONF = " \
     --disable-static \
@@ -165,6 +113,31 @@ EXTRA_FFCONF = " \
     --enable-decoder=wmav1 \
     --enable-decoder=wmav2 \
     --enable-decoder=wmavoice \
+    --enable-decoder=aac \
+    --enable-decoder=aac_latm \
+    --enable-decoder=adpcm_ct \
+    --enable-decoder=adpcm_g722 \
+    --enable-decoder=adpcm_g726 \
+    --enable-decoder=adpcm_g726le \
+    --enable-decoder=adpcm_ima_amv \
+    --enable-decoder=adpcm_ima_oki \
+    --enable-decoder=adpcm_ima_qt \
+    --enable-decoder=adpcm_ima_rad \
+    --enable-decoder=adpcm_ima_wav \
+    --enable-decoder=adpcm_ms \
+    --enable-decoder=adpcm_sbpro_2 \
+    --enable-decoder=adpcm_sbpro_3 \
+    --enable-decoder=adpcm_sbpro_4 \
+    --enable-decoder=adpcm_swf \
+    --enable-decoder=adpcm_yamaha \
+    --enable-decoder=flac \
+    --enable-decoder=g723_1 \
+    --enable-decoder=g729 \
+    --enable-decoder=opus \
+    --enable-decoder=qcelp \
+    --enable-decoder=qdm2 \
+    --enable-decoder=vorbis \
+    --enable-decoder=wavpack \
     --disable-demuxer=adp \
     --disable-demuxer=adx \
     --disable-demuxer=afc \
@@ -246,12 +219,14 @@ EXTRA_FFCONF = " \
     --disable-mipsdsp \
     --disable-mipsdspr2 \
     ${@base_contains('TARGET_FPU', 'soft', ' --disable-mipsfpu', '', d)} \
-    ${@base_contains('MACHINE_FEATURES', 'libeplayer', '${LIBPL_FFCONF}', '${GST_FFCONF}', d)} \
     --disable-indevs \
     --disable-outdevs \
     --enable-bzlib \
     --disable-zlib \
     --disable-bsfs \
+    --enable-libbluray \
+    --enable-protocol=bluray \
+    --enable-librtmp \
     --pkg-config="pkg-config" \
     --disable-debug \
     --extra-cflags="-ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
@@ -259,8 +234,7 @@ EXTRA_FFCONF = " \
     --prefix=${prefix} \
 "
 
-PACKAGECONFIG = " avdevice avfilter "
-PACKAGECONFIG =+ "${@base_contains('MACHINE_FEATURES', 'libeplayer', 'openssl', '', d)} "
+PACKAGECONFIG = "avdevice avfilter openssl"
 
 FILES_${PN}-dbg += "/usr/share"
 
