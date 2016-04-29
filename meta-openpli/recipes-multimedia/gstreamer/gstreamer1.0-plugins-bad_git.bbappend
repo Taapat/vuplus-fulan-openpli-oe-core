@@ -6,13 +6,13 @@ SRC_URI += " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
 	file://hls-use-max-playlist-quality.patch \
+	file://fix-segfault-on-media-stop.patch \
 "
 
 inherit gitpkgv
-SRCREV_base = "73ebdb888e047b14ceea19ce1a0bbbeff0cd7b2a"
+SRCREV_base = "7acb1a35cbd0041620109f0486b3c4a101bd57dc"
 PV = "1.9.0.4+git${SRCPV}"
 PKGV = "1.9.0.4+git${GITPKGV}"
-PR = "r1"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \
