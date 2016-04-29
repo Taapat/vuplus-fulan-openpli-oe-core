@@ -1,6 +1,6 @@
 DESCRIPTION = "Library to play files in enigma2 using ffmpeg"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://${OPENPLI_BASE}/LICENSE;md5=eb723b61539feef013de476e68b5c50a"
+LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "ffmpeg"
 
@@ -11,7 +11,7 @@ SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
-SRC_URI = "git://github.com/samsamsam-iptvplayer/exteplayer3.git"
+SRC_URI = "git://github.com/Taapat/exteplayer3-mipsel.git"
 
 S = "${WORKDIR}/git"
 
