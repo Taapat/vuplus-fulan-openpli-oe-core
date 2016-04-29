@@ -5,7 +5,11 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "enigma2"
 
-SRCREV = "6be7b41e2f6bbb700d3b0d85c365016b22eaf7d5"
+inherit gitpkgv
+SRCREV = "${AUTOREV}"
+PV = "1+git${SRCPV}"
+PKGV = "1+git${GITPKGV}"
+
 SRC_URI = "git://github.com/mx3L/serviceapp.git;branch=master"
 
 S = "${WORKDIR}/git"
