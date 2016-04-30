@@ -6,7 +6,7 @@ SRC_URI += " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
 	file://hls-use-max-playlist-quality.patch \
-	file://fix-segfault-on-media-stop.patch \
+	file://unschedule-clock-callback-when-tasks-are-ending.patch \
 "
 
 inherit gitpkgv
