@@ -7,9 +7,7 @@ require conf/license/openpli-gplv2.inc
 inherit allarch
 
 PV = "20160328"
-SRC_URI = "http://source.mynonpublic.com/rytecepg/rytec.sources.xml.${PV}.gz \
-    file://satmate.sources.xml \
-    "
+SRC_URI = "http://www.milosoftware.com/sat/rytec.sources.xml.${PV}.gz"
 S = "${WORKDIR}"
 
 PACKAGES = "${PN}"
