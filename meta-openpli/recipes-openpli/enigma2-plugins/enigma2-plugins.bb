@@ -20,7 +20,7 @@ RDEPENDS_enigma2-plugin-systemplugins-blindscan = "virtual/blindscan-dvbs"
 RDEPENDS_enigma2-plugin-extensions-bonjour = "avahi-daemon"
 
 PROVIDES += "\
-	${@base_contains("MACHINE_FEATURES", "transcoding","enigma2-plugin-systemplugins-transcodingsetup","",d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "transcoding","enigma2-plugin-systemplugins-transcodingsetup","",d)} \
 "
 
 inherit gitpkgv pythonnative pkgconfig
@@ -32,7 +32,7 @@ SRCREV = "${AUTOREV}"
 GITHUB_URI ?= "git://github.com"
 SRC_URI = "${GITHUB_URI}/OpenPLi/${BPN}.git"
 
-SRC_URI_append = "${@base_contains("MACHINE_FEATURES", "libeplayer", " file://shoutcast-fix-palying-with-libeplayer.patch ", "", d)}"
+SRC_URI_append = "${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", " file://shoutcast-fix-palying-with-libeplayer.patch ", "", d)}"
 
 EXTRA_OECONF = " \
 	BUILD_SYS=${BUILD_SYS} \

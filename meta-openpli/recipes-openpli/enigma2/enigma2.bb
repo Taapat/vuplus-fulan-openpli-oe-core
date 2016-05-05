@@ -6,20 +6,20 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 SRCREV = "${AUTOREV}"
 
-GST_DEPENDS = "${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)}"
+GST_DEPENDS = "${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)}"
 
 DEPENDS = " \
 	freetype \
 	gettext-native \
-	${@base_contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_DEPENDS}", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_DEPENDS}", d)} \
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-1.2 giflib libxml2 \
 	openssl \
 	python-imaging python-twisted python-wifi \
 	swig-native \
 	tuxtxt-enigma2 \
-	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "libmmeimage libmme-host vdstandby" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "libmmeimage libmme-host vdstandby" , "", d)} \
 	"
 
 RDEPENDS_${PN} = " \
@@ -28,12 +28,12 @@ RDEPENDS_${PN} = " \
 	ethtool \
 	glibc-gconv-iso8859-15 \
 	${PYTHON_RDEPS} \
-	${@base_contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "libmme-host vdstandby" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "libmme-host vdstandby" , "", d)} \
 	"
 
 GST_RRECOMMENDS = " \
-	${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)} \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)} \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
 	${GST_BAD_RDEPS} \
@@ -44,7 +44,7 @@ RRECOMMENDS_${PN} = " \
 	enigma2-plugin-skins-pli-hd \
 	hotplug-e2-helper \
 	glib-networking \
-	${@base_contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_RRECOMMENDS}", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_RRECOMMENDS}", d)} \
 	"
 
 PYTHON_RDEPS = " \
@@ -69,7 +69,7 @@ PYTHON_RDEPS = " \
 	python-zopeinterface \
 	"
 
-GST_BASE_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
+GST_BASE_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
 	gstreamer1.0-plugins-base-alsa \
 	gstreamer1.0-plugins-base-app \
 	gstreamer1.0-plugins-base-audioconvert \
@@ -94,7 +94,7 @@ GST_BASE_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
 	gst-plugins-base-vorbis \
 	', d)}"
 
-GST_GOOD_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
+GST_GOOD_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
 	gstreamer1.0-plugins-good-apetag \
 	gstreamer1.0-plugins-good-audioparsers \
 	gstreamer1.0-plugins-good-autodetect \
@@ -130,7 +130,7 @@ GST_GOOD_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
 	gst-plugins-good-wavparse \
 	', d)}"
 
-GST_BAD_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
+GST_BAD_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
 	gstreamer1.0-plugins-bad-dashdemux \
 	gstreamer1.0-plugins-bad-hls \
 	gstreamer1.0-plugins-bad-mms \
@@ -150,7 +150,7 @@ GST_BAD_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
 	gst-plugins-bad-faad \
 	', d)}"
 
-GST_UGLY_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
+GST_UGLY_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
 	gstreamer1.0-plugins-ugly-amrnb \
 	gstreamer1.0-plugins-ugly-amrwbdec \
 	gstreamer1.0-plugins-ugly-asf \
@@ -175,7 +175,7 @@ RRECOMMENDS_${PN} += "libdvdcss"
 # We depend on the font which we use for TXT subtitles (defined in skin_subtitles.xml)
 RDEPENDS_${PN} += "font-valis-enigma"
 
-RDEPENDS_${PN} += "${@base_contains("MACHINE_FEATURES", "blindscan-dvbc", "virtual/blindscan-dvbc" , "", d)}"
+RDEPENDS_${PN} += "${@bb.utils.contains("MACHINE_FEATURES", "blindscan-dvbc", "virtual/blindscan-dvbc" , "", d)}"
 
 DEMUXTOOL ?= "replex"
 
@@ -204,13 +204,13 @@ PKGV = "2.7+git${GITPKGV}"
 
 ENIGMA2_BRANCH ?= "master"
 GITHUB_URI ?= "git://github.com"
-ENIGMA2_URI1 = "${@base_contains("MACHINE_FEATURES", "uianimation", "Taapat/enigma2-openpli-vuplus" , "OpenPLi/${BPN}", d)}"
-ENIGMA2_URI = "${@base_contains("TARGET_ARCH", "sh4", "Taapat/enigma2-openpli-fulan" , "${ENIGMA2_URI1}", d)}"
+ENIGMA2_URI1 = "${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "Taapat/enigma2-openpli-vuplus" , "OpenPLi/${BPN}", d)}"
+ENIGMA2_URI = "${@bb.utils.contains("TARGET_ARCH", "sh4", "Taapat/enigma2-openpli-fulan" , "${ENIGMA2_URI1}", d)}"
 
 SRC_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
 
-GST_LDFLAGS = "${@base_contains("GST_VERSION", "1.0", " -lxml2 ", "", d)}"
-LDFLAGS_prepend = "${@base_contains("MACHINE_FEATURES", "libeplayer", "", "${GST_LDFLAGS}", d)}"
+GST_LDFLAGS = "${@bb.utils.contains("GST_VERSION", "1.0", " -lxml2 ", "", d)}"
+LDFLAGS_prepend = "${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "${GST_LDFLAGS}", d)}"
 
 S = "${WORKDIR}/git"
 
@@ -229,16 +229,16 @@ PKGV_enigma2-fonts = "${PV_enigma2-fonts}"
 PKGR_enigma2-fonts = "${PR_enigma2-fonts}"
 FILES_enigma2-fonts = "${datadir}/fonts"
 
-GST_OECONF = "${@base_contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)}"
+GST_OECONF = "${@bb.utils.contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)}"
 
 EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
 	ac_cv_prog_c_openmp=-fopenmp \
-	${@base_contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "${GST_OECONF}", d)} \
-	${@base_contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "--enable-${MACHINE} --with-lcd=no" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "${GST_OECONF}", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "--enable-${MACHINE} --with-lcd=no" , "", d)} \
 	BUILD_SYS=${BUILD_SYS} \
 	HOST_SYS=${HOST_SYS} \
 	STAGING_INCDIR=${STAGING_INCDIR} \

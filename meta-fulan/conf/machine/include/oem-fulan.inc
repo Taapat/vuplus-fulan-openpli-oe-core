@@ -3,8 +3,8 @@ include conf/machine/include/build-extras.inc
 
 BRAND_OEM = "fulan"
 
-MACHINE_NAME = "${@base_contains('MACHINEBUILD', 'dynaspark7162', 'SPARK 7162' , 'SPARK', d)}"
-MACHINE_BRAND = "${@base_contains('MACHINEBUILD', 'dynaspark7162', 'Dynavision' , 'Spark', d)}"
+MACHINE_NAME = "${@bb.utils.contains('MACHINEBUILD', 'dynaspark7162', 'SPARK 7162' , 'SPARK', d)}"
+MACHINE_BRAND = "${@bb.utils.contains('MACHINEBUILD', 'dynaspark7162', 'Dynavision' , 'Spark', d)}"
 
 IMAGEDIR ?= "enigma2"
 MTD_KERNEL = "mtd5"
@@ -88,7 +88,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
     "
 
 MACHINE_EXTRA_RRECOMMENDS = " \
-    ${@base_contains("MACHINE_FEATURES", "libeplayer", "", "gstreamer1.0-plugin-multibox-dvbmediasink", d)} \
+    ${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "gstreamer1.0-plugin-multibox-dvbmediasink", d)} \
     enigma2-plugin-systemplugins-sh4osdadjustment \
     ntfs-3g \
     "

@@ -7,7 +7,7 @@ require conf/license/openpli-gplv2.inc
 # the 3rd party plugins originate here.
 DISTRO_HOST = "downloads.pli-images.org"
 FEEDS = "3rd-party"
-FEEDS =+ "${@base_contains("TARGET_ARCH", "sh4", "" , " 3rd-party-${MACHINE}", d)}"
+FEEDS =+ "${@bb.utils.contains("TARGET_ARCH", "sh4", "" , " 3rd-party-${MACHINE}", d)}"
 
 do_compile() {
     [ ! -d ${S}/${sysconfdir}/opkg ] && mkdir -p ${S}/${sysconfdir}/opkg

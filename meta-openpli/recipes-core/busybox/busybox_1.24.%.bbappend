@@ -47,7 +47,7 @@ FILES_${PN}-rdate = "${sysconfdir}/rdate ${sysconfdir}/init.d/${BPN}-rdate"
 RDEPENDS_${PN}-rdate += "${PN}"
 
 RRECOMMENDS_${PN} = "${PN}-udhcpc ${PN}-inetd \
-	${@base_contains('TARGET_ARCH', 'sh4', '${PN}-rdate' , '', d)} \
+	${@bb.utils.contains('TARGET_ARCH', 'sh4', '${PN}-rdate' , '', d)} \
 "
 
 PACKAGES =+ "${PN}-cron"

@@ -12,7 +12,7 @@ PACKAGECONFIG = "libav"
 CFLAGS_append = " -Wno-deprecated-declarations "
 
 LIBAV_EXTRA_CONFIGURE_COMMON_ARG =+ " \
-  ${@base_contains('TARGET_FPU', 'soft', ' --disable-mipsfpu', ' --enable-mipsfpu', d)} \
+  ${@bb.utils.contains('TARGET_FPU', 'soft', ' --disable-mipsfpu', ' --enable-mipsfpu', d)} \
   --disable-mipsdsp \
   --disable-mipsdspr2 \
 "

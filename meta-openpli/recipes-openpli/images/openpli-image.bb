@@ -12,17 +12,17 @@ IMAGE_INSTALL = " \
 	e2fsprogs-mke2fs \
 	e2fsprogs-tune2fs \
 	fakelocale \
-	${@base_contains("TARGET_ARCH", "sh4", "flash-tools" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "flash-tools" , "", d)} \
 	kernel-params \
 	modutils-loadscript \
-	${@base_contains("TARGET_ARCH", "sh4", "mountspark" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "mountspark" , "", d)} \
 	nfs-utils-client \
 	openpli-bootlogo \
 	opkg \
 	packagegroup-base \
 	packagegroup-core-boot \
 	parted \
-	${@base_contains("TARGET_ARCH", "sh4", "" , "samba-base", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "samba-base", d)} \
 	sdparm \
 	tuxbox-common \
 	tuxbox-links \

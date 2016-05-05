@@ -8,11 +8,11 @@ KERNEL_WIFI_DRIVERS = " \
 	firmware-rt73 \
 	firmware-rtl8712u \
 	firmware-zd1211 \
-	${@base_contains("TARGET_ARCH", "sh4", "firmware-rt3070 firmware-mt7601u" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "firmware-rt3070 firmware-mt7601u" , "", d)} \
 	\
-	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-ath" , "kernel-module-ath9k-htc", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-ar9170usb" , "kernel-module-carl9170", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-8712u" , "kernel-module-r8712u", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-ath" , "kernel-module-ath9k-htc", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-ar9170usb" , "kernel-module-carl9170", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-8712u" , "kernel-module-r8712u", d)} \
 	kernel-module-rt2500usb \
 	kernel-module-rt2800usb \
 	kernel-module-rt73usb \
@@ -23,8 +23,8 @@ KERNEL_WIFI_DRIVERS = " \
 EXTRA_KERNEL_WIFI_DRIVERS = " \
 	firmware-rtl8192cu \
 	\
-	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-8188eu" , "kernel-module-r8188eu", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-8192cu" , "kernel-module-rtl8192cu", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-8188eu" , "kernel-module-r8188eu", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-8192cu" , "kernel-module-rtl8192cu", d)} \
 	"
 
 EXTERNAL_WIFI_DRIVERS = " \
@@ -56,17 +56,17 @@ ENIGMA2_PLUGINS = " \
 	enigma2-plugin-systemplugins-videomode \
 	enigma2-plugin-systemplugins-videotune \
 	\
-	${@base_contains("MACHINE_FEATURES", "3dtv", "enigma2-plugin-systemplugins-osd3dsetup" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "osdposition", "enigma2-plugin-systemplugins-osdpositionsetup" , "", d)} \
-	${@base_contains("MACHINE_FEATURES", "wlan", "enigma2-plugin-systemplugins-wirelesslan", "", d)} \
-	${@base_contains("MACHINE_FEATURES", "uianimation", "enigma2-plugin-systemplugins-animationsetup" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "3dtv", "enigma2-plugin-systemplugins-osd3dsetup" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "dvb-c", "enigma2-plugin-systemplugins-cablescan" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "osdposition", "enigma2-plugin-systemplugins-osdpositionsetup" , "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "wlan", "enigma2-plugin-systemplugins-wirelesslan", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "enigma2-plugin-systemplugins-animationsetup" , "", d)} \
 	\
-	${@base_contains('OPENPLI_FEATURES', 'ci', 'enigma2-plugin-systemplugins-commoninterfaceassignment', '', d)} \
-	${@base_contains('OPENPLI_FEATURES', 'dvd', 'enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-dvdplayer', '', d)} \
-	${@base_contains('OPENPLI_FEATURES', 'fan', 'enigma2-plugin-systemplugins-tempfancontrol', '', d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto enigma2-plugin-systemplugins-autovolume" , "enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-blurayplayer", d)} \
+	${@bb.utils.contains('OPENPLI_FEATURES', 'ci', 'enigma2-plugin-systemplugins-commoninterfaceassignment', '', d)} \
+	${@bb.utils.contains('OPENPLI_FEATURES', 'dvd', 'enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-dvdplayer', '', d)} \
+	${@bb.utils.contains('OPENPLI_FEATURES', 'fan', 'enigma2-plugin-systemplugins-tempfancontrol', '', d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto enigma2-plugin-systemplugins-autovolume" , "enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-blurayplayer", d)} \
 	"
 
 DEPENDS += " \
@@ -85,13 +85,13 @@ IMAGE_INSTALL += " \
 	tuxbox-common \
 	${ENIGMA2_PLUGINS} \
 	\
-	${@base_contains("MACHINE_FEATURES", "transcoding", "streamproxy", "", d)} \
-	${@base_contains('MACHINE_FEATURES', 'ctrlrc', "enigma2-plugin-systemplugins-remotecontrolcode", "", d)} \
-	${@base_contains("MACHINE_FEATURES", "kernelwifi", "${KERNEL_WIFI_DRIVERS}", "", d)} \
-	${@base_contains("MACHINE_FEATURES", "extrakernelwifi", "${EXTRA_KERNEL_WIFI_DRIVERS}", "", d)} \
-	${@base_contains("MACHINE_FEATURES", "externalwifi", "${EXTERNAL_WIFI_DRIVERS}", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "transcoding", "streamproxy", "", d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'ctrlrc', "enigma2-plugin-systemplugins-remotecontrolcode", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "kernelwifi", "${KERNEL_WIFI_DRIVERS}", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "extrakernelwifi", "${EXTRA_KERNEL_WIFI_DRIVERS}", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "externalwifi", "${EXTERNAL_WIFI_DRIVERS}", "", d)} \
 	\
-	${@base_contains('OPENPLI_FEATURES', 'dvd', 'cdtextinfo', '', d)} \
+	${@bb.utils.contains('OPENPLI_FEATURES', 'dvd', 'cdtextinfo', '', d)} \
 	"
 
 export IMAGE_BASENAME = "openpli-enigma2"

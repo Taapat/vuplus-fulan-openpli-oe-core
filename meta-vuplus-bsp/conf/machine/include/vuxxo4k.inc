@@ -2,8 +2,8 @@
 MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
-	${@base_contains("MACHINE_FEATURES", "dvbproxy", "vuplus-dvb-proxy-${MACHINE} libgles-${MACHINE} vuplus-platform-util-${MACHINE}", "vuplus-dvb-modules-${MACHINE}", d)} \
-	${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-libav", "gst-ffmpeg", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "vuplus-dvb-proxy-${MACHINE} libgles-${MACHINE} vuplus-platform-util-${MACHINE}", "vuplus-dvb-modules-${MACHINE}", d)} \
+	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0-libav", "gst-ffmpeg", d)} \
 "
 
 KERNEL_MODULE_AUTOLOAD += "xfs"
@@ -12,7 +12,7 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 	vuplus-shutdown \
 	gst-plugin-dvbmediasink \
 	ntfs-3g \
-	${@base_contains("MACHINE_FEATURES", "minitv", "enigma2-plugin-extensions-minitv", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "minitv", "enigma2-plugin-extensions-minitv", "", d)} \
 "
 
 EXTRA_IMAGEDEPENDS += "\

@@ -13,7 +13,7 @@ def add_gst_provides():
 
 GST_PROVIDES = "${@add_gst_provides()}"
 
-RPROVIDES_${PN} = " ${@base_contains("MACHINE_FEATURES", "libeplayer", "${GST_PROVIDES}", "", d)} "
+RPROVIDES_${PN} = " ${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "${GST_PROVIDES}", "", d)} "
 
 do_install_append () {
 	install -d ${D}${includedir}/libeplayer3/include

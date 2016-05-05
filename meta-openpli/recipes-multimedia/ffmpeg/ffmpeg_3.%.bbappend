@@ -218,7 +218,7 @@ EXTRA_FFCONF = " \
     --disable-mips32r2 \
     --disable-mipsdsp \
     --disable-mipsdspr2 \
-    ${@base_contains('TARGET_FPU', 'soft', ' --disable-mipsfpu', '', d)} \
+    ${@bb.utils.contains('TARGET_FPU', 'soft', ' --disable-mipsfpu', '', d)} \
     --disable-indevs \
     --disable-outdevs \
     --enable-bzlib \

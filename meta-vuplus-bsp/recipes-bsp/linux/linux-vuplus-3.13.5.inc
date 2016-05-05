@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/linux/COPYING;md5=d7810fab7487fb0aad327b76
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/linux-vuplus-${KV}:"
 
-KERNEL_CONFIG = "${@base_contains("MACHINE_FEATURES", "dvbproxy", "${MACHINE}_defconfig_proxy", "${MACHINE}_defconfig", d)}"
+KERNEL_CONFIG = "${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "${MACHINE}_defconfig_proxy", "${MACHINE}_defconfig", d)}"
 
 SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KV}.tar.bz2 \
 	file://nfs-max-rwsize-8k.patch \
@@ -24,7 +24,7 @@ SRC_URI += "http://archive.vuplus.com/download/kernel/stblinux-${KV}.tar.bz2 \
 	file://0001-STV-Add-PLS-support.patch \
 	file://0001-STV-Add-SNR-Signal-report-parameters.patch \
 	file://0001-stv090x-optimized-TS-sync-control.patch \
-	${@base_contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "dvbproxy", "file://linux_dvb_adapter.patch", "", d)} \
 	file://${KERNEL_CONFIG} \
 	"
 
