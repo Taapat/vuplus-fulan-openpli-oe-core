@@ -4,6 +4,7 @@ PRIORITY = "required"
 LICENSE = "CLOSED"
 
 DEPENDS += "virtual/kernel"
+do_configure[depends] += "virtual/kernel:do_shared_workdir"
 
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
