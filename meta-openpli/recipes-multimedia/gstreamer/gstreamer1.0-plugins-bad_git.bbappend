@@ -6,11 +6,10 @@ SRC_URI += " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
 	file://hls-use-max-playlist-quality.patch \
-	file://unschedule-clock-callback-when-tasks-are-ending.patch \
 "
 
 inherit gitpkgv
-SRCREV_base = "7acb1a35cbd0041620109f0486b3c4a101bd57dc"
+SRCREV_base = "a118f6a635656a578f89ab49c19d59ce0d82da06"
 PV = "1.9.0.4+git${SRCPV}"
 PKGV = "1.9.0.4+git${GITPKGV}"
 
