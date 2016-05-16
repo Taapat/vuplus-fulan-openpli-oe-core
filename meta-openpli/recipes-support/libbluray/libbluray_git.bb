@@ -9,11 +9,11 @@ DEPENDS = "libxml2"
 RDEPENDS_${PN} = "libxml2"
 
 SRC_URI = "git://git.videolan.org/libbluray.git;branch=master;protocol=git"
-SRCREV="adefe3ba84c614eb62632b79107643db30ec6abf"
+SRCREV="eefd7c6a192b5243ec9b25676944fcb87cfa3c2e"
 
 inherit gitpkgv
-PV = "v0.9.2+git${SRCPV}"
-PKGV = "v0.9.2+git${GITPKGV}"
+PV = "v0.9.3+git${SRCPV}"
+PKGV = "v0.9.3+git${GITPKGV}"
 
 S="${WORKDIR}/git"
 
