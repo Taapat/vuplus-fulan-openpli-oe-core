@@ -21,6 +21,7 @@ OPTIONAL_PACKAGES += " \
 	ctorrent \
 	cups \
 	djmount \
+	dosfstools \
 	dvb-apps \
 	dvbsnoop \
 	dvdfs \
@@ -33,6 +34,7 @@ OPTIONAL_PACKAGES += " \
 	inadyn-mt \
 	iperf \
 	joe \
+	libudfread \
 	mc \
 	minisatip \
 	mtd-utils \
