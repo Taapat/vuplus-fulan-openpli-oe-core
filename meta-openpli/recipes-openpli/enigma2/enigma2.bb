@@ -202,7 +202,7 @@ inherit gitpkgv pythonnative
 PV = "2.7+git${SRCPV}"
 PKGV = "2.7+git${GITPKGV}"
 
-ENIGMA2_BRANCH ?= "next-master"
+ENIGMA2_BRANCH ?= "master"
 GITHUB_URI ?= "git://github.com"
 ENIGMA2_URI1 = "${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "Taapat/enigma2-openpli-vuplus" , "OpenPLi/${BPN}", d)}"
 ENIGMA2_URI = "${@bb.utils.contains("TARGET_ARCH", "sh4", "Taapat/enigma2-openpli-fulan" , "${ENIGMA2_URI1}", d)}"
