@@ -6,12 +6,13 @@ SRC_URI += " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
 	file://hls-use-max-playlist-quality.patch \
+	file://0002-mpegtsdemux-do-not-abort-playback-when-no-PCR-were-f.patch \
 "
 
 inherit gitpkgv
-SRCREV_base = "a118f6a635656a578f89ab49c19d59ce0d82da06"
-PV = "1.9.0.4+git${SRCPV}"
-PKGV = "1.9.0.4+git${GITPKGV}"
+SRCREV_base = "e597e450086d547cbacdcab94785ebddc3393fed"
+PV = "1.9.0.4.1+git${SRCPV}"
+PKGV = "1.9.0.4.1+git${GITPKGV}"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \
