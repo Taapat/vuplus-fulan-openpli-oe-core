@@ -2,7 +2,7 @@ DESCRIPTION = "Library to play files in enigma2 using ffmpeg"
 
 require ddt-apps.inc
 
-PR = "r0"
+PR = "r1"
 
 DEPENDS = "libass ffmpeg"
 RDEPENDS_${PN} = "libass libavutil libavformat"
