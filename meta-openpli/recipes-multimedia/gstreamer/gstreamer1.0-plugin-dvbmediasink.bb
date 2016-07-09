@@ -15,8 +15,8 @@ S = "${WORKDIR}/git"
 
 inherit gitpkgv autotools pkgconfig
 
-PV = "1.9.0.4+git${SRCPV}"
-PKGV = "1.9.0.4+git${GITPKGV}"
+PV = "1.9.1.1+git${SRCPV}"
+PKGV = "1.9.1.1+git${GITPKGV}"
 PR = "r1"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"

@@ -1,9 +1,9 @@
 DEFAULT_PREFERENCE = "1"
 
 inherit gitpkgv
-SRCREV_base = "f52343fcf85d3d700e78210ff6ee07de1ea42da1"
-PV = "1.9.0.4+git${SRCPV}"
-PKGV = "1.9.0.4+git${GITPKGV}"
+SRCREV_base = "5a78bac10ed3df807d19794df72976ce2ad541dc"
+PV = "1.9.1.1+git${SRCPV}"
+PKGV = "1.9.1.1+git${GITPKGV}"
 
 PACKAGECONFIG = " \
     ${GSTREAMER_ORC} \
