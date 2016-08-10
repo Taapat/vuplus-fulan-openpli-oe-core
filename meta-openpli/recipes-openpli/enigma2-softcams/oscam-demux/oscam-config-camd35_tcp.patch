@@ -1,6 +1,6 @@
---- a/config.h	2015-11-15 00:02:27.199605331 +0200
-+++ b/config.h	2015-10-26 20:05:12.151707000 +0200
-@@ -3,70 +3,70 @@
+--- a/config.h	2016-08-10 21:35:49.717868932 +0300
++++ b/config.h	2016-08-10 21:54:22.857767078 +0300
+@@ -3,71 +3,71 @@
  
  #define WEBIF 1
  #define WEBIF_LIVELOG 1
@@ -82,6 +82,7 @@
 -#define CARDREADER_SMARGO 1
 -#define CARDREADER_DB2COM 1
 -#define CARDREADER_STINGER 1
+-#define CARDREADER_DRECAS 1
 +//#define READER_NAGRA 1
 +//#define READER_IRDETO 1
 +//#define READER_CONAX 1
@@ -102,6 +103,7 @@
 +//#define CARDREADER_SMARGO 1
 +//#define CARDREADER_DB2COM 1
 +//#define CARDREADER_STINGER 1
++//#define CARDREADER_DRECAS 1
  
  #ifdef WITH_PCSC
 -#define CARDREADER_PCSC 1
@@ -114,7 +116,7 @@
  #endif
  
  // CARDREADER_INTERNAL_{AZBOX,COOLAPI,SCI} are internal variables
-@@ -82,11 +82,11 @@
+@@ -83,15 +83,15 @@
  #endif
  
  #ifdef WITH_STAPI
@@ -125,6 +127,11 @@
  #ifdef WITH_STAPI5
 -#define CARDREADER_STAPI5 1
 +//#define CARDREADER_STAPI5 1
+ #endif
+ 
+ #ifdef READER_DRE
+-#define READER_DRECAS 1
++//#define READER_DRECAS 1
  #endif
  
  #endif // WITH_CARDREADER
