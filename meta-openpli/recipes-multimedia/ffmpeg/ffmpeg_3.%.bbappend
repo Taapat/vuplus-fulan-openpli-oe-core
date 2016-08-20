@@ -1,12 +1,12 @@
 PR = "r0"
 
-DEPENDS = "libbluray rtmpdump libxml2 openssl"
-RDEPENDS_${PN} = "libbluray rtmpdump libxml2 openssl"
+DEPENDS = "libbluray rtmpdump libxml2"
 
 SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
     file://ffmpeg-buffer-size.patch \
     file://ffmpeg-aac.patch \
+    file://ffmpeg-fix-mpegts.patch \
 "
 
 EXTRA_FFCONF = " \
@@ -57,6 +57,7 @@ EXTRA_FFCONF = " \
     --enable-decoder=dsd_msbf_planar \
     --enable-decoder=eac3 \
     --enable-decoder=evrc \
+    --enable-decoder=h264 \
     --enable-decoder=iac \
     --enable-decoder=imc \
     --enable-decoder=mace3 \
@@ -221,7 +222,6 @@ EXTRA_FFCONF = " \
     ${@bb.utils.contains('TARGET_FPU', 'soft', ' --disable-mipsfpu', '', d)} \
     --disable-indevs \
     --disable-outdevs \
-    --enable-bzlib \
     --disable-zlib \
     --disable-bsfs \
     --enable-libbluray \
@@ -234,7 +234,7 @@ EXTRA_FFCONF = " \
     --prefix=${prefix} \
 "
 
-PACKAGECONFIG = "avdevice avfilter openssl"
+PACKAGECONFIG = "avdevice avfilter avcodec avformat swresample swscale openssl bzlib"
 
 FILES_${PN}-dbg += "/usr/share"
 
