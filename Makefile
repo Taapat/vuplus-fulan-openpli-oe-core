@@ -26,6 +26,7 @@ BBLAYERS ?= \
 	$(CURDIR)/meta-fulan \
 	$(CURDIR)/meta-openpli \
 	$(CURDIR)/meta-vuplus-bsp \
+	$(CURDIR)/meta-gi \
 	$(CURDIR)/meta-local
 
 CONFFILES = \

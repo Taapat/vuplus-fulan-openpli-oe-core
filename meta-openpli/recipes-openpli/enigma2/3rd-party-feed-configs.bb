@@ -1,5 +1,5 @@
 DESCRIPTION = "Configuration files for 3rd-party feeds"
-PR = "r2"
+PR = "r3"
 
 require conf/license/openpli-gplv2.inc
 
@@ -8,6 +8,9 @@ require conf/license/openpli-gplv2.inc
 DISTRO_HOST = "downloads.pli-images.org"
 FEEDS = "3rd-party"
 FEEDS =+ "${@bb.utils.contains("TARGET_ARCH", "sh4", "" , " 3rd-party-${MACHINE}", d)}"
+
+# allow the complete 3rd party feed to be overridden
+DISTRO_THIRD_PARTY_FEED_URI ?= "${DISTRO_FEED_URI}"
 
 do_compile() {
     [ ! -d ${S}/${sysconfdir}/opkg ] && mkdir -p ${S}/${sysconfdir}/opkg

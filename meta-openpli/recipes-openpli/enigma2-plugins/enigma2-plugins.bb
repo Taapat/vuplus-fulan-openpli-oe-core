@@ -13,6 +13,8 @@ PACKAGES += "\
 	enigma2-plugin-extensions-mosaic \
 	enigma2-plugin-extensions-fancontrol2 \
 	enigma2-plugin-extensions-bonjour \
+	enigma2-plugin-extensions-transmission \
+	enigma2-plugin-systemplugins-systemtime \
 	"
 RDEPENDS_enigma2-plugin-extensions-mosaic = "aio-grab"
 RDEPENDS_enigma2-plugin-extensions-fancontrol2 = "smartmontools hdparm"
@@ -20,6 +22,7 @@ RDEPENDS_enigma2-plugin-extensions-bonjour = "avahi-daemon"
 
 RRECOMMENDS_enigma2-plugin-systemplugins-blindscan = "virtual/blindscan-dvbs"
 RRECOMMENDS_enigma2-plugin-systemplugins-systemtime = "ntpdate"
+RRECOMMENDS_enigma2-plugin-extensions-transmission = "transmission transmission-client"
 
 PROVIDES += "\
 	${@bb.utils.contains("MACHINE_FEATURES", "transcoding","enigma2-plugin-systemplugins-transcodingsetup","",d)} \
@@ -59,7 +62,7 @@ FILES_enigma2-plugin-extensions-netcaster += "${sysconfdir}/NETcaster.conf"
 CONFFILES_enigma2-plugin-extensions-netcaster += "${sysconfdir}/NETcaster.conf"
 
 FILES_${PN}-meta = "${datadir}/meta"
-PACKAGES += "${PN}-meta"
+PACKAGES += "${PN}-meta ${PN}-build-dependencies"
 PACKAGE_ARCH = "all"
 
 PACKAGE_ARCH_enigma2-plugin-extensions-moviecut = "${TUNE_PKGARCH}"
