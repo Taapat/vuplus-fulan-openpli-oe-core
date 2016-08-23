@@ -170,8 +170,7 @@ ENIGMA2_URI = "${@bb.utils.contains("TARGET_ARCH", "sh4", "Taapat/enigma2-openpl
 
 SRC_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
 
-LDFLAGS_prepend = " -lxml2 "
-LDFLAGS_prepend = "${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "${GST_LDFLAGS}", d)}"
+LDFLAGS_prepend = "${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", " -lxml2 ", d)}"
 
 S = "${WORKDIR}/git"
 
