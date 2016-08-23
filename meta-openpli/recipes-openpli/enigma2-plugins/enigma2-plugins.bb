@@ -93,7 +93,7 @@ python populate_packages_prepend () {
         import os
         try:
             src = open(mydir + package + "/CONTROL/control").read()
-        except Exception, ex:
+        except Exception as ex:
             bb.note("Failed to get control lines for package '%s': %s" % (package, ex))
             return
         for line in src.split("\n"):
