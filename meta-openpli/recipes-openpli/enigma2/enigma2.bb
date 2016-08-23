@@ -193,7 +193,7 @@ EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
 	ac_cv_prog_c_openmp=-fopenmp \
-	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "--with-gstversion=1.0, d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "--with-gstversion=1.0", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "--enable-${MACHINE} --with-lcd=no" , "", d)} \
