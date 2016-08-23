@@ -3,18 +3,19 @@ we just check whether does the module exist.
 
 Signed-off-by: Bian Naimeng <biannm@cn.fujitsu.com>
 
---- a/buildtools/wafsamba/samba_bundled.py	2016-04-02 13:06:08.411051493 +0300
-+++ b/buildtools/wafsamba/samba_bundled.py	2016-04-02 13:09:33.080066386 +0300
-@@ -1,7 +1,7 @@
- # functions to support bundled libraries
+Index: samba-4.4.2/buildtools/wafsamba/samba_bundled.py
+===================================================================
+--- samba-4.4.2.orig/buildtools/wafsamba/samba_bundled.py
++++ samba-4.4.2/buildtools/wafsamba/samba_bundled.py
+@@ -2,6 +2,7 @@
  
  import sys
--import Build, Options, Logs
-+import Build, Options, Logs, imp
+ import Build, Options, Logs
++import imp, os
  from Configure import conf
  from samba_utils import TO_LIST
  
-@@ -230,17 +230,32 @@ def CHECK_BUNDLED_SYSTEM_PYTHON(conf, li
+@@ -230,17 +231,32 @@ def CHECK_BUNDLED_SYSTEM_PYTHON(conf, li
      # versions
      minversion = minimum_library_version(conf, libname, minversion)
  
