@@ -3,6 +3,7 @@ DEFAULT_PREFERENCE = "1"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += " \
+	git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;name=last \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
 	file://hls-use-max-playlist-quality.patch \
@@ -10,7 +11,8 @@ SRC_URI += " \
 "
 
 inherit gitpkgv
-SRCREV_base = "c6d389c7722e0ed0d39ea4f85f7fa14a42f1187c"
+SRCREV_last = "c6d389c7722e0ed0d39ea4f85f7fa14a42f1187c"
+SRCREV_FORMAT = "last"
 PV = "1.9.1.1+git${SRCPV}"
 PKGV = "1.9.1.1+git${GITPKGV}"
 
