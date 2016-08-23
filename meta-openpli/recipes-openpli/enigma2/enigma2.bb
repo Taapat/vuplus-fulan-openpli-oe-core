@@ -6,12 +6,10 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 SRCREV = "${AUTOREV}"
 
-GST_DEPENDS = "${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)}"
-
 DEPENDS = " \
 	freetype \
 	gettext-native \
-	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_DEPENDS}", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "gstreamer1.0-plugins-base gstreamer1.0", d)} \
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-1.2 giflib libxml2 \
 	openssl \
@@ -33,7 +31,7 @@ RDEPENDS_${PN} = " \
 	"
 
 GST_RRECOMMENDS = " \
-	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)} \
+	gstreamer1.0-plugin-subsink \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
 	${GST_BAD_RDEPS} \
@@ -69,7 +67,7 @@ PYTHON_RDEPS = " \
 	python-zopeinterface \
 	"
 
-GST_BASE_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
+GST_BASE_RDEPS = "\
 	gstreamer1.0-plugins-base-alsa \
 	gstreamer1.0-plugins-base-app \
 	gstreamer1.0-plugins-base-audioconvert \
@@ -80,21 +78,9 @@ GST_BASE_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
 	gstreamer1.0-plugins-base-subparse \
 	gstreamer1.0-plugins-base-typefindfunctions \
 	gstreamer1.0-plugins-base-vorbis \
-	', ' \
-	gst-plugins-base-alsa \
-	gst-plugins-base-app \
-	gst-plugins-base-audioconvert \
-	gst-plugins-base-audioresample \
-	gst-plugins-base-decodebin \
-	gst-plugins-base-decodebin2 \
-	gst-plugins-base-ogg \
-	gst-plugins-base-playbin \
-	gst-plugins-base-subparse \
-	gst-plugins-base-typefindfunctions \
-	gst-plugins-base-vorbis \
-	', d)}"
+	"
 
-GST_GOOD_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
+GST_GOOD_RDEPS = "\
 	gstreamer1.0-plugins-good-apetag \
 	gstreamer1.0-plugins-good-audioparsers \
 	gstreamer1.0-plugins-good-autodetect \
@@ -111,26 +97,9 @@ GST_GOOD_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
 	gstreamer1.0-plugins-good-souphttpsrc \
 	gstreamer1.0-plugins-good-udp \
 	gstreamer1.0-plugins-good-wavparse \
-	', ' \
-	gst-plugins-good-apetag \
-	gst-plugins-good-audioparsers \
-	gst-plugins-good-autodetect \
-	gst-plugins-good-avi \
-	gst-plugins-good-flac \
-	gst-plugins-good-flv \
-	gst-plugins-good-icydemux \
-	gst-plugins-good-id3demux \
-	gst-plugins-good-isomp4 \
-	gst-plugins-good-matroska \
-	gst-plugins-good-rtp \
-	gst-plugins-good-rtpmanager \
-	gst-plugins-good-rtsp \
-	gst-plugins-good-souphttpsrc \
-	gst-plugins-good-udp \
-	gst-plugins-good-wavparse \
-	', d)}"
+	"
 
-GST_BAD_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
+GST_BAD_RDEPS = "\
 	gstreamer1.0-plugins-bad-dashdemux \
 	gstreamer1.0-plugins-bad-hls \
 	gstreamer1.0-plugins-bad-mms \
@@ -140,33 +109,16 @@ GST_BAD_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
 	gstreamer1.0-plugins-bad-smoothstreaming \
 	gstreamer1.0-plugins-bad-faad \
 	gstreamer1.0-plugins-bad-videoparsersbad \
-	', ' \
-	gst-plugins-bad-cdxaparse \
-	gst-plugins-bad-mms \
-	gst-plugins-bad-mpegdemux \
-	gst-plugins-bad-rtmp \
-	gst-plugins-bad-vcdsrc \
-	gst-plugins-bad-fragmented \
-	gst-plugins-bad-faad \
-	', d)}"
+	"
 
-GST_UGLY_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
+GST_UGLY_RDEPS = "\
 	gstreamer1.0-plugins-ugly-amrnb \
 	gstreamer1.0-plugins-ugly-amrwbdec \
 	gstreamer1.0-plugins-ugly-asf \
 	gstreamer1.0-plugins-ugly-cdio \
 	gstreamer1.0-plugins-ugly-dvdsub \
 	gstreamer1.0-plugins-ugly-mad \
-	', ' \
-	gst-plugins-ugly-amrnb \
-	gst-plugins-ugly-amrwbdec \
-	gst-plugins-ugly-asf \
-	gst-plugins-ugly-cdio \
-	gst-plugins-ugly-dvdsub \
-	gst-plugins-ugly-mad \
-	gst-plugins-ugly-mpegaudioparse \
-	gst-plugins-ugly-mpegstream \
-	', d)}"
+	"
 
 # DVD playback is integrated, we need the libraries
 RDEPENDS_${PN} += "libdreamdvd"
@@ -218,7 +170,7 @@ ENIGMA2_URI = "${@bb.utils.contains("TARGET_ARCH", "sh4", "Taapat/enigma2-openpl
 
 SRC_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
 
-GST_LDFLAGS = "${@bb.utils.contains("GST_VERSION", "1.0", " -lxml2 ", "", d)}"
+LDFLAGS_prepend = " -lxml2 "
 LDFLAGS_prepend = "${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "${GST_LDFLAGS}", d)}"
 
 S = "${WORKDIR}/git"
@@ -238,13 +190,11 @@ PKGV_enigma2-fonts = "${PV_enigma2-fonts}"
 PKGR_enigma2-fonts = "${PR_enigma2-fonts}"
 FILES_enigma2-fonts = "${datadir}/fonts"
 
-GST_OECONF = "${@bb.utils.contains("GST_VERSION", "1.0", "--with-gstversion=1.0", "", d)}"
-
 EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
 	ac_cv_prog_c_openmp=-fopenmp \
-	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "${GST_OECONF}", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "--with-gstversion=1.0, d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "--enable-${MACHINE} --with-lcd=no" , "", d)} \
