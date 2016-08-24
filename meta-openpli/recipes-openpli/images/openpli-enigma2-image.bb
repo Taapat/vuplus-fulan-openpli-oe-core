@@ -66,7 +66,7 @@ ENIGMA2_PLUGINS = " \
 	${@bb.utils.contains('OPENPLI_FEATURES', 'ci', 'enigma2-plugin-systemplugins-commoninterfaceassignment', '', d)} \
 	${@bb.utils.contains('OPENPLI_FEATURES', 'dvd', 'enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-dvdplayer', '', d)} \
 	${@bb.utils.contains('OPENPLI_FEATURES', 'fan', 'enigma2-plugin-systemplugins-tempfancontrol', '', d)} \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto enigma2-plugin-systemplugins-autovolume" , "enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-blurayplayer", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-block2mtd libcrypto enigma2-plugin-systemplugins-autovolume" , "enigma2-plugin-extensions-audiosync enigma2-plugin-extensions-blurayplayer enigma2-plugin-extensions-serviceapp exteplayer3", d)} \
 	"
 
 DEPENDS += " \
