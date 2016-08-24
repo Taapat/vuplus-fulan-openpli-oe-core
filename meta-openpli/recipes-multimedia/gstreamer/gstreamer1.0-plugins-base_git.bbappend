@@ -4,7 +4,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI_prepend = " \
 	git://anongit.freedesktop.org/gstreamer/gst-plugins-base;name=last \
-	file://get-caps-from-src-pad-when-query-caps.patch \
 	file://taglist-not-send-to-down-stream-if-all-the-frame-cor.patch \
 	file://0001-riff-media-added-fourcc-to-all-mpeg4-video-caps.patch \
 	file://0001-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-ca.patch \
