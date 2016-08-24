@@ -2,7 +2,7 @@ DEFAULT_PREFERENCE = "1"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += " \
+SRC_URI_prepend = " \
 	git://anongit.freedesktop.org/gstreamer/gstreamer;name=last \
 	file://0001-Fix-crash-with-gst-inspect.patch \
 	file://0001-revert-use-new-gst-adapter-get-buffer.patch \

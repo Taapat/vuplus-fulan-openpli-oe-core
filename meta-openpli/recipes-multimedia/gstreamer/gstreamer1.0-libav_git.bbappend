@@ -1,6 +1,6 @@
 DEFAULT_PREFERENCE = "1"
 
-SRC_URI += " \
+SRC_URI_prepend = " \
 	git://anongit.freedesktop.org/gstreamer/gst-libav;name=last \
 "
 

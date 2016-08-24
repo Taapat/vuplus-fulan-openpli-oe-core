@@ -2,7 +2,7 @@ DEFAULT_PREFERENCE = "1"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += " \
+SRC_URI_prepend = " \
 	git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;name=last \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
