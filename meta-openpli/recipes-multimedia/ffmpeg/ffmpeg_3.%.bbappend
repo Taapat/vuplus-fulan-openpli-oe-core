@@ -229,8 +229,8 @@ EXTRA_FFCONF = " \
     --enable-librtmp \
     --pkg-config="pkg-config" \
     --disable-debug \
-    --extra-cflags="-ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
-    --extra-ldflags="-Wl,--gc-sections,-lrt" \
+    --extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
+    --extra-ldflags="${TARGET_LDFLAGS},--gc-sections -Wl,--print-gc-sections,-lrt" \
     --prefix=${prefix} \
 "
 
