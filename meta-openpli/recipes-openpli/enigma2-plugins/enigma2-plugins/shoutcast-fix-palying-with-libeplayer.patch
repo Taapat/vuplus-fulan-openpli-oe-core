@@ -3,12 +3,12 @@ https://github.com/OpenAR-P/enigma2-plugins-sh4/commit/cceb8ca9b7204f82ccfe0c2de
 
 --- a/shoutcast/src/plugin.py	2016-01-11 16:39:41.580551370 +0200
 +++ b/shoutcast/src/plugin.py	2016-01-24 15:57:44.262510309 +0200
-@@ -940,7 +940,7 @@
+@@ -957,7 +957,7 @@
  			print "[SHOUTcast] EVENT ==>", ev
  		if ev == 1 or ev == 4:
  			print "[SHOUTcast] Tuned in, playing now!"
--		if ev == 3 or ev == 7:
-+		if ev == 3:
+-		elif ev == 3 or ev == 7:
++		elif ev == 3:
  			self["statustext"].setText(_("Stream stopped playing, playback of stream stopped!"))
  			print "[SHOUTcast] Stream stopped playing, playback of stream stopped!"
  			self.session.nav.stopService()
