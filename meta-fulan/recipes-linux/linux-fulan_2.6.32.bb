@@ -59,6 +59,7 @@ SRC_URI = "git://git.stlinux.com/stm/linux-sh4-2.6.32.y.git;protocol=git;branch=
     file://linux-sh4-cpuinfo.patch \
     file://linux-sh4-add_missing_eid.patch \
     file://linux-sh4-lmb_stm24_${STM_PATCH_STR}.patch \
+    file://timeconstpl-eliminate-perl-warning.patch \
     file://defconfig \
     file://st-coprocessor.h \
 "
