@@ -11,10 +11,10 @@ SRC_URI_prepend = " \
 "
 
 inherit gitpkgv
-SRCREV_last = "c6d389c7722e0ed0d39ea4f85f7fa14a42f1187c"
+SRCREV_last = "c117165f7baf7f5c684414c9a378b1690b7a896d"
 SRCREV_FORMAT = "last"
-PV = "1.9.1.1+git${SRCPV}"
-PKGV = "1.9.1.1+git${GITPKGV}"
+PV = "1.9.2.1+git${SRCPV}"
+PKGV = "1.9.2.1+git${GITPKGV}"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \
