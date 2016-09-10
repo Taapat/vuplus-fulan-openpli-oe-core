@@ -9,7 +9,8 @@ SRCREV = "${AUTOREV}"
 DEPENDS = " \
 	freetype \
 	gettext-native \
-	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "gstreamer1.0-plugins-base gstreamer1.0", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "", "gstreamer1.0-plugins-base gstreamer1.0", d)} \
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-1.2 giflib libxml2 \
 	openssl \
@@ -42,7 +43,7 @@ RRECOMMENDS_${PN} = " \
 	enigma2-plugin-skins-pli-hd \
 	hotplug-e2-helper \
 	glib-networking \
-	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "libeplayer3", "${GST_RRECOMMENDS}", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "", "${GST_RRECOMMENDS}", d)} \
 	"
 
 PYTHON_RDEPS = " \
@@ -170,7 +171,7 @@ ENIGMA2_URI = "${@bb.utils.contains("TARGET_ARCH", "sh4", "Taapat/enigma2-openpl
 
 SRC_URI = "${GITHUB_URI}/${ENIGMA2_URI}.git;branch=${ENIGMA2_BRANCH}"
 
-LDFLAGS_prepend = "${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", " -lxml2 ", d)}"
+LDFLAGS_prepend = "${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "", " -lxml2 ", d)}"
 
 S = "${WORKDIR}/git"
 
@@ -193,7 +194,8 @@ EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
 	ac_cv_prog_c_openmp=-fopenmp \
-	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "--with-gstversion=1.0", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "--disable-gstreamer", "--with-gstversion=1.0", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "--with-libvugles2" , "", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "--enable-${MACHINE} --with-lcd=no" , "", d)} \

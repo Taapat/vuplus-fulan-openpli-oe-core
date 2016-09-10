@@ -90,7 +90,7 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += " \
     "
 
 MACHINE_EXTRA_RRECOMMENDS = " \
-    ${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "", "gstreamer1.0-plugin-multibox-dvbmediasink", d)} \
+    ${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "", "gstreamer1.0-plugin-dvbmediasink", d)} \
     enigma2-plugin-systemplugins-sh4osdadjustment \
     ntfs-3g \
     "
