@@ -5,7 +5,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 KV = "2.6.32"
 
-MACHINE_KERNEL_PR_append = ".6"
+MACHINE_KERNEL_PR_append = ".7"
 
 DEPENDS_spark7162 += " \
            stlinux24-sh4-stx7105-fdma-firmware \
@@ -17,11 +17,11 @@ DEPENDS_spark += " \
 
 inherit kernel machine_kernel_pr
 
-SRCDATE = "20141110"
+SRCDATE = "20160912"
 
 STM_PATCH_STR = "0217"
-LINUX_VERSION = "2.6.32.61"
-SRCREV = "b43f8252e9f72e5b205c8d622db3ac97736351fc"
+LINUX_VERSION = "2.6.32.71"
+SRCREV = "3ec500f4212f9e4b4d2537c8be5ea32ebf68c43b"
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
 # to be installed in parallel. We revert this change and rprovide the versioned
@@ -31,7 +31,7 @@ PKG_kernel-image = "kernel-image"
 RPROVIDES_kernel-base = "kernel-${KERNEL_VERSION}"
 RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION}"
 
-SRC_URI = "git://git.stlinux.com/stm/linux-sh4-2.6.32.y.git;protocol=git;branch=stmicro \
+SRC_URI = "git://github.com/Taapat/linux-sh4-2.6.32.71.git;protocol=git;branch=stmicro \
     file://linux-kbuild-generate-modules-builtin_stm24_${STM_PATCH_STR}.patch \
     file://linux-sh4-linuxdvb_stm24_${STM_PATCH_STR}.patch \
     file://linux-sh4-linuxdvb_stm24_${STM_PATCH_STR}_ca.patch \
@@ -45,7 +45,6 @@ SRC_URI = "git://git.stlinux.com/stm/linux-sh4-2.6.32.y.git;protocol=git;branch=
     file://linux-sh4-bpa2_procfs_stm24_${STM_PATCH_STR}.patch \
     file://linux-ftdi_sio.c_stm24_${STM_PATCH_STR}.patch \
     file://linux-sh4-lzma-fix_stm24_${STM_PATCH_STR}.patch \
-    file://perf-warning-fix.patch \
     file://linux-tune_stm24.patch \
     file://linux-sh4-permit_gcc_command_line_sections_stm24.patch \
     file://linux-ratelimit-bug_stm24_${STM_PATCH_STR}.patch \
@@ -55,7 +54,6 @@ SRC_URI = "git://git.stlinux.com/stm/linux-sh4-2.6.32.y.git;protocol=git;branch=
     file://linux-sh4-linux_yaffs2.patch \
     file://linux-sh4-fix-crash-usb-reboot.patch \
     file://linux-sh4-stmmac_stm24_${STM_PATCH_STR}.patch \
-    file://linux-sh4-console_missing_argument_stm24_${STM_PATCH_STR}.patch \
     file://linux-sh4-cpuinfo.patch \
     file://linux-sh4-add_missing_eid.patch \
     file://linux-sh4-lmb_stm24_${STM_PATCH_STR}.patch \
