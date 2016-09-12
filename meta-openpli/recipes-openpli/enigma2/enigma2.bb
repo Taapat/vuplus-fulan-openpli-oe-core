@@ -43,7 +43,7 @@ RRECOMMENDS_${PN} = " \
 	enigma2-plugin-skins-pli-hd \
 	hotplug-e2-helper \
 	glib-networking \
-	${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "", "${GST_RRECOMMENDS}", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "", "${GST_RRECOMMENDS} gstreamer1.0-plugin-dvbmediasink", d)} \
 	"
 
 PYTHON_RDEPS = " \
