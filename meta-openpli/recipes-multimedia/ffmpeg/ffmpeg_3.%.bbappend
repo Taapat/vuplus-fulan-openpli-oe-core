@@ -1,6 +1,6 @@
 PR = "r0"
 
-DEPENDS = "libbluray rtmpdump libxml2"
+DEPENDS = "libbluray libxml2"
 
 SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
@@ -226,7 +226,6 @@ EXTRA_FFCONF = " \
     --disable-bsfs \
     --enable-libbluray \
     --enable-protocol=bluray \
-    --enable-librtmp \
     --pkg-config="pkg-config" \
     --disable-debug \
     --extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
