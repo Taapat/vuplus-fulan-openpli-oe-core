@@ -1,8 +1,7 @@
 DESCRIPTION = "Library to play files in enigma2 using ffmpeg"
-
-require ddt-apps.inc
-
-PR = "r3"
+HOMEPAGE = "https://github/Taapat/libeplayer3"
+LICENSE = "GPLv2+"
+LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 DEPENDS = "ffmpeg"
 
@@ -14,11 +13,21 @@ GST_PROVIDES = "${@add_gst_provides()}"
 
 RPROVIDES_${PN} = " ${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "${GST_PROVIDES}", "", d)} "
 
+inherit gitpkgv autotools
+
+SRCREV = "${AUTOREV}"
+PV = "3.0+git${SRCPV}"
+PKGV = "3.0+git${GITPKGV}"
+PKG_${PN} = "${PN}"
+
+SRC_URI = "git://github.com/Taapat/libeplayer3.git"
+
+S = "${WORKDIR}/git"
+
 do_install_append () {
-	install -d ${D}${includedir}/libeplayer3/include
-	install -m 644 ${S}/libeplayer3/include/*.h ${D}${includedir}/libeplayer3/include
+	install -d ${D}${includedir}/libeplayer3
+	install -m 644 ${S}/include/*.h ${D}${includedir}/libeplayer3
 }
 
-FILES_${PN}-dev += "${includedir}/libeplayer3/include"
-FILES_${PN}-dbg += "${bindir}/meta"
+FILES_${PN}-dev += "${includedir}/libeplayer3"
 
