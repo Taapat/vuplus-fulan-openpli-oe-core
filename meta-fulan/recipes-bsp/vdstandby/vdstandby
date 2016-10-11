@@ -4,8 +4,9 @@ if [ $# -eq 1 ]; then
   if [ "$1" = "-a" ]; then
     echo "enter standby..."
 	stfbcontrol hd
-	fp_control -l 0 1
 	echo on > /proc/stb/avs/0/standby
+	sleep 1
+	fp_control -l 0 1
 	echo "done"
   elif [ "$1" = "-d" ]; then
 	echo "end standby..."
