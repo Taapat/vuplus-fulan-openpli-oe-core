@@ -13,12 +13,12 @@ DEPENDS = " \
 	${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "", "gstreamer1.0-plugins-base gstreamer1.0", d)} \
 	jpeg \
 	libdreamdvd libdvbsi++ libfribidi libmad libpng libsigc++-1.2 giflib libxml2 \
-	openssl libudfread \
+	openssl \
 	python-imaging python-twisted python-wifi \
 	swig-native \
 	tuxtxt-enigma2 \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "libmmeimage libmme-host vdstandby" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "libmmeimage libmme-host vdstandby" , "libudfread", d)} \
 	"
 
 RDEPENDS_${PN} = " \
@@ -28,7 +28,7 @@ RDEPENDS_${PN} = " \
 	glibc-gconv-iso8859-15 \
 	${PYTHON_RDEPS} \
 	${@bb.utils.contains("MACHINE_FEATURES", "uianimation", "vuplus-libgles-${MACHINE} libvugles2" , "", d)} \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "libmme-host vdstandby" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "libmme-host vdstandby" , "libudfread", d)} \
 	"
 
 GST_RRECOMMENDS = " \
@@ -121,8 +121,8 @@ GST_UGLY_RDEPS = "\
 	gstreamer1.0-plugins-ugly-mad \
 	"
 
-# DVD and iso playback is integrated, we need the libraries
-RDEPENDS_${PN} += "libdreamdvd libudfread"
+# DVD playback is integrated, we need the libraries
+RDEPENDS_${PN} += "libdreamdvd"
 RRECOMMENDS_${PN} += "libdvdcss"
 
 # We depend on the font which we use for TXT subtitles (defined in skin_subtitles.xml)
