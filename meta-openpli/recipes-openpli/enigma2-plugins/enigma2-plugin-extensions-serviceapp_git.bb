@@ -24,8 +24,8 @@ EXTRA_OECONF = "\
 	"
 
 do_install_append() {
-	rm ${D}/usr/lib/enigma2/python/Plugins/Extensions/ServiceApp/*.pyc
+	rm ${D}/usr/lib/enigma2/python/Plugins/SystemPlugins/ServiceApp/*.pyc
 }
 
-FILES_${PN} = "${libdir}/enigma2/python/Plugins/Extensions/ServiceApp/"
-FILES_${PN}-dev = "${libdir}/enigma2/python/Plugins/Extensions/ServiceApp/serviceapp.la"
+FILES_${PN} = "${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/"
+FILES_${PN}-dev = "${libdir}/enigma2/python/Plugins/SystemPlugins/ServiceApp/serviceapp.la"
