@@ -23,6 +23,9 @@ IMAGE_INSTALL = " \
 	packagegroup-core-boot \
 	parted \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "samba-base", d)} \
+	python-ipaddress  \
+	python-netifaces \
+	python-pysmb \
 	sdparm \
 	tuxbox-common \
 	tuxbox-links \

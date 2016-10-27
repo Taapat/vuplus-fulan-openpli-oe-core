@@ -24,6 +24,7 @@ python do_package_prepend () {
         ('et8500', 'et8500.jpg', 'et8000.png'),
         ('et10000', 'et10000.jpg', 'et8000.png'),
         ('xp1000', 'xp1000.jpg', 'xp_rc14_normal.png'),
+        ('osmega', 'osmega.jpg', 'osmini.png'),
         ('osmini', 'osmini.jpg', 'osmini.png'),
         ('osminiplus', 'osminiplus.jpg', 'osmini.png'),
         ('vuduo', 'duo.jpg', 'vu_normal.png'),
@@ -45,8 +46,7 @@ python do_package_prepend () {
         ('xpeedc', 'xpeedlx.jpg', 'xpeedlx.png'),
         ('mbtwinplus', 'mbtwinplus.jpg', 'miraclebox.png'),
         ('mbmicro', 'mbmicro.jpg', 'miraclebox2.png'),
-	('et7000mini', 'et7000mini.jpg', 'et7000mini.png'),
-        
+        ('et7000mini', 'et7000mini.jpg', 'et7000mini.png'),
     ]
     import os
     top = '${D}${PLUGINPATH}/public/images/'
