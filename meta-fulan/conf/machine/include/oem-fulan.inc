@@ -59,15 +59,15 @@ IMAGE_CMD_jffs2_prepend = " \
     "
 
 IMAGE_CMD_jffs2_append = " ; \
-    mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
-    mv ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.jffs2 ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${ROOTFS_FILE}; \
-    cp ${DEPLOY_DIR_IMAGE}/uImage ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${KERNEL_FILE}; \
-    cd ${DEPLOY_DIR_IMAGE}; \
+    mkdir -p ${IMGDEPLOYDIR}/${IMAGEDIR}; \
+    mv ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.jffs2 ${IMGDEPLOYDIR}/${IMAGEDIR}/${ROOTFS_FILE}; \
+    cp ${DEPLOY_DIR_IMAGE}/uImage ${IMGDEPLOYDIR}/${IMAGEDIR}/${KERNEL_FILE}; \
+    cd ${IMGDEPLOYDIR}; \
     zip ${IMAGE_NAME}.zip ${IMAGEDIR}/*; \
-    rm -f ${DEPLOY_DIR_IMAGE}/*.jffs2; \
-    rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
-    rm -f ${DEPLOY_DIR_IMAGE}/.jffs2; \
-    rm -f ${DEPLOY_DIR_IMAGE}/.manifest; \
+    rm -f ${IMGDEPLOYDIR}/*.jffs2; \
+    rm -f ${IMGDEPLOYDIR}/*.manifest; \
+    rm -f ${IMGDEPLOYDIR}/.jffs2; \
+    rm -f ${IMGDEPLOYDIR}/.manifest; \
     rm -rf ${IMAGEDIR}; \
     "
 
