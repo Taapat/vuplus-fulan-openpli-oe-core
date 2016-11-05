@@ -9,7 +9,7 @@ SRC_URI_prepend = " \
 "
 
 inherit gitpkgv
-SRCREV_last = "b1d1d36b2abf9d4b98a3f2574a0f964692f4f98a"
+SRCREV_last = "81ee25ad4e8db836528a8be1ac85655506fd8eb4"
 SRCREV_FORMAT = "last"
-PV = "1.9.9+git${SRCPV}"
-PKGV = "1.9.9+git${GITPKGV}"
+PV = "1.10.0+git${SRCPV}"
+PKGV = "1.10.0+git${GITPKGV}"

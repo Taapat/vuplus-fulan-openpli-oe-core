@@ -11,10 +11,10 @@ SRC_URI_prepend = " \
 "
 
 inherit gitpkgv
-SRCREV_last = "24e2f6e98a24adafc2a3888ee30d8151f5e98639"
+SRCREV_last = "9c3043470e9a97b8e6f694d6551897108c936339"
 SRCREV_FORMAT = "last"
-PV = "1.9.9+git${SRCPV}"
-PKGV = "1.9.9+git${GITPKGV}"
+PV = "1.10.0+git${SRCPV}"
+PKGV = "1.10.0+git${GITPKGV}"
 
 PACKAGECONFIG = "\
  ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \

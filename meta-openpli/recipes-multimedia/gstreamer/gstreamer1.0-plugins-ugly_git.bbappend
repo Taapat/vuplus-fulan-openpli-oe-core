@@ -5,10 +5,10 @@ SRC_URI_prepend = " \
 "
 
 inherit gitpkgv
-SRCREV_last = "7d864e8b45408af9764bf6f34174d1cd7cb283f6"
+SRCREV_last = "534819a16c8e30529bb492dc0e2c5da4468b8fc8"
 SRCREV_FORMAT = "last"
-PV = "1.9.9+git${SRCPV}"
-PKGV = "1.9.9+git${GITPKGV}"
+PV = "1.10.0+git${SRCPV}"
+PKGV = "1.10.0+git${GITPKGV}"
 
 PACKAGECONFIG = " \
     ${GSTREAMER_ORC} \

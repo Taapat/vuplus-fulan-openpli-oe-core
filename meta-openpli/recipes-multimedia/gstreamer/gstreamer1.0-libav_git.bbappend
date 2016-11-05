@@ -5,10 +5,10 @@ SRC_URI_prepend = " \
 "
 
 inherit gitpkgv
-SRCREV_last = "108b08ccdaaba3a030c10e0465a261b49761f129"
+SRCREV_last = "50ffd5a8057d40e573b4b15b62d3a3321e168d89"
 SRCREV_FORMAT = "last"
-PV = "1.9.9+git${SRCPV}"
-PKGV = "1.9.9+git${GITPKGV}"
+PV = "1.10.0+git${SRCPV}"
+PKGV = "1.10.0+git${GITPKGV}"
 
 DEPENDS =+ "ffmpeg"
 
