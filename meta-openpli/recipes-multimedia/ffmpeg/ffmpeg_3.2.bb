@@ -13,10 +13,10 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
                     file://COPYING.LGPLv2.1;md5=bd7a443320af8c812e4c18d1b79df004 \
                     file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
-SRC_URI = "https://www.ffmpeg.org/releases/${BP}.tar.xz"
+SRC_URI = "https://www.ffmpeg.org/releases/${BP}.tar.bz2"
 
-SRC_URI[md5sum] = "b54d3e3d2d14d64305b840bb3d287445"
-SRC_URI[sha256sum] = "a80cb378dda5c9bbcdbd62a99bdec0e4eedbcb47f290e72845af4855c1146b5b"
+SRC_URI[md5sum] = "ce8fb81e2742eb70548956492c4625b8"
+SRC_URI[sha256sum] = "76d6cd9f5e64463a5b9940736da8a515c990bcbbe506a722e2040916cb366d74"
 
 # Build fails when thumb is enabled: https://bugzilla.yoctoproject.org/show_bug.cgi?id=7717
 ARM_INSTRUCTION_SET = "arm"
@@ -45,7 +45,6 @@ PACKAGECONFIG[avresample] = "--enable-avresample,--disable-avresample"
 
 # features to support
 PACKAGECONFIG[bzlib] = "--enable-bzlib,--disable-bzlib,bzip2"
-PACKAGECONFIG[faac] = "--enable-libfaac,--disable-libfaac,faac"
 PACKAGECONFIG[gpl] = "--enable-gpl,--disable-gpl"
 PACKAGECONFIG[gsm] = "--enable-libgsm,--disable-libgsm,libgsm"
 PACKAGECONFIG[jack] = "--enable-indev=jack,--disable-indev=jack,jack"
