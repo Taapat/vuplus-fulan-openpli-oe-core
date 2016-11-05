@@ -16,8 +16,8 @@ RPROVIDES_${PN} = " ${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "${G
 inherit gitpkgv autotools
 
 SRCREV = "${AUTOREV}"
-PV = "3.0+git${SRCPV}"
-PKGV = "3.0+git${GITPKGV}"
+PV = "3.1+git${SRCPV}"
+PKGV = "3.1+git${GITPKGV}"
 PKG_${PN} = "${PN}"
 
 SRC_URI = "git://github.com/Taapat/libeplayer3.git"
