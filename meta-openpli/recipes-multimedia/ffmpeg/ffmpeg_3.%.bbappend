@@ -1,4 +1,4 @@
-PR = "r0"
+PR = "r1"
 
 DEPENDS = "libbluray libxml2"
 
@@ -7,6 +7,7 @@ SRC_URI_append = " \
     file://ffmpeg-buffer-size.patch \
     file://ffmpeg-aac.patch \
     file://ffmpeg-fix-mpegts.patch \
+    file://ffmpeg-fix-edit-list-parsing.patch \
 "
 
 EXTRA_FFCONF = " \
