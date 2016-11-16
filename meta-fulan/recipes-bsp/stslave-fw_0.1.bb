@@ -6,20 +6,19 @@ PACKAGE_ARCH = "all"
 # fix architecture mismatch QA error
 INSANE_SKIP_${PN} = "arch"
 
-PR = "r7"
+PR = "r8"
 
-BINARY_STSLAVE_FW_PATH ?= "${DL_DIR}/stslave_fw"
 
-SRC_URI = "file://${BINARY_STSLAVE_FW_PATH}/${MACHINE}/audio.elf \
-    file://${BINARY_STSLAVE_FW_PATH}/${MACHINE}/video.elf \
+SRC_URI = "file://${MACHINE}/audio.elf \
+    file://${MACHINE}/video.elf \
 "
 
 FILES_${PN} += "/boot"
 
 do_install () {
     install -d ${D}/boot
-    install -m 644 ${BINARY_STSLAVE_FW_PATH}/${MACHINE}/audio.elf  ${D}/boot
-    install -m 644 ${BINARY_STSLAVE_FW_PATH}/${MACHINE}/video.elf  ${D}/boot
+    install -m 644 ${WORKDIR}/${MACHINE}/audio.elf  ${D}/boot
+    install -m 644 ${WORKDIR}/${MACHINE}/video.elf  ${D}/boot
     # Remove stuff from old packages if present
     if [ -e /etc/init.d/stslave.sh ] ; then
         rm /etc/init.d/stslave.sh
