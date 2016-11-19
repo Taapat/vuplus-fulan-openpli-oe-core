@@ -32,7 +32,6 @@ RDEPENDS_${PN} = " \
 	"
 
 GST_RRECOMMENDS = " \
-	gstreamer1.0-plugin-subsink \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
 	${GST_BAD_RDEPS} \
