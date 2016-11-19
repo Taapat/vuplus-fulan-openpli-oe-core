@@ -2,8 +2,9 @@ DEFAULT_PREFERENCE = "1"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI_prepend = " \
-	git://anongit.freedesktop.org/gstreamer/gst-plugins-base;name=last \
+SRC_URI_remove = "git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=1.8;name=base"
+SRC_URI_prepend = "git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=1.10;name=base "
+SRC_URI_append = " \
 	file://taglist-not-send-to-down-stream-if-all-the-frame-cor.patch \
 	file://0001-riff-media-added-fourcc-to-all-mpeg4-video-caps.patch \
 	file://0001-riff-media-added-fourcc-to-all-ffmpeg-mpeg4-video-ca.patch \
@@ -11,10 +12,9 @@ SRC_URI_prepend = " \
 "
 
 inherit gitpkgv
-SRCREV_last = "9c3043470e9a97b8e6f694d6551897108c936339"
-SRCREV_FORMAT = "last"
-PV = "1.10.0+git${SRCPV}"
-PKGV = "1.10.0+git${GITPKGV}"
+SRCREV_base = "83e3274bed5d9ad1f5e3cdb67ec7b84d2fd5d515"
+PV = "1.10.1+git${SRCPV}"
+PKGV = "1.10.1+git${GITPKGV}"
 
 PACKAGECONFIG = "\
  ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \

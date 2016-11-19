@@ -2,19 +2,18 @@ DEFAULT_PREFERENCE = "1"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI_prepend = " \
-	git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;name=last \
+SRC_URI_remove = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=1.8;name=base"
+SRC_URI_prepend = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=1.10;name=base "
+SRC_URI_append = " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
 	file://hls-use-max-playlist-quality.patch \
-	file://0002-mpegtsdemux-do-not-abort-playback-when-no-PCR-were-f.patch \
 "
 
 inherit gitpkgv
-SRCREV_last = "f2df164f88faa7798e0ce94e0530ff84a4c29f3d"
-SRCREV_FORMAT = "last"
-PV = "1.10.0+git${SRCPV}"
-PKGV = "1.10.0+git${GITPKGV}"
+SRCREV_base = "1d058f8ef55c6fb7011d84329f4c592d41aae35c"
+PV = "1.10.1+git${SRCPV}"
+PKGV = "1.10.1+git${GITPKGV}"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \

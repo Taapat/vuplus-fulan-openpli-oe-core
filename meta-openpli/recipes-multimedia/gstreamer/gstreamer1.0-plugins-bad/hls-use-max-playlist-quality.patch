@@ -1,16 +1,16 @@
 Use max playlist quality if connection speed not set.
 Based on christophecvr idea: http://forums.openpli.org/topic/29501-gstreamer-10/page-119#entry542926
 
---- a/ext/hls/gsthlsdemux.c	2016-04-16 16:44:26.243459435 +0300
-+++ b/ext/hls/gsthlsdemux.c	2016-04-16 19:54:38.988052168 +0300
-@@ -421,6 +421,10 @@
-     GstM3U8 *child = NULL;
-     GError *err = NULL;
+--- a/ext/hls/gsthlsdemux.c	2016-11-19 18:29:30.904483471 +0200
++++ b/ext/hls/gsthlsdemux.c	2016-11-19 18:35:03.735842813 +0200
+@@ -587,6 +587,10 @@
+     return FALSE;
+   }
  
-+    /* use max playlist quality if connection speed not set */
-+    if (demux->connection_speed == 0)
-+      demux->connection_speed = 4294967;
++  /* use max playlist quality if connection speed not set */
++  if (demux->connection_speed == 0)
++    demux->connection_speed = 4294967;
 +
-     if (demux->connection_speed == 0) {
-       GST_M3U8_CLIENT_LOCK (hlsdemux->client);
-       child = hlsdemux->client->main->current_variant->data;
+   /* select the initial variant stream */
+   if (demux->connection_speed == 0) {
+     variant = hlsdemux->master->default_variant;
