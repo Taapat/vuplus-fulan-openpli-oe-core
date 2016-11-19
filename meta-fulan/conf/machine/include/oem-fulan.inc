@@ -34,7 +34,7 @@ MACHINE_FEATURES = "hdmicec switchoff kernel26 ext2 serial singlecore no-nmap om
 #Use libeplayer3, disable this if you want to use gstreamer
 MACHINE_FEATURES =+ " libeplayer"
 
-DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dtsdownmix --with-eac3"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-eac3"
 
 KERNEL_IMAGETYPE = "uImage"
 #KERNEL_OUTPUT = "${KERNEL_IMAGETYPE}"
