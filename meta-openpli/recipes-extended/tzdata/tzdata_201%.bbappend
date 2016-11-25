@@ -1,3 +1,5 @@
+PR = "r1"
+
 DEFAULT_TIMEZONE = "CET"
 
 FILES_${PN} = " \
@@ -64,6 +66,7 @@ FILES_${PN} = " \
                 ${datadir}/zoneinfo/Europe/Dublin \
                 ${datadir}/zoneinfo/Europe/Helsinki \
                 ${datadir}/zoneinfo/Europe/Istanbul \
+                ${datadir}/zoneinfo/Europe/Kiev \
                 ${datadir}/zoneinfo/Europe/Minsk \
                 ${datadir}/zoneinfo/Europe/Moscow \
                 ${datadir}/zoneinfo/Europe/Riga \
