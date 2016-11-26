@@ -63,7 +63,7 @@ do_install_append() {
     install ${WORKDIR}/lircd.init ${D}${sysconfdir}/init.d/lircd
     install ${WORKDIR}/lircexec.init ${D}${sysconfdir}/init.d/lircexec
     install -d ${D}${datadir}/lirc/
-    cp -pPR ${S}/remotes ${D}${datadir}/lirc/
+    cp -r ${S}/remotes ${D}${datadir}/lirc/
     rm -rf ${D}/dev
     rm -rf  ${D}/bin/pronto2lirc
     install -m 0644 ${WORKDIR}/lircd.conf* ${D}${sysconfdir}
