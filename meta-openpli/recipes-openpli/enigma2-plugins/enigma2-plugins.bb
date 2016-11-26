@@ -85,7 +85,7 @@ DEPENDS = " \
 	"
 
 python populate_packages_prepend () {
-    enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
+    enigma2_plugindir = d.expand('${libdir}/enigma2/python/Plugins')
 
     do_split_packages(d, enigma2_plugindir, '(.*?/.*?)/.*', 'enigma2-plugin-%s', 'Enigma2 Plugin: %s', recursive=True, match_path=True, prepend=True, extra_depends='')
 
@@ -112,21 +112,21 @@ python populate_packages_prepend () {
                     else:
                         rdepends.append(depend)
                 rdepends = ' '.join(rdepends)
-                bb.data.setVar('RDEPENDS_' + full_package, rdepends, d)
+                d.setVar('RDEPENDS_' + full_package, rdepends)
             elif line.startswith('Recommends: '):
-                bb.data.setVar('RRECOMMENDS_' + full_package, line[12:], d)
+                d.setVar('RRECOMMENDS_' + full_package, line[12:])
             elif line.startswith('Description: '):
-                bb.data.setVar('DESCRIPTION_' + full_package, line[13:], d)
+                d.setVar('DESCRIPTION_' + full_package, line[13:])
             elif line.startswith('Replaces: '):
-                bb.data.setVar('RREPLACES_' + full_package, ' '.join(line[10:].split(', ')), d)
+                d.setVar('RREPLACES_' + full_package, ' '.join(line[10:].split(', ')))
             elif line.startswith('Conflicts: '):
-                bb.data.setVar('RCONFLICTS_' + full_package, ' '.join(line[11:].split(', ')), d)
+                d.setVar('RCONFLICTS_' + full_package, ' '.join(line[11:].split(', ')))
             elif line.startswith('Maintainer: '):
-                bb.data.setVar('MAINTAINER_' + full_package, line[12:], d)
+                d.setVar('MAINTAINER_' + full_package, line[12:])
 
 
-    mydir = bb.data.getVar('D', d, 1) + "/../git/"
-    for package in bb.data.getVar('PACKAGES', d, 1).split():
+    mydir = d.getVar('D', True) + "/../git/"
+    for package in d.getVar('PACKAGES', True).split():
         getControlLines(mydir, d, package.split('-')[-1])
 }
 
@@ -138,7 +138,7 @@ do_install_append() {
 }
 
 python populate_packages_prepend() {
-    enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
+    enigma2_plugindir = d.expand('${libdir}/enigma2/python/Plugins')
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/[a-zA-Z0-9_]+.*$', 'enigma2-plugin-%s', '%s', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.la$', 'enigma2-plugin-%s-dev', '%s (development)', recursive=True, match_path=True, prepend=True)
     do_split_packages(d, enigma2_plugindir, '^(\w+/\w+)/.*\.a$', 'enigma2-plugin-%s-staticdev', '%s (static development)', recursive=True, match_path=True, prepend=True)
