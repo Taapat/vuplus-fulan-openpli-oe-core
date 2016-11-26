@@ -3,7 +3,7 @@ MAINTAINER = "ims"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=534862957bf314f95d85e0c07632f84d"
 
-OLDPKG = "${@bb.data.getVar('PN',d,1).replace('-extensions-','-pli-')}"
+OLDPKG = "${@d.getVar('PN', True).replace('-extensions-','-pli-')}"
 RREPLACES_${PN} = "${OLDPKG}"
 RCONFLICTS_${PN} = "${OLDPKG}"
 
