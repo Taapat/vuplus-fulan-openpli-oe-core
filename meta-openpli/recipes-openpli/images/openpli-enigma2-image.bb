@@ -32,6 +32,7 @@ EXTERNAL_WIFI_DRIVERS = " \
 	\
 	rtl8192cu \
 	rtl8188eu \
+	rtl8192eu \
 	"
 
 ENIGMA2_PLUGINS = " \
@@ -73,7 +74,6 @@ DEPENDS += " \
 	enigma2 \
 	enigma2-pliplugins \
 	enigma2-plugins \
-	rtl8192eu \
 	"
 
 IMAGE_INSTALL += " \

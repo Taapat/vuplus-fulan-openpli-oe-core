@@ -29,6 +29,7 @@ python do_package_prepend () {
         ('osminiplus', 'osminiplus.jpg', 'osmini.png'),
         ('vuduo', 'duo.jpg', 'vu_normal.png'),
         ('vusolo', 'solo.jpg', 'vu_normal.png'),
+        ('vusolose', 'solose.jpg', 'vu_normal.png'),
         ('vusolo2', 'solo2.jpg', 'vu_normal.png'),
         ('vusolo4k', 'solo4k.jpg', 'vu_normal.png'),
         ('vuduo2', 'duo2.jpg', 'vu_duo2.png'),
@@ -38,6 +39,7 @@ python do_package_prepend () {
         ('hd1100', 'hd1100.jpg', 'hd1x00.png'),
         ('hd1200', 'hd1200.jpg', 'hd1x00.png'),
         ('hd2400', 'hd2400.jpg', 'hd2400.png'),
+        ('hd51', 'hd51.jpg', 'hd1x00.png'),
         ('fusionhd', 'fusionhd.jpg', 'fusionhd.png'),
         ('fusionhdse', 'fusionhdse.jpg', 'fusionhdse.png'),
         ('spycat', 'spycat.jpg', 'spycat.png'),
@@ -76,3 +78,8 @@ python do_package_prepend () {
             if target_remote != name and name != 'ow_remote.png' and (exception + '.png' != name):
                 os.remove(os.path.join(root, name))
 }
+
+PACKAGES =+ "${PN}-vxg"
+DESCRIPTION_${PN}-vxg = "Adds Google Chrome support to OpenWebif's WebTV"
+FILES_${PN}-vxg = "/usr/lib/enigma2/python/Plugins/Extensions/OpenWebif/public/js/media_player.pexe"
+RDEPENDS_${PN}-vxg =+ "${PN}"
