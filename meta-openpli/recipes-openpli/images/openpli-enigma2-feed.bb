@@ -54,7 +54,6 @@ OPTIONAL_PACKAGES += " \
 	pyload \
 	python-ipaddress \
 	python-ntplib \
-	python-pip \
 	python-requests \
 	python-mechanize \
 	python-lxml \
