@@ -52,6 +52,7 @@ PYTHON_RDEPS = " \
 	python-core \
 	python-crypt \
 	python-fcntl \
+	python-importlib \
 	python-json \
 	python-lang \
 	python-netclient \
