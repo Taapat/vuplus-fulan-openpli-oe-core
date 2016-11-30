@@ -3,10 +3,11 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 
-KV = "3.9.6"
+SRCDATE = "20161130"
+KV = "3.13.5"
 PV = "${KV}+${SRCDATE}"
 
-SRC_URI = "http://archive.vuplus.com/download/drivers/vuplus-dvb-modules-${DOWNLOADMACHINE}-${KV}-${SRCDATE}.tar.gz"
+SRC_URI = "http://archive.vuplus.com/download/drivers/vuplus-dvb-modules-${MACHINE}-${KV}-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 

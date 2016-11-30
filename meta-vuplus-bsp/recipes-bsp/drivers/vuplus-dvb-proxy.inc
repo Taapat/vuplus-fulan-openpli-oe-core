@@ -6,6 +6,11 @@ LICENSE = "CLOSED"
 DEPENDS += "virtual/kernel"
 do_configure[depends] += "virtual/kernel:do_shared_workdir"
 
+KV = "3.13.5"
+PV = "${KV}"
+SRCDATE = "20161130"
+SRCDATE_PR = "r1"
+
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
 SRC_URI = "http://archive.vuplus.com/download/build_support/vuplus/vuplus-dvb-proxy-${MACHINE}-${PV}-${PR}.tar.gz "

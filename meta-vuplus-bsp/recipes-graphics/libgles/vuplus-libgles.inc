@@ -4,8 +4,10 @@ PRIORITY = "required"
 LICENSE = "CLOSED"
 PACKAGE_ARCH := "${MACHINE_ARCH}"
 
-PV="15.1"
-PR="${SRCDATE}.${SRCDATE_PR}"
+SRCDATE = "20161130"
+SRCDATE_PR = "r1"
+PV = "15.1"
+PR = "${SRCDATE}.${SRCDATE_PR}"
 
 SRC_URI = "http://archive.vuplus.com/download/build_support/vuplus/libgles-${MACHINE}-${PV}-${PR}.tar.gz"
 
