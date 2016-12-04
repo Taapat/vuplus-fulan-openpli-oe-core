@@ -32,6 +32,7 @@ RDEPENDS_${PN} = " \
 	"
 
 GST_RRECOMMENDS = " \
+	ca-certificates \
 	glibc-gconv-utf-16 \
 	${GST_BASE_RDEPS} \
 	${GST_GOOD_RDEPS} \
