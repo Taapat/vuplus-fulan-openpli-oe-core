@@ -45,11 +45,10 @@ IMAGE_CMD_ubi_prepend = " \
 	mkfs.jffs2 --root=${IMAGE_ROOTFS}/boot --faketime \
 	--disable-compressor=lzo --compression-mode=size \
 	--output=${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 \
-	${EXTRA_IMAGECMD_COMPAT}; rm -rf ${IMAGE_ROOTFS}/boot/*; \
-	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 "
 
 IMAGE_CMD_ubi_append = " \
+	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ubi ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi; \
 	mkdir -p ${DEPLOY_DIR_IMAGE}/vuplus/${UPDATE_DIR}; \
 	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi ${DEPLOY_DIR_IMAGE}/vuplus/${UPDATE_DIR}/root_cfe_auto.jffs2; \
 	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.boot.jffs2 ${DEPLOY_DIR_IMAGE}/vuplus/${UPDATE_DIR}/boot_cfe_auto.jffs2; \
