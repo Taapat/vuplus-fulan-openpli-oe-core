@@ -1,12 +1,11 @@
 DEFAULT_PREFERENCE = "1"
 
+include gstreamer1.0-git-version.inc
+
 SRC_URI_remove = "git://anongit.freedesktop.org/gstreamer/gst-libav;branch=1.8;name=base"
 SRC_URI_prepend = "git://anongit.freedesktop.org/gstreamer/gst-libav;branch=1.10;name=base "
 
-inherit gitpkgv
-SRCREV_base = "2fb577896d83aa8ee52c85fb6ed368d684f65cfc"
-PV = "1.10.1+git${SRCPV}"
-PKGV = "1.10.1+git${GITPKGV}"
+SRCREV_base = "0ec8a6021b416fedb256d609f3a7685ccb642ca4"
 
 DEPENDS =+ "ffmpeg"
 

@@ -4,6 +4,8 @@ PRIORITY = "optional"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 
+include gstreamer1.0-git-version.inc
+
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libdca"
 
 GSTVERSION = "1.0"
@@ -13,10 +15,7 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
-inherit gitpkgv autotools pkgconfig
-
-PV = "1.10.1+git${SRCPV}"
-PKGV = "1.10.1+git${GITPKGV}"
+inherit autotools pkgconfig
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 

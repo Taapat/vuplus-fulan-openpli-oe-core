@@ -1,5 +1,7 @@
 DEFAULT_PREFERENCE = "1"
 
+include gstreamer1.0-git-version.inc
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI_remove = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=1.8;name=base"
@@ -10,10 +12,7 @@ SRC_URI_append = " \
 	file://hls-use-max-playlist-quality.patch \
 "
 
-inherit gitpkgv
-SRCREV_base = "1d058f8ef55c6fb7011d84329f4c592d41aae35c"
-PV = "1.10.1+git${SRCPV}"
-PKGV = "1.10.1+git${GITPKGV}"
+SRCREV_base = "c4b50182687c08b503ccf1be22afb3963defe2bc"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \

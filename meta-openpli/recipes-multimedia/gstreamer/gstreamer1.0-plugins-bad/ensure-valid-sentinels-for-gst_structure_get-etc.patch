@@ -27,12 +27,21 @@ diff --git a/sys/decklink/gstdecklink.cpp b/sys/decklink/gstdecklink.cpp
 index 64637f1..bac956f 100644
 --- a/sys/decklink/gstdecklink.cpp
 +++ b/sys/decklink/gstdecklink.cpp
-@@ -476,22 +476,22 @@
+@@ -476,29 +476,29 @@
        "pixel-aspect-ratio", GST_TYPE_FRACTION, mode->par_n, mode->par_d,
        "interlace-mode", G_TYPE_STRING,
        mode->interlaced ? "interleaved" : "progressive",
 -      "framerate", GST_TYPE_FRACTION, mode->fps_n, mode->fps_d, NULL);
 +      "framerate", GST_TYPE_FRACTION, mode->fps_n, mode->fps_d, (void *) NULL);
+ 
+   if (input && mode->interlaced) {
+     if (mode->tff)
+-      gst_structure_set (s, "field-order", G_TYPE_STRING, "top-field-first", NULL);
++      gst_structure_set (s, "field-order", G_TYPE_STRING, "top-field-first", (void *) NULL);
+     else
+-      gst_structure_set (s, "field-order", G_TYPE_STRING, "bottom-field-first", NULL);
++      gst_structure_set (s, "field-order", G_TYPE_STRING, "bottom-field-first", (void *) NULL);
+   }
  
    switch (f) {
      case bmdFormat8BitYUV:     /* '2vuy' */

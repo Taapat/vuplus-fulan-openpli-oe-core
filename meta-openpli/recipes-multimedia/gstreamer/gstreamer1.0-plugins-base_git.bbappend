@@ -1,5 +1,7 @@
 DEFAULT_PREFERENCE = "1"
 
+include gstreamer1.0-git-version.inc
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI_remove = "git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=1.8;name=base"
@@ -11,10 +13,7 @@ SRC_URI_append = " \
 	file://subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 "
 
-inherit gitpkgv
-SRCREV_base = "83e3274bed5d9ad1f5e3cdb67ec7b84d2fd5d515"
-PV = "1.10.1+git${SRCPV}"
-PKGV = "1.10.1+git${GITPKGV}"
+SRCREV_base = "73e5a830c089767f018f3c8824df1fd58302fe06"
 
 PACKAGECONFIG = "\
  ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \
