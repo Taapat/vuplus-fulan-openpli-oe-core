@@ -28,6 +28,7 @@ RRECOMMENDS_${PN} = ""
 
 EXTRA_OECONF += " \
     --enable-dts \
+    --enable-mpegdemux \
 "
 
 python handle_hls_rename () {
