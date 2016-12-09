@@ -10,7 +10,6 @@ KERNEL_MODULE_AUTOLOAD += "xfs"
 
 MACHINE_EXTRA_RRECOMMENDS = " \
 	vuplus-shutdown \
-	gst-plugin-dvbmediasink \
 	ntfs-3g \
 	${@bb.utils.contains("MACHINE_FEATURES", "minitv", "enigma2-plugin-extensions-minitv", "", d)} \
 "
