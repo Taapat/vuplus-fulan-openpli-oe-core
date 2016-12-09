@@ -7,14 +7,14 @@ DEPENDS += " libdca"
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI_remove = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=1.8;name=base"
-SRC_URI_prepend = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=1.10;name=base "
+SRC_URI_prepend = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=master;name=base "
 SRC_URI_append = " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
 	file://hls-use-max-playlist-quality.patch \
 "
 
-SRCREV_base = "c4b50182687c08b503ccf1be22afb3963defe2bc"
+SRCREV_base = "9e6f39fdc7ba7923dc0e13bb843ef16500142e96"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \

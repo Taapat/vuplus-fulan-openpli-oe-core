@@ -27,28 +27,17 @@ diff --git a/sys/decklink/gstdecklink.cpp b/sys/decklink/gstdecklink.cpp
 index 64637f1..bac956f 100644
 --- a/sys/decklink/gstdecklink.cpp
 +++ b/sys/decklink/gstdecklink.cpp
-@@ -476,29 +476,29 @@
+@@ -476,7 +476,7 @@
        "pixel-aspect-ratio", GST_TYPE_FRACTION, mode->par_n, mode->par_d,
        "interlace-mode", G_TYPE_STRING,
        mode->interlaced ? "interleaved" : "progressive",
 -      "framerate", GST_TYPE_FRACTION, mode->fps_n, mode->fps_d, NULL);
 +      "framerate", GST_TYPE_FRACTION, mode->fps_n, mode->fps_d, (void *) NULL);
  
-   if (input && mode->interlaced) {
-     if (mode->tff)
--      gst_structure_set (s, "field-order", G_TYPE_STRING, "top-field-first", NULL);
-+      gst_structure_set (s, "field-order", G_TYPE_STRING, "top-field-first", (void *) NULL);
-     else
--      gst_structure_set (s, "field-order", G_TYPE_STRING, "bottom-field-first", NULL);
-+      gst_structure_set (s, "field-order", G_TYPE_STRING, "bottom-field-first", (void *) NULL);
-   }
- 
    switch (f) {
      case bmdFormat8BitYUV:     /* '2vuy' */
-       gst_structure_set (s, "format", G_TYPE_STRING, "UYVY",
-           "colorimetry", G_TYPE_STRING, mode->colorimetry,
--          "chroma-site", G_TYPE_STRING, "mpeg2", NULL);
-+          "chroma-site", G_TYPE_STRING, "mpeg2", (void *) NULL);
+@@ -485,13 +485,13 @@
+           "chroma-site", G_TYPE_STRING, "mpeg2", NULL);
        break;
      case bmdFormat10BitYUV:    /* 'v210' */
 -      gst_structure_set (s, "format", G_TYPE_STRING, "v210", NULL);
@@ -68,7 +57,7 @@ diff --git a/sys/decklink/gstdecklinkaudiosrc.cpp b/sys/decklink/gstdecklinkaudi
 index 9a701ee..26fb7ec 100644
 --- a/sys/decklink/gstdecklinkaudiosrc.cpp
 +++ b/sys/decklink/gstdecklinkaudiosrc.cpp
-@@ -322,7 +322,7 @@ gst_decklink_audio_src_set_caps (GstBaseSrc * bsrc, GstCaps * caps)
+@@ -312,7 +312,7 @@ gst_decklink_audio_src_set_caps (GstBaseSrc * bsrc, GstCaps * caps)
        g_mutex_unlock (&self->input->lock);
  
        if (videosrc) {
@@ -81,7 +70,7 @@ diff --git a/sys/decklink/gstdecklinkvideosink.cpp b/sys/decklink/gstdecklinkvid
 index eebeff3..da6e486 100644
 --- a/sys/decklink/gstdecklinkvideosink.cpp
 +++ b/sys/decklink/gstdecklinkvideosink.cpp
-@@ -163,7 +163,7 @@ reset_framerate (GstCapsFeatures * features, GstStructure * structure,
+@@ -160,7 +160,7 @@ reset_framerate (GstCapsFeatures * features, GstStructure * structure,
      gpointer user_data)
  {
    gst_structure_set (structure, "framerate", GST_TYPE_FRACTION_RANGE, 0, 1,
