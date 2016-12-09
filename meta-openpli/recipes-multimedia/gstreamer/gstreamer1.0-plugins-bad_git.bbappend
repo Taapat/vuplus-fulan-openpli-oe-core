@@ -2,6 +2,8 @@ DEFAULT_PREFERENCE = "1"
 
 include gstreamer1.0-git-version.inc
 
+DEPENDS += " libdca"
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI_remove = "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad;branch=1.8;name=base"
@@ -30,7 +32,3 @@ EXTRA_OECONF += " \
     --enable-dts \
     --enable-mpegdemux \
 "
-
-python handle_hls_rename () {
-    d.setVar('RPROVIDES_gstreamer1.0-plugins-bad-hls', 'gstreamer1.0-plugins-bad-fragmented')
-}
