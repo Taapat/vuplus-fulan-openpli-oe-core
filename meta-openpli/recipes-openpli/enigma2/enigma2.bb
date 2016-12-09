@@ -112,6 +112,7 @@ GST_BAD_RDEPS = "\
 	gstreamer1.0-plugins-bad-smoothstreaming \
 	gstreamer1.0-plugins-bad-faad \
 	gstreamer1.0-plugins-bad-videoparsersbad \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "gstreamer1.0-plugins-bad-dtsdec", d)} \
 	"
 
 GST_UGLY_RDEPS = "\
