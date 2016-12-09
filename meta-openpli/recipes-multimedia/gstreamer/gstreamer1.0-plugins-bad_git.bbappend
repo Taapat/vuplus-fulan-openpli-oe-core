@@ -26,6 +26,10 @@ PACKAGECONFIG = "\
 
 RRECOMMENDS_${PN} = ""
 
+EXTRA_OECONF += " \
+    --enable-dts \
+"
+
 python handle_hls_rename () {
     d.setVar('RPROVIDES_gstreamer1.0-plugins-bad-hls', 'gstreamer1.0-plugins-bad-fragmented')
 }
