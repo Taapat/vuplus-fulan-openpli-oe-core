@@ -8,8 +8,8 @@ do_configure[depends] += "virtual/kernel:do_shared_workdir"
 
 KV = "3.13.5"
 PV = "${KV}"
-SRCDATE = "20161130"
-SRCDATE_PR = "r1"
+SRCDATE = "20161228"
+SRCDATE_PR = "r0"
 
 PR = "${SRCDATE}.${SRCDATE_PR}"
 
