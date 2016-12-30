@@ -15,8 +15,8 @@ case "$ACTION" in
 			# Already mounted
 			exit 0
 		fi
-		if [ "${MDEV}" = "`readlink /dev/root`" ]; then
-			# Special case
+		# blacklisted internal mmc
+		if [ -e /dev/root ] && [ $MDEV == $(readlink /dev/root) ] ; then
 			exit 0
 		fi
 		DRIVER=`expr substr $MDEV 1 6`
