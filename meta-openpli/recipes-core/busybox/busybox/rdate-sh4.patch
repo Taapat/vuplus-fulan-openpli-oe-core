@@ -1,8 +1,10 @@
---- a/rdate	2016-03-15 20:14:41.513067518 +0200
-+++ b/rdate	2016-03-15 20:15:42.581370342 +0200
-@@ -10,3 +10,5 @@
- 	echo "Running rdate -s $RDATE..."
- 	rdate -s $RDATE || (echo "Running rdate -s $RDATE_ALT..."; rdate -s $RDATE_ALT)
+--- a/rdate	2017-01-03 23:14:24.257696462 +0200
++++ b/rdate	2017-01-03 23:14:14.001665354 +0200
+@@ -11,4 +11,7 @@
+ 		echo "Running rdate -s $RDATE..."
+ 		rdate -s "$RDATE" && break
+ 	done
++
++	echo "Set time on FP"
++	fp_control -s `date +"%H:%M:%S %d-%m-%Y"`
  fi
-+echo "Set time on FP"
-+fp_control -s `date +"%H:%M:%S %d-%m-%Y"`

@@ -22,6 +22,7 @@ SRC_URI += " \
 			file://inetd \
 			file://inetd.conf \
 			file://rdate \
+			file://rdate.conf \
 			"
 
 SRC_URI_append_sh4 = "\
@@ -42,8 +43,9 @@ RDEPENDS_${PN}-inetd += "${PN}"
 PACKAGES =+ "${PN}-rdate"
 INITSCRIPT_PACKAGES += "${PN}-rdate"
 INITSCRIPT_NAME_${PN}-rdate = "${BPN}-rdate"
-INITSCRIPT_PARAMS_${PN}-rdate = "start 83 S ."
-FILES_${PN}-rdate = "${sysconfdir}/rdate ${sysconfdir}/init.d/${BPN}-rdate"
+INITSCRIPT_PARAMS_${PN}-rdate = "start 83 3 ."
+CONFFILES_${PN}-rdate = "${sysconfdir}/rdate.conf"
+FILES_${PN}-rdate = "${sysconfdir}/init.d/${BPN}-rdate ${sysconfdir}/rdate.conf"
 RDEPENDS_${PN}-rdate += "${PN}"
 
 RRECOMMENDS_${PN} = "${PN}-udhcpc ${PN}-inetd \
@@ -64,6 +66,7 @@ do_install_append() {
 	install -m 0755 ${WORKDIR}/mdev-mount.sh ${D}${sysconfdir}/mdev
 	sed -i "/[/][s][h]*$/d" ${D}${sysconfdir}/busybox.links.nosuid
 	install -m 0755 ${WORKDIR}/rdate ${D}${sysconfdir}/init.d/${BPN}-rdate
+	install -m 0644 ${WORKDIR}/rdate.conf ${D}${sysconfdir}
 }
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
