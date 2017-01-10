@@ -10,6 +10,7 @@ SAMBA4_LIBS = "heimdal,!zlib,popt,talloc,pytalloc,pytalloc-util,tevent,pytevent,
 EXTRA_OECONF += " \
                  --without-cluster-support \
                  --without-profiling-data \
+                 --with-piddir=/var/run \
                  --with-sockets-dir=${localstatedir}/run \
                  --with-logfilebase=${localstatedir}/log \
                  --nopyc \
@@ -31,6 +32,7 @@ EXTRA_OECONF_remove = " \
 # Remove unused, add own config
 SRC_URI += " \
            file://smb.conf \
+           file://samba.sh \
            file://22-disable-python.patch \
            file://23-fix-idmap-building-without-ldap.patch \
            "
@@ -54,6 +56,8 @@ do_install_append() {
 	install -d ${D}/var/lib/samba/private
 	install -d ${D}${sysconfdir}/samba
 	install -m 644 ${WORKDIR}/smb.conf ${D}${sysconfdir}/samba
+	install -d ${D}${sysconfdir}/init.d
+	install -m 755 ${WORKDIR}/samba.sh ${D}${sysconfdir}/init.d/samba
 }
 
 CONFFILES_${BPN}-common = "${sysconfdir}/samba/smb.conf"
