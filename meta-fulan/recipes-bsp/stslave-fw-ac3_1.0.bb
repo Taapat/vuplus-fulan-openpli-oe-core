@@ -2,6 +2,7 @@ DESCRIPTION = "STM ST-231 Coprocessor firmware"
 LICENSE = "CLOSED"
 SECTION = "base"
 
+RPROVIDES_${PN} = "stslave-fw"
 RREPLACES_${PN} = "stslave-fw-dts"
 RCONFLICTS_${PN} = "stslave-fw-dts"
 

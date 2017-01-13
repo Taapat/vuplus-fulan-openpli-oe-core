@@ -3,8 +3,8 @@ LICENSE = "CLOSED"
 SECTION = "base"
 
 RPROVIDES_${PN} = "stslave-fw"
-RREPLACES_${PN} = "stslave-fw"
-RCONFLICTS_${PN} = "stslave-fw"
+RREPLACES_${PN} = "stslave-fw-ac3"
+RCONFLICTS_${PN} = "stslave-fw-ac3"
 
 # fix architecture mismatch QA error
 INSANE_SKIP_${PN} = "arch"
