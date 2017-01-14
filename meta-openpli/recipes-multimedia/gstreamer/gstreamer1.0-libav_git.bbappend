@@ -5,7 +5,7 @@ include gstreamer1.0-git-version.inc
 SRC_URI_remove = "git://anongit.freedesktop.org/gstreamer/gst-libav;branch=1.8;name=base"
 SRC_URI_prepend = "git://anongit.freedesktop.org/gstreamer/gst-libav;branch=master;name=base "
 
-SRCREV_base = "d634d9fac337be532e6b0c343e7883c8016be758"
+SRCREV_base = "c39e08dfb531091a68577197a6f74df440f7ca99"
 
 DEPENDS =+ "ffmpeg"
 

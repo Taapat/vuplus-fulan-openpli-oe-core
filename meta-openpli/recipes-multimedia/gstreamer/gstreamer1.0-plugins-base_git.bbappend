@@ -16,7 +16,7 @@ SRC_URI_append = " \
 	file://subparse-avoid-false-negatives-dealing-with-UTF-8.patch \
 "
 
-SRCREV_base = "ec447d421f4ca77aab8285d42d5be625ffeaff93"
+SRCREV_base = "b728e91ebb4452f7a8d3aa1da4f00565bce09092"
 
 PACKAGECONFIG = "\
  ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} \

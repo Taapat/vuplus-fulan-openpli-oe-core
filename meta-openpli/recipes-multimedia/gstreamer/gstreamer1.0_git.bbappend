@@ -10,4 +10,4 @@ SRC_URI_append = " \
 	file://0001-Fix-crash-with-gst-inspect.patch \
 	file://0001-revert-use-new-gst-adapter-get-buffer.patch \
 "
-SRCREV_base = "b6e263d7533a729964eafd63a785b4d0283a3027"
+SRCREV_base = "4b7a521e12f59cd218de88de66a2b31a8bd1fcc0"

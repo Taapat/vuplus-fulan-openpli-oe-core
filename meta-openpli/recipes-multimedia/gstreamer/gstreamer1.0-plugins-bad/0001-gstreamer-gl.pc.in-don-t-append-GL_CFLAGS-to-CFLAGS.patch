@@ -16,9 +16,9 @@ diff --git a/pkgconfig/gstreamer-gl.pc.in b/pkgconfig/gstreamer-gl.pc.in
 index 5589e2a..b986450 100644
 --- a/pkgconfig/gstreamer-gl.pc.in
 +++ b/pkgconfig/gstreamer-gl.pc.in
-@@ -10,4 +10,4 @@ Version: @VERSION@
+@@ -13,4 +13,4 @@ Version: @VERSION@
  Requires: gstreamer-base-@GST_API_VERSION@ gstreamer-@GST_API_VERSION@
  
- Libs: -L${libdir} -lgstgl-@GST_API_VERSION@ @GL_LIBS@
+ Libs: -L${libdir} -lgstgl-@GST_API_VERSION@
 -Cflags: -I${includedir} -I${libdir}/gstreamer-@GST_API_VERSION@/include @GL_CFLAGS@
 +Cflags: -I${includedir} -I${libdir}/gstreamer-@GST_API_VERSION@/include
