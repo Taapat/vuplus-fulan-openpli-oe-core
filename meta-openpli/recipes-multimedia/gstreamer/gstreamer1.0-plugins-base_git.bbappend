@@ -7,6 +7,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 SRC_URI_remove = " \
     git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=1.8;name=base \
     file://0003-ssaparse-enhance-SSA-text-lines-parsing.patch \
+    file://encodebin-Need-more-buffers-in-output-queue-for-bett.patch \
 "
 SRC_URI_prepend = "git://anongit.freedesktop.org/gstreamer/gst-plugins-base;branch=master;name=base "
 SRC_URI_append = " \
