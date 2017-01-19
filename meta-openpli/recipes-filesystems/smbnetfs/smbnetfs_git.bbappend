@@ -18,8 +18,6 @@ inherit update-rc.d
 
 INITSCRIPT_NAME = "${PN}.sh"
 
-RDEPENDS_${PN} += "libsmbclient"
-
 do_install_append() {
     install -d ${D}${sysconfdir}
     install -m 600 ${WORKDIR}/smbnetfs.common.conf ${D}${sysconfdir}/
