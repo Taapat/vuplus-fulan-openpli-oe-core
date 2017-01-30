@@ -21,7 +21,7 @@ EXTRA_IMAGEDEPENDS += "\
 TARGET_ARCH = "mipsel"
 DEFAULTTUNE = "mips32el"
 
-DVBMEDIASINK_CONFIG = "--with-vuplus --with-wmv --with-pcm --with-eac3"
+DVBMEDIASINK_CONFIG = "--with-wmv --with-pcm --with-eac3"
 
 PREFERRED_VERSION_linux-${MACHINE} = "3.9.6"
 PREFERRED_VERSION_samba = "4.%"

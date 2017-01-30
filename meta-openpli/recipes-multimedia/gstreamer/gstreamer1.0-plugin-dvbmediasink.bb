@@ -10,7 +10,7 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libdca"
 
 GSTVERSION = "1.0"
 
-SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmediasink.git;branch=master"
+SRC_URI = "git://github.com/christophecvr/gstreamer1.0-plugin-multibox-dvbmediasink.git;branch=openatv-dev"
 SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
@@ -19,8 +19,9 @@ inherit autotools pkgconfig
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-EXTRA_OECONF = "${DVBMEDIASINK_CONFIG} --with-gstversion=${GSTVERSION}"
+EXTRA_OECONF = "${DVBMEDIASINK_CONFIG} --with-gstversion=${GSTVERSION} --with-machine=${MACHINE}"
 
-FILES_${PN} = "${libdir}/gstreamer-${GSTVERSION}/*.so*"
+FILES_${PN} = "${libdir}/gstreamer-${GSTVERSION}/*.so* ${sysconfdir}/gstreamer/aactranscode"
 FILES_${PN}-dev += "${libdir}/gstreamer-${GSTVERSION}/*.la"
 FILES_${PN}-staticdev += "${libdir}/gstreamer-${GSTVERSION}/*.a"
+FILES_${PN}-dbg += "${libdir}/gstreamer-${GSTVERSION}/.debug"
