@@ -7,7 +7,6 @@ inherit gitpkgv allarch
 
 PV = "0.1+git${SRCPV}"
 PKGV = "0.1+git${GITPKGV}"
-PR = "r1"
 SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/Taapat/skin-MetropolisHD.git"
@@ -17,6 +16,7 @@ FILES_${PN} = "/usr/"
 S = "${WORKDIR}/git"
 
 do_compile() {
+	python -O -m compileall ${S}/usr/lib/enigma2/python/Components/
 }
 
 do_install() {
