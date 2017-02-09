@@ -13,6 +13,7 @@ PKGV = "2.0+git${GITPKGV}"
 
 SRC_URI = " \
     git://github.com/Taapat/apps.git;protocol=git \
+    file://libtool_dont_stop.patch \
 "
 
 S = "${WORKDIR}/git/tools"
