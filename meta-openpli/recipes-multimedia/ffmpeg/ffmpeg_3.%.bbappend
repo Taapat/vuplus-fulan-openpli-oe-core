@@ -1,6 +1,10 @@
 PR = "r1"
 
-DEPENDS = "libbluray libxml2"
+DEPENDS = "libxml2"
+
+DEPENDS_append_sh4 = " \
+    libbluray \
+"
 
 SRC_URI_append = " \
     file://ffmpeg-fix-hls.patch \
@@ -225,13 +229,16 @@ EXTRA_FFCONF = " \
     --disable-outdevs \
     --disable-zlib \
     --disable-bsfs \
-    --enable-libbluray \
-    --enable-protocol=bluray \
     --pkg-config="pkg-config" \
     --disable-debug \
     --extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
     --extra-ldflags="${TARGET_LDFLAGS},--gc-sections -Wl,--print-gc-sections,-lrt" \
     --prefix=${prefix} \
+"
+
+EXTRA_FFCONF_append_sh4 = " \
+    --enable-libbluray \
+    --enable-protocol=bluray \
 "
 
 PACKAGECONFIG = "avdevice avfilter avcodec avformat swresample swscale openssl bzlib"
