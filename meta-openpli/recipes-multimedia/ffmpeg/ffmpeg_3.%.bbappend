@@ -1,5 +1,3 @@
-PR = "r1"
-
 DEPENDS = "libxml2"
 
 DEPENDS_append_sh4 = " \
