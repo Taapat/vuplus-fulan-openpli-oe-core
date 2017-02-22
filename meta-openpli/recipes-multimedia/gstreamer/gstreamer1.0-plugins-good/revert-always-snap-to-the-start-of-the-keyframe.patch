@@ -1,0 +1,95 @@
+From 488e8edba4527d7e8da9b45a42ffd3927f7ac449 Mon Sep 17 00:00:00 2001
+From: Jan Schmidt <jan@centricular.com>
+Date: Fri, 17 Feb 2017 13:07:05 +1100
+Subject: Revert "qtdemux: Always snap to the start of the keyframe"
+
+This reverts commit 107902ec514bd826aa29d2298107e2c091e1c779.
+
+This commit intended to ensure that keyframe seeks land at the
+start timestamp of a keyframe, rather than in the middle of one,
+but they cause trouble on files with sparse streams, or with
+JPEG 'cover art' tracks that have only one or a few JPEG samples
+with very long durations.
+
+That's still desirable for doing seamless cutting of videos,
+but needs a rethink for implementation.
+
+https://bugzilla.gnome.org/show_bug.cgi?id=778690
+
+diff --git a/gst/isomp4/qtdemux.c b/gst/isomp4/qtdemux.c
+index 2d9cc2a..8f9135b 100644
+--- a/gst/isomp4/qtdemux.c
++++ b/gst/isomp4/qtdemux.c
+@@ -1296,7 +1296,7 @@ gst_qtdemux_adjust_seek (GstQTDemux * qtdemux, gint64 desired_time,
+    * and move back to the previous keyframe. */
+   for (n = 0; n < qtdemux->n_streams; n++) {
+     QtDemuxStream *str;
+-    guint32 index;
++    guint32 index, kindex;
+     guint32 seg_idx;
+     GstClockTime media_start;
+     GstClockTime media_time;
+@@ -1350,33 +1350,37 @@ gst_qtdemux_adjust_seek (GstQTDemux * qtdemux, gint64 desired_time,
+ 
+     if (!empty_segment) {
+       /* find previous keyframe */
+-      index = gst_qtdemux_find_keyframe (qtdemux, str, index, next);
++      kindex = gst_qtdemux_find_keyframe (qtdemux, str, index, next);
+ 
+       /* we will settle for one before if none found after */
+-      if (next && index == -1)
+-        index = gst_qtdemux_find_keyframe (qtdemux, str, index, FALSE);
++      if (next && kindex == -1)
++        kindex = gst_qtdemux_find_keyframe (qtdemux, str, index, FALSE);
+ 
+-      /* Snap to the start ts of the keyframe we found */
++      /* if the keyframe is at a different position, we need to update the
++       * requested seek time */
++      if (index != kindex) {
++        index = kindex;
+ 
+-      /* get timestamp of keyframe */
+-      media_time = QTSAMPLE_PTS_NO_CSLG (str, &str->samples[index]);
+-      GST_DEBUG_OBJECT (qtdemux,
+-          "keyframe at %u with time %" GST_TIME_FORMAT " at offset %"
+-          G_GUINT64_FORMAT, index, GST_TIME_ARGS (media_time),
+-          str->samples[index].offset);
+-
+-      /* keyframes in the segment get a chance to change the
+-       * desired_offset. keyframes out of the segment are
+-       * ignored. */
+-      if (media_time >= seg->media_start) {
+-        GstClockTime seg_time;
+-
+-        /* this keyframe is inside the segment, convert back to
+-         * segment time */
+-        seg_time = (media_time - seg->media_start) + seg->time;
+-        if ((!next && (seg_time < min_offset)) ||
+-            (next && (seg_time > min_offset)))
+-          min_offset = seg_time;
++        /* get timestamp of keyframe */
++        media_time = QTSAMPLE_PTS_NO_CSLG (str, &str->samples[kindex]);
++        GST_DEBUG_OBJECT (qtdemux,
++            "keyframe at %u with time %" GST_TIME_FORMAT " at offset %"
++            G_GUINT64_FORMAT, kindex, GST_TIME_ARGS (media_time),
++            str->samples[kindex].offset);
++
++        /* keyframes in the segment get a chance to change the
++         * desired_offset. keyframes out of the segment are
++         * ignored. */
++        if (media_time >= seg->media_start) {
++          GstClockTime seg_time;
++
++          /* this keyframe is inside the segment, convert back to
++           * segment time */
++          seg_time = (media_time - seg->media_start) + seg->time;
++          if ((!next && (seg_time < min_offset)) ||
++              (next && (seg_time > min_offset)))
++            min_offset = seg_time;
++        }
+       }
+     }
+ 
+-- 
+cgit v0.10.2
+
