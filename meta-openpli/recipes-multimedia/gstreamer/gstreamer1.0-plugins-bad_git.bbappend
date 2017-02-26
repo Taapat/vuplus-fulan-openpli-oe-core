@@ -17,9 +17,10 @@ SRC_URI_append = " \
 	file://0001-rtmp-fix-seeking-and-potential-segfault.patch \
 	file://mpegtsdemux-only-wait-for-PCR-when-PCR-pid.patch \
 	file://hls-use-max-playlist-quality.patch \
+	file://hls-main-thread-block.patch \
 "
 
-SRCREV_base = "ce9c82af471db588ef5d47a38bdb1581a641e542"
+SRCREV_base = "6083c9cf5c700c58e731b744a3681ade535190dc"
 
 PACKAGECONFIG = "\
  ${PACKAGECONFIG_GL} \
@@ -32,6 +33,21 @@ PACKAGECONFIG = "\
  "
 
 RRECOMMENDS_${PN} = ""
+
+EXTRA_OECONF_remove = " \
+    --disable-libvisual \
+    --disable-xvid \
+    --disable-linsys \
+    --disable-timidity \
+    --disable-wininet \
+    --disable-apexsink \
+    --disable-mimic \
+    --disable-sdltest \
+    --disable-sndio \
+    --disable-sdl \
+    --disable-pvr \
+    --disable-nas \
+"
 
 EXTRA_OECONF += " \
     --enable-dts \
