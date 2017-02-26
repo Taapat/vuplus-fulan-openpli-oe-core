@@ -76,12 +76,14 @@ GST_BASE_RDEPS = "\
 	gstreamer1.0-plugins-base-app \
 	gstreamer1.0-plugins-base-audioconvert \
 	gstreamer1.0-plugins-base-audioresample \
+	gstreamer1.0-plugins-base-audiorate \
 	gstreamer1.0-plugins-base-ivorbisdec \
 	gstreamer1.0-plugins-base-ogg \
 	gstreamer1.0-plugins-base-playback \
 	gstreamer1.0-plugins-base-subparse \
 	gstreamer1.0-plugins-base-typefindfunctions \
 	gstreamer1.0-plugins-base-vorbis \
+	gstreamer1.0-plugins-base-rawparse \
 	"
 
 GST_GOOD_RDEPS = "\
@@ -101,6 +103,7 @@ GST_GOOD_RDEPS = "\
 	gstreamer1.0-plugins-good-souphttpsrc \
 	gstreamer1.0-plugins-good-udp \
 	gstreamer1.0-plugins-good-wavparse \
+	gstreamer1.0-plugins-good-wavpack \
 	"
 
 GST_BAD_RDEPS = "\
@@ -113,6 +116,7 @@ GST_BAD_RDEPS = "\
 	gstreamer1.0-plugins-bad-smoothstreaming \
 	gstreamer1.0-plugins-bad-faad \
 	gstreamer1.0-plugins-bad-videoparsersbad \
+	gstreamer1.0-plugins-bad-autoconvert \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "gstreamer1.0-plugins-bad-dtsdec", d)} \
 	"
 
