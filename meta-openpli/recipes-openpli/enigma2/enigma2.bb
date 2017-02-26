@@ -126,7 +126,6 @@ GST_UGLY_RDEPS = "\
 	gstreamer1.0-plugins-ugly-asf \
 	gstreamer1.0-plugins-ugly-cdio \
 	gstreamer1.0-plugins-ugly-dvdsub \
-	gstreamer1.0-plugins-ugly-mad \
 	"
 
 # DVD and iso playback is integrated, we need the libraries
