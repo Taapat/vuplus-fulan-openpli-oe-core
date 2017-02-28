@@ -103,7 +103,7 @@ GST_GOOD_RDEPS = "\
 	gstreamer1.0-plugins-good-souphttpsrc \
 	gstreamer1.0-plugins-good-udp \
 	gstreamer1.0-plugins-good-wavparse \
-	gstreamer1.0-plugins-good-wavpack \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "gstreamer1.0-plugins-good-wavpack", d)} \
 	"
 
 GST_BAD_RDEPS = "\
