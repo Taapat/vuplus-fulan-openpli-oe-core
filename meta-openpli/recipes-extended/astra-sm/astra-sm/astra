@@ -1,0 +1,19 @@
+#!/bin/sh
+
+test -f /etc/astra/config.lua || exit 0
+
+case "$1" in
+  start)
+    echo "Starting astra"
+    /usr/bin/astra /etc/astra/config.lua &
+    ;;
+  stop)
+    echo "Stopping astra"
+    killall -9 astra
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+esac
+
+exit 0
