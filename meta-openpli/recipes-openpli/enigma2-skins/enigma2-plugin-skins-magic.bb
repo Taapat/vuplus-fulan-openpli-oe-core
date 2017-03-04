@@ -11,7 +11,7 @@ PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 
 PV_font-valis-enigma = "2009.11.12"
-PR_font-valis-enigma = "r1"
+PR_font-valis-enigma = "r3"
 PKGV_font-valis-enigma = "${PV_font-valis-enigma}"
 DESCRIPTION_font-valis-enigma = "Valis enigma font"
 
