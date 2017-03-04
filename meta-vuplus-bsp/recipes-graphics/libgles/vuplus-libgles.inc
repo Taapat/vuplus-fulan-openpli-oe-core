@@ -18,6 +18,8 @@ libv3ddriver.so \
 libGLESv2.so \
 "
 
+INSANE_SKIP_${PN} = "already-stripped"
+
 do_install() {
     install -d ${D}/usr/lib/
     install -m 0755 ${S}/lib/*.so ${D}/usr/lib/
