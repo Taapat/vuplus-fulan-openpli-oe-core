@@ -42,7 +42,3 @@ do_install_append() {
 }
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-do_install_append() {
-	rm ${D}/usr/lib/enigma2/python/Plugins/Extensions/Tuxtxt/*.pyc
-}
