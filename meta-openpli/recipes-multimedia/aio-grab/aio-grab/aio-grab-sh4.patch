@@ -1,5 +1,5 @@
---- a/main.c	2016-02-05 05:54:26.814696240 +0200
-+++ b/main.c	2016-02-05 05:53:48.070504119 +0200
+--- a/main.c	2017-03-05 01:33:26.995003981 +0200
++++ b/main.c	2017-03-05 01:45:17.607110740 +0200
 @@ -37,10 +37,39 @@
  #include <sys/mman.h>
  #include <linux/types.h>
@@ -44,55 +44,60 @@
  void (*resize)(const unsigned char *source, unsigned char *dest, int xsource, int ysource, int xdest, int ydest, int colors);
  void combine(unsigned char *output, const unsigned char *video, const unsigned char *osd, int vleft, int vtop, int vwidth, int vheight, int xres, int yres);
  
--static enum {UNKNOWN, PALLAS, VULCAN, WETEKPLAY, XILLEON, BRCM7366ARM, BRCM7439, BRCM7445, BRCM7400, BRCM7401, BRCM7405, BRCM7325, BRCM7335, BRCM7358, BRCM7362, BRCM73625, BRCM7241, BRCM7346, BRCM7356, BRCM73565, BRCM7424, BRCM7425, BRCM7435, BRCM7552} stb_type = UNKNOWN;
-+//static enum {UNKNOWN, PALLAS, VULCAN, WETEKPLAY, XILLEON, BRCM7366ARM, BRCM7439, BRCM7445, BRCM7400, BRCM7401, BRCM7405, BRCM7325, BRCM7335, BRCM7358, BRCM7362, BRCM73625, BRCM7241, BRCM7346, BRCM7356, BRCM73565, BRCM7424, BRCM7425, BRCM7435, BRCM7552} stb_type = UNKNOWN;
+-static enum {UNKNOWN, PALLAS, VULCAN, WETEKPLAY, XILLEON, BRCM_ARM, BRCM7439, BRCM7445, BRCM7400, BRCM7401, BRCM7405, BRCM7325, BRCM7335, BRCM7358, BRCM7362, BRCM73625, BRCM7241, BRCM7346, BRCM7356, BRCM73565, BRCM7424, BRCM7425, BRCM7435, BRCM7552} stb_type = UNKNOWN;
++//static enum {UNKNOWN, PALLAS, VULCAN, WETEKPLAY, XILLEON, BRCM_ARM, BRCM7439, BRCM7445, BRCM7400, BRCM7401, BRCM7405, BRCM7325, BRCM7335, BRCM7358, BRCM7362, BRCM73625, BRCM7241, BRCM7346, BRCM7356, BRCM73565, BRCM7424, BRCM7425, BRCM7435, BRCM7552} stb_type = UNKNOWN;
  
  
  static int chr_luma_stride = 0x40;
-@@ -113,6 +142,7 @@
+@@ -112,7 +141,7 @@
+ 	int output_bytes=3;
  
  	const char* filename = "/tmp/screenshot.bmp";
- 
+-
 +#if 0
  	// detect STB
  	char buf[256];
  	FILE *fp = fopen("/proc/fb","r");
-@@ -365,6 +395,7 @@
+@@ -377,7 +406,7 @@
  		default:
  			break;
  	}
+-
 +#endif
- 
  	// process command line
  	while ((c = getopt (argc, argv, "dhj:lbnopqr:sv")) != -1)
-@@ -447,14 +478,18 @@
+ 	{
+@@ -458,16 +487,16 @@
+ 		filename = argv[optind];
  
  	int mallocsize=1920*1080;
- 
+-
 +#if 0
  	if (stb_type == VULCAN || stb_type == PALLAS)
  		mallocsize=720*576;
+-
 +#endif
- 
  	video = (unsigned char *)malloc(mallocsize*3);
  	osd = (unsigned char *)malloc(mallocsize*4);
- 
+-
 +#if 0
  	if ((stb_type == VULCAN || stb_type == PALLAS) && width > 720)
  		mallocsize=width*(width * 0.8 + 1);
+-
 +#endif
- 
  	output = (unsigned char *)malloc(mallocsize*4);
  
-@@ -470,6 +505,7 @@
+ 	// get osd
+@@ -481,7 +510,7 @@
+ 			fprintf(stderr, "Grabbing Video ...\n");
  		getvideo(video,&xres_v,&yres_v);
  	}
- 
+-
 +#if 0
  	// get aspect ratio
  	if (stb_type == VULCAN || stb_type == PALLAS)
  	{
-@@ -484,6 +520,10 @@
+@@ -496,6 +525,10 @@
  	else
  	{
  		fp = fopen("/proc/stb/vmpeg/0/aspect", "r");
@@ -103,17 +108,18 @@
  		if (fp)
  		{
  			while (fgets(buf,sizeof(buf), fp))
-@@ -520,7 +560,9 @@
+@@ -532,8 +565,9 @@
  		}
  		if (dst_width == 720) dst_width = 0;
  		if (dst_height == 576) dst_height = 0;
 +#if 0
  	}
+-
 +#endif
- 
  	// resizing
   	if (video_only)
-@@ -802,7 +844,16 @@
+ 	{
+@@ -814,7 +848,16 @@
  	int stride = 0;
  	FILE *fp;
  	char buf[256];
@@ -128,20 +134,20 @@
 +	char *decode_surface;
 +	int delay;
 +#if 0
- 	if ((stb_type == BRCM7366ARM) || (stb_type == BRCM7439) || (stb_type == BRCM7445))
+ 	if ((stb_type == BRCM_ARM) || (stb_type == BRCM7439) || (stb_type == BRCM7445))
  	{
  		int fd_video = open("/dev/dvb/adapter0/video0", O_RDONLY);
-@@ -819,12 +870,226 @@
+@@ -830,13 +873,225 @@
+ 		*yres = 1080;
  		return;
  	}
- 
+-
 +#endif
  	if ((mem_fd = open("/dev/mem", O_RDWR|O_SYNC) ) < 0)
  	{
  		fprintf(stderr, "Mainmemory: can't open /dev/mem \n");
  		return;
  	}
- 
 +	fp = fopen("/proc/stb/vmpeg/0/xres", "r");
 +	if (fp)
 +	{
@@ -351,25 +357,27 @@
 +		close(fd_bpa);
 +		return;
 +	}
-+
+ 
 +	close(fd_bpa);
 +
 +#if 0
  	if (stb_type > XILLEON)
  	{
  		// grab bcm pic from decoder memory
-@@ -1253,6 +1518,7 @@
+@@ -1265,7 +1520,7 @@
  		return;
  
  	}
+-
 +#endif
- 
  	close(mem_fd);
  
-@@ -1278,12 +1544,14 @@
+ 	// yuv2rgb conversion (4:2:0)
+@@ -1289,14 +1544,14 @@
+ 			int GU=yuv2rgbtable_gu[U];
  			int GV=yuv2rgbtable_gv[V];
  			int BV=yuv2rgbtable_bv[V];
- 
+-
 +#if 0
  			switch (stb_type) //on xilleon we use bgr instead of rgb so simply swap the coeffs
  			{
@@ -377,11 +385,12 @@
  					SWAP(RU,BV);
  					break;
  			}
+-
 +#endif
- 
  			// now we do 4 pixels on each iteration this is more code but much faster
  			int Y=yuv2rgbtable_y[luma[pos]];
-@@ -1333,10 +1601,10 @@
+ 
+@@ -1345,10 +1600,10 @@
  	struct fb_fix_screeninfo fix_screeninfo;
  	struct fb_var_screeninfo var_screeninfo;
  
@@ -394,20 +403,21 @@
  		if (fb == -1)
  		{
  			fprintf(stderr, "Framebuffer failed\n");
-@@ -1431,6 +1699,7 @@
+@@ -1442,7 +1697,7 @@
+ 			fprintf(stderr, "Mainmemory: <Memmapping failed>\n");
  			return;
  		}
- 
+-
 +#if 0
  		if (stb_type == VULCAN) // DM500/5620 stores the colors as a 16bit word with yuv values, so we have to convert :(
  		{
  			unsigned short yuv;
-@@ -1471,6 +1740,8 @@
- 			fprintf(stderr, "unsupported framebuffermode\n");
- 			return;
+@@ -1503,7 +1758,7 @@
  		}
+ 	}
+ 	close(fb);
+-
 +#endif
-+
- 		close(mem_fd);
- 
- 		// get 8bit framebuffer
+ 	*xres=var_screeninfo.xres;
+ 	*yres=var_screeninfo.yres;
+ 	if (!quiet)
