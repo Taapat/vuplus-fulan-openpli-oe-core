@@ -18,8 +18,13 @@ SRC_URI_remove = "\
     file://vsftpd-2.1.0-filter.patch \
 "
 
-INHERIT_remove = "update-rc.d useradd systemd"
+# Remove initscripts and useradd
 PACKAGECONFIG = " "
+INITSCRIPT_PACKAGES = ""
+USERADD_PACKAGES = ""
+
+def update_useradd_after_parse(d):
+    pass
 
 # Remove -lwrap from flags
 do_compile() {
@@ -34,4 +39,7 @@ do_install() {
     install -d ${D}${sysconfdir}
     install -m 600 ${WORKDIR}/vsftpd.conf ${D}${sysconfdir}/vsftpd.conf
 	install -d ${D}${localstatedir}/share/empty
+}
+
+pkg_postinst_${PN}() {
 }
