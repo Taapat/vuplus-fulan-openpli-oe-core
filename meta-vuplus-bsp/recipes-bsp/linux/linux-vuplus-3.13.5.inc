@@ -37,10 +37,11 @@ export OS = "Linux"
 KERNEL_IMAGETYPE = "vmlinux"
 KERNEL_OUTPUT = "vmlinux"
 KERNEL_OBJECT_SUFFIX = "ko"
-KERNEL_IMAGEDEST = "/tmp"
+KERNEL_IMAGEDEST = "tmp"
 KERNEL_OUTPUT_DIR = "."
 
-FILES_kernel-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
+FILES_kernel-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}.gz"
+FILES_kernel-image-dev = "/${KERNEL_IMAGEDEST}"
 
 do_configure_prepend() {
 	oe_machinstall -m 0644 ${WORKDIR}/${KERNEL_CONFIG} ${WORKDIR}/defconfig
@@ -48,8 +49,8 @@ do_configure_prepend() {
 
 kernel_do_install_append() {
 	install -d ${D}/${KERNEL_IMAGEDEST}
-	install -m 0755 ${KERNEL_OUTPUT} ${D}${KERNEL_IMAGEDEST}
-	gzip ${D}${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+	install -m 0755 ${KERNEL_OUTPUT} ${D}/${KERNEL_IMAGEDEST}
+	gzip ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
 }
 
 pkg_postinst_kernel-image () {
