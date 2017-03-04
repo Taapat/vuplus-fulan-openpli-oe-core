@@ -69,6 +69,7 @@ PACKAGE_ARCH_enigma2-plugin-extensions-moviecut = "${TUNE_PKGARCH}"
 PACKAGE_ARCH_enigma2-plugin-systemplugins-networkbrowser = "${TUNE_PKGARCH}"
 PACKAGE_ARCH_enigma2-plugin-systemplugins-vps = "${TUNE_PKGARCH}"
 PACKAGE_ARCH_enigma2-plugin-extensions-shoutcast = "${TUNE_PKGARCH}"
+PATH_append = ":${BASE_WORKDIR}/all-oe-linux/${PN}/${EXTENDPE}${PV}-${PR}/recipe-sysroot-native/usr/bin"
 
 inherit autotools-brokensep
 
