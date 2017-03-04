@@ -2,6 +2,8 @@ DESCRIPTION = "shared library for E2 animation"
 SECTION = "libs"
 LICENSE = "CLOSED"
 
+DEPENDS = "vuplus-libgles-${MACHINE}"
+
 SRCDATE = "20170104"
 SRCDATE_PR = "r1"
 PR = "${SRCDATE}.${SRCDATE_PR}"
