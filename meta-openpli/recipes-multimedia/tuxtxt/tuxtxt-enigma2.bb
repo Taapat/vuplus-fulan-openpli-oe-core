@@ -36,11 +36,6 @@ EXTRA_OECONF = "--with-boxtype=generic --with-configdir=/etc \
 	DVB_API_VERSION=5\
 	"
 
-do_install_append() {
-	# remove unused .pyc files
-	find ${D}/usr/lib/enigma2/python/ -name '*.pyc' -exec rm {} \;
-}
-
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 do_install_append() {
