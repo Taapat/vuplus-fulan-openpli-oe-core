@@ -29,6 +29,9 @@ SRC_URI = " \
     file://COPYING \
 " 
 
+# Fix compile warning on vuplus
+FILESEXTRAPATHS_append := "${THISDIR}/${PN}/spark:"
+
 FILES_${PN} = "${sysconfdir}/init.d ${sysconfdir}/rcS.d ${sysconfdir}/modules-load.d ${sysconfdir}/modprobe.d"
 FILES = ""
 
