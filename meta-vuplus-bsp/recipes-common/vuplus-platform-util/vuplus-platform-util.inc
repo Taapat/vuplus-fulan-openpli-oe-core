@@ -16,6 +16,8 @@ SRC_URI = " \
 
 S="${WORKDIR}/platform-util-${MACHINE}"
 
+INSANE_SKIP_${PN} = "already-stripped"
+
 do_install() {
     install -d ${D}/usr/bin
     install -m 0755 ${S}/dvb_server ${D}/usr/bin/dvb_server
