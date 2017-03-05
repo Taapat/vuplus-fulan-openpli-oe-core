@@ -2,6 +2,7 @@ SUMMARY = "tuxbox libtuxtxt"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://COPYING;md5=393a5ca445f6965873eca0259a17f833"
 DEPENDS = "libpng freetype zlib"
+DEPENDS_append_sh4 = " fulan-dvb-modules"
 PR = "r1"
 
 inherit gitpkgv
