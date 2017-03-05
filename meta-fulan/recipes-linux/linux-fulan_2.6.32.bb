@@ -7,11 +7,11 @@ KV = "2.6.32"
 
 MACHINE_KERNEL_PR_append = ".8"
 
-DEPENDS_spark7162 += " \
+DEPENDS_append_spark7162 = " \
            stlinux24-sh4-stx7105-fdma-firmware \
 "
 
-DEPENDS_spark += " \
+DEPENDS_append_spark = " \
            stlinux24-sh4-stx7111-fdma-firmware \
 "
 
