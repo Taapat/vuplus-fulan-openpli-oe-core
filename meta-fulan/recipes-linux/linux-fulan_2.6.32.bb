@@ -15,7 +15,7 @@ DEPENDS_append_spark = " \
            stlinux24-sh4-stx7111-fdma-firmware \
 "
 
-inherit kernel machine_kernel_pr
+inherit kernel machine_kernel_pr kernel-module-split-no-kernelversion
 
 SRCDATE = "20160912"
 

@@ -12,7 +12,7 @@ SRCDATE = "20160830"
 KV = "2.6.32.71-stm24-0217"
 SRCREV = "${AUTOREV}"
 
-inherit module
+inherit module kernel-module-split-no-kernelversion
 
 PACKAGES = "${PN} ${PN}-dev"
 
