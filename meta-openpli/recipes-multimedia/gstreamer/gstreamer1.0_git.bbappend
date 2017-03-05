@@ -14,4 +14,5 @@ SRCREV_base = "e4a7200c63c82ccdeb23915c3f4949c784063052"
 
 EXTRA_OECONF_remove = " \
 	--disable-docbook \
+	--without-unwind \
 "
