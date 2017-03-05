@@ -80,9 +80,9 @@ PARALLEL_MAKEINST = ""
 export OS = "Linux"
 KERNEL_OBJECT_SUFFIX = "ko"
 KERNEL_IMAGETYPE = "uImage"
-KERNEL_IMAGEDEST = "/tmp"
+KERNEL_IMAGEDEST = "tmp"
 
-FILES_kernel-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}"
+FILES_kernel-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}"
 
 KEEPUIMAGE = "yes"
 
@@ -118,7 +118,7 @@ do_install_append() {
     install -d ${D}${includedir}/linux
     install -m 644 ${WORKDIR}/st-coprocessor.h ${D}${includedir}/linux
     oe_runmake headers_install INSTALL_HDR_PATH=${D}${exec_prefix}/src/linux-${KERNEL_VERSION} ARCH=$ARCH
-    mv ${D}${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION} ${D}${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+    mv ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}-${KERNEL_VERSION} ${D}/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
 }
 
 # hack to override kernel.bbclass...
@@ -138,14 +138,14 @@ FILES_kernel-headers = "${exec_prefix}/src/linux*"
 
 pkg_postinst_kernel-image() {
     if [ "x$D" == "x" ]; then
-        if [ -f ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
+        if [ -f /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} ] ; then
             if grep -q root=/dev/mtdblock6 /proc/cmdline; then
                 flash_eraseall /dev/${MTD_KERNEL}
-                nandwrite -p /dev/${MTD_KERNEL} ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
-                rm -f ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+                nandwrite -p /dev/${MTD_KERNEL} /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+                rm -f /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
             else
                 flash_erase /dev/${MTD_KERNEL} 0x400000 0x20
-                nandwrite -s 0x400000 -p /dev/${MTD_KERNEL} ${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
+                nandwrite -s 0x400000 -p /dev/${MTD_KERNEL} /${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}
             fi
         fi
     fi
