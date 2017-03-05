@@ -8,3 +8,13 @@
  
  #define SYSFS_BRIDGE_ATTR	"bridge"
  #define SYSFS_BRIDGE_FDB	"brforward"
+--- a/include/linux-private/linux/ipv6.h	2016-12-10 17:04:32.000000000 +0200
++++ b/include/linux-private/linux/ipv6.h	2017-03-05 18:46:21.524875935 +0200
+@@ -2,7 +2,6 @@
+ #define _IPV6_H
+ 
+ #include <asm/byteorder.h>
+-#include <linux/in6.h>
+ 
+ /* The latest drafts declared increase in minimal mtu up to 1280. */
+ 
