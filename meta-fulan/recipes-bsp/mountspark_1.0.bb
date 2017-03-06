@@ -16,7 +16,7 @@ do_install () {
 }
 
 INITSCRIPT_NAME = "mountspark"
-INITSCRIPT_PARAMS = "defaults"
+INITSCRIPT_PARAMS = "start 39 S ."
 
 inherit update-rc.d
 
