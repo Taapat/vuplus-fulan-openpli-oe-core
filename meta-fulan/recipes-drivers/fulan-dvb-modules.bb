@@ -19,6 +19,7 @@ PACKAGES = "${PN} ${PN}-dev"
 PR = "r0"
 PV = "${KV}+${SRCDATE}"
 
+KERNEL_MODULE_PACKAGE_SUFFIX = ""
 PTI_NP_PATH ?= "/data/pti_np"
 
 SRC_URI = " \

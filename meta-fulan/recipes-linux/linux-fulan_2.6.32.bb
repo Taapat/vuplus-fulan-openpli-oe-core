@@ -23,6 +23,8 @@ STM_PATCH_STR = "0217"
 LINUX_VERSION = "2.6.32.71"
 SRCREV = "3ec500f4212f9e4b4d2537c8be5ea32ebf68c43b"
 
+KERNEL_MODULE_PACKAGE_SUFFIX = ""
+
 # By default, kernel.bbclass modifies package names to allow multiple kernels
 # to be installed in parallel. We revert this change and rprovide the versioned
 # package names instead, to allow only one kernel to be installed.
