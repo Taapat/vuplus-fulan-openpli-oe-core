@@ -412,12 +412,11 @@
  		if (stb_type == VULCAN) // DM500/5620 stores the colors as a 16bit word with yuv values, so we have to convert :(
  		{
  			unsigned short yuv;
-@@ -1503,7 +1758,7 @@
+@@ -1501,7 +1756,8 @@
+ 			}
+ 			pos2+=ofs;
  		}
++#endif
  	}
  	close(fb);
--
-+#endif
- 	*xres=var_screeninfo.xres;
- 	*yres=var_screeninfo.yres;
- 	if (!quiet)
+ 

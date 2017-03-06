@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34"
 include gstreamer1.0-git-version.inc
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base libdca"
+DEPENDS_append_sh4 = " fulan-dvb-modules"
 
 GSTVERSION = "1.0"
 
