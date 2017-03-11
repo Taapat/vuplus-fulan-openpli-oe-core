@@ -115,6 +115,7 @@ GST_BAD_RDEPS = "\
 	gstreamer1.0-plugins-bad-rtmp \
 	gstreamer1.0-plugins-bad-smoothstreaming \
 	gstreamer1.0-plugins-bad-faad \
+	gstreamer1.0-plugins-bad-hls \
 	gstreamer1.0-plugins-bad-videoparsersbad \
 	gstreamer1.0-plugins-bad-autoconvert \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "gstreamer1.0-plugins-bad-dtsdec", d)} \
@@ -241,8 +242,7 @@ do_openpli_branding() {
 		cp -r --preserve=mode,links ${BRANDINGDIR}/enigma2/* ${S}/data/
 	fi
 	if [ -n "${CRASHADDR}" ] ; then
-		sed "s/^#define CRASH_EMAILADDR .*/#define CRASH_EMAILADDR \"${CRASHADDR}\"/" ${S}/main/bsod.cpp > ${S}/main/bsod.cpp.new && \
-		mv ${S}/main/bsod.cpp.new ${S}/main/bsod.cpp
+		EXTRA_OECONF += "-DCRASH_EMAILADDR=\"${CRASHADDR}\""
 	fi
 }
 
