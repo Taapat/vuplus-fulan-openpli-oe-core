@@ -196,6 +196,7 @@ FILES_enigma2-fonts = "${datadir}/fonts"
 EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
+	--with-crashlogemail="${CRASHADDR}" \
 	ac_cv_prog_c_openmp=-fopenmp \
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "--disable-gstreamer", "--with-gstversion=1.0", d)} \
