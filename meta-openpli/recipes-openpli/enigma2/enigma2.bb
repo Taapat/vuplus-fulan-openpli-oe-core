@@ -241,9 +241,6 @@ do_openpli_branding() {
 	if [ -n "${BRANDINGDIR}" -a -d "${BRANDINGDIR}/enigma2" ] ; then
 		cp -r --preserve=mode,links ${BRANDINGDIR}/enigma2/* ${S}/data/
 	fi
-	if [ -n "${CRASHADDR}" ] ; then
-		EXTRA_OECONF += "-DCRASH_EMAILADDR=\"${CRASHADDR}\""
-	fi
 }
 
 addtask openpli_branding after do_unpack before do_configure
