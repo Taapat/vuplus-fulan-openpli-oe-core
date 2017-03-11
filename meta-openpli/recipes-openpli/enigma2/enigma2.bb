@@ -115,7 +115,6 @@ GST_BAD_RDEPS = "\
 	gstreamer1.0-plugins-bad-rtmp \
 	gstreamer1.0-plugins-bad-smoothstreaming \
 	gstreamer1.0-plugins-bad-faad \
-	gstreamer1.0-plugins-bad-hls \
 	gstreamer1.0-plugins-bad-videoparsersbad \
 	gstreamer1.0-plugins-bad-autoconvert \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "gstreamer1.0-plugins-bad-dtsdec", d)} \
