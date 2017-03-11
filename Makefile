@@ -159,6 +159,7 @@ $(CURDIR)/site.conf:
 	@echo 'RM_WORK_EXCLUDE += "openpli-enigma2-image"' >> $@
 	@echo 'PRSERV_HOST = "localhost:0"' >> $@
 	@echo 'PREFERRED_RPROVIDER_stslave-fw = "stslave-fw-ac3"' >> $@
+	@echo 'CRASHADDR = "http://taapat.blogspot.com"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \
 	'BBLAYERS_CONF_VERSION = "0"' \
