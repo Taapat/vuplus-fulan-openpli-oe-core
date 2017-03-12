@@ -83,7 +83,6 @@ GST_BASE_RDEPS = "\
 	gstreamer1.0-plugins-base-subparse \
 	gstreamer1.0-plugins-base-typefindfunctions \
 	gstreamer1.0-plugins-base-vorbis \
-	gstreamer1.0-plugins-base-rawparse \
 	"
 
 GST_GOOD_RDEPS = "\
@@ -117,6 +116,7 @@ GST_BAD_RDEPS = "\
 	gstreamer1.0-plugins-bad-faad \
 	gstreamer1.0-plugins-bad-videoparsersbad \
 	gstreamer1.0-plugins-bad-autoconvert \
+	gstreamer1.0-plugins-bad-rawparse \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "gstreamer1.0-plugins-bad-dtsdec", d)} \
 	"
 
