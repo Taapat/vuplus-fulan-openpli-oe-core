@@ -1,5 +1,7 @@
 require openpli-image.bb
 
+BB_HASH_IGNORE_MISMATCH = "1"
+
 KERNEL_WIFI_DRIVERS = " \
 	firmware-carl9170 \
 	firmware-htc7010 \
