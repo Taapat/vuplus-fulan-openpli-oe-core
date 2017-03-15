@@ -102,7 +102,6 @@ GST_GOOD_RDEPS = "\
 	gstreamer1.0-plugins-good-souphttpsrc \
 	gstreamer1.0-plugins-good-udp \
 	gstreamer1.0-plugins-good-wavparse \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "gstreamer1.0-plugins-good-wavpack", d)} \
 	"
 
 GST_BAD_RDEPS = "\
@@ -117,7 +116,6 @@ GST_BAD_RDEPS = "\
 	gstreamer1.0-plugins-bad-videoparsersbad \
 	gstreamer1.0-plugins-bad-autoconvert \
 	gstreamer1.0-plugins-bad-rawparse \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "" , "gstreamer1.0-plugins-bad-dtsdec", d)} \
 	"
 
 GST_UGLY_RDEPS = "\
