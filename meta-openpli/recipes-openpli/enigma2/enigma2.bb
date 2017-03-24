@@ -191,11 +191,17 @@ inherit autotools pkgconfig
 PACKAGES =+ "enigma2-fonts"
 FILES_enigma2-fonts = "${datadir}/fonts"
 
+def get_crashaddr(d):
+    if d.getVar('CRASHADDR', True):
+        return '--with-crashlogemail="${CRASHADDR}"'
+    else:
+        return ''
+
 EXTRA_OECONF = "\
 	--with-libsdl=no --with-boxtype=${MACHINE} \
 	--enable-dependency-tracking \
-	--with-crashlogemail="${CRASHADDR}" \
 	ac_cv_prog_c_openmp=-fopenmp \
+	${@get_crashaddr(d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "libeplayer", "--enable-libeplayer3", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "nogstreamer", "--disable-gstreamer", "--with-gstversion=1.0", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "textlcd", "--with-textlcd" , "", d)} \
