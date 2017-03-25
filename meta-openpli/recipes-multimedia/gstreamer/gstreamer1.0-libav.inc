@@ -11,7 +11,6 @@ inherit autotools pkgconfig upstream-version-is-even gtk-doc
 
 SRC_URI_append = " \
     file://0001-Disable-yasm-for-libav-when-disable-yasm.patch \
-    file://workaround-to-build-gst-libav-for-i586-with-gcc.patch \
 "
 
 # CAUTION: Using the system libav is not recommended. Since the libav API is changing all the time,
