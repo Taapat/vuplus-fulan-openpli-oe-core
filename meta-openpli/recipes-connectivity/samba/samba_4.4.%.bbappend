@@ -3,7 +3,7 @@ PACKAGECONFIG = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '
                  ${@bb.utils.contains('DISTRO_FEATURES', 'zeroconf', 'zeroconf', '', d)} \
 "
 
-DEPENDS = "readline virtual/libiconv zlib krb5 libbsd"
+DEPENDS = "readline virtual/libiconv zlib krb5 libbsd libtalloc"
 
 SAMBA4_LIBS = "heimdal,!zlib,popt,talloc,pytalloc,pytalloc-util,tevent,pytevent,tdb,pytdb,ldb,pyldb"
 
@@ -36,6 +36,10 @@ SRC_URI += " \
            file://22-disable-python.patch \
            file://23-fix-idmap-building-without-ldap.patch \
            "
+
+SRC_URI_remove = " \
+           file://internal_tevent_to_0.9.31.patch \
+"
 
 do_install_prepend() {
     # create fake ctdb-tests dirs and files if not exist to fix error on install
