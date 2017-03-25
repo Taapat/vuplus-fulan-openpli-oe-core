@@ -1,5 +1,8 @@
 inherit distutils
 
+# Allow build plugins translation with msgfmt
+DEPENDS_append = " gettext-native"
+
 # Scripts want to install "/etc", so we need "--root" instead of setting install-data stuff
 # to remain compatible with previous versions.
 
