@@ -83,6 +83,7 @@ DEPENDS = " \
 	python-daap \
 	libcddb \
 	dvdbackup \
+	gettext-native \
 	"
 
 python populate_packages_prepend () {
