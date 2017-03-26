@@ -24,7 +24,6 @@ case "$ACTION" in
 		if [ ! -d /sys/block/${DEVBASE} ]; then
 			DEVBASE=${MDEV:0:3}
 		fi
-		fi
 		# check for "please don't mount it" file
 		if [ -f "/dev/nomount.${DEVBASE}" ] ; then
 			# blocked
@@ -63,7 +62,7 @@ case "$ACTION" in
 		if ! mount /dev/$MDEV > /dev/null 2>&1 ; then
 			# no fstab entry, use automatic mountpoint
 			if [ -z "${LABEL}" ] ; then
-				REMOVABLE=`cat /sys/block/$DEVBASE/removable`
+				#REMOVABLE=`cat /sys/block/$DEVBASE/removable`
 				#readlink -fn /sys/block/$DEVBASE/device | grep -qs 'pci\|ahci\|sata'
 				#EXTERNAL=$?
 				#if [ "${REMOVABLE}" -eq "0" -a $EXTERNAL -eq 0 ] ; then
