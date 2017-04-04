@@ -10,6 +10,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 PACKAGES =+ "opkg-wget"
 FILES_opkg-wget = "${bindir}/opkg-wget"
 RDEPENDS_libopkg += "opkg-wget"
+PACKAGECONFIG = ""
 
 do_install_prepend() {
 	install -d ${D}${datadir}/opkg/intercept
