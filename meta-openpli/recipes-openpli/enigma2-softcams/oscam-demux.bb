@@ -10,6 +10,7 @@ PV = "svn${SRCPV}"
 PKGV = "${PV}"
 SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep \
 	file://oscam-demux.patch \
+	file://config.h \
 "
 DEPENDS = "openssl"
 INSANE_SKIP_${PN} += "already-stripped"
@@ -23,6 +24,10 @@ EXTRA_OECMAKE += "\
 	-DOSCAM_SYSTEM_NAME=Tuxbox \
 	-DWITH_UTF8=1 \
 "
+
+do_configure_prepend() {
+	cp -f ${WORKDIR}/config.h ${S}
+}
 
 do_install() {
 	install -d ${D}/var/emu
