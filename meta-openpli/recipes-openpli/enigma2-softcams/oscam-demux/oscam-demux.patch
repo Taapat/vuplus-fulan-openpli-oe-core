@@ -1,56 +1,56 @@
---- a/globals.h	2018-11-18 14:28:44.000000000 +0200
-+++ b/globals.h	2018-11-18 14:54:58.682927403 +0200
-@@ -1007,6 +1007,7 @@
- 	uchar           cw[16];
- 	EXTENDED_CW     cw_ex;
- 	uchar           ecmd5[CS_ECMSTORESIZE];
+--- a/globals.h	2019-02-10 21:49:51.591103037 +0200
++++ b/globals.h	2019-02-10 21:53:48.973245009 +0200
+@@ -1001,6 +1001,7 @@
+ 	uint8_t			cw[16];
+ 	EXTENDED_CW		cw_ex;
+ 	uint8_t			ecmd5[CS_ECMSTORESIZE];
 +	int8_t          demux_index;
- 	int16_t         ecmlen;
- 	uint16_t        caid;
- 	uint16_t        ocaid;              //original caid, used for betatunneling
-@@ -1471,6 +1472,7 @@
- 	LLIST           *ll_entitlements;               // entitlements
- 	int8_t          enable;
- 	int8_t          active;
+ 	int16_t			ecmlen;
+ 	uint16_t		caid;
+ 	uint16_t		ocaid;							// original caid, used for betatunneling
+@@ -1479,6 +1480,7 @@
+ 	LLIST			*ll_entitlements;				// entitlements
+ 	int8_t			enable;
+ 	int8_t			active;
 +	int8_t          for_demux;                      // set demux number for which use this reader
- 	int8_t          dropbadcws;                     // Schlocke: 1=drops cw if checksum is wrong. 0=fix checksum (default)
- 	int8_t          disablecrccws;                  // 1=disable cw checksum test. 0=enable checksum check
- 	uint64_t        grp;
---- a/module-dvbapi.c	2018-11-18 14:28:44.000000000 +0200
-+++ b/module-dvbapi.c	2018-11-18 15:00:54.040934556 +0200
-@@ -2069,6 +2069,7 @@
- 			}
+ 	int8_t			dropbadcws;						// Schlocke: 1=drops cw if checksum is wrong. 0=fix checksum (default)
+ 	int8_t			disablecrccws;					// 1=disable cw checksum test. 0=enable checksum check
+ 	uint64_t		grp;
+--- a/module-dvbapi.c	2019-02-10 21:49:51.595103006 +0200
++++ b/module-dvbapi.c	2019-02-10 22:08:58.270210257 +0200
+@@ -2394,6 +2394,7 @@
  		}
  	}
+ 
 +	er->demux_index = demux_id;
- 	er->srvid = demux[demux_id].program_number;
- 	er->caid  = demux[demux_id].ECMpids[pid].CAID;
- 	er->pid   = demux[demux_id].ECMpids[pid].ECM_PID;
-@@ -2568,6 +2569,7 @@
- 		for(n = 0; n < demux[demux_index].ECMpidcount; n++)
+ 	er->srvid  = demux[demux_id].program_number;
+ 	er->caid   = demux[demux_id].ECMpids[pid].CAID;
+ 	er->pid    = demux[demux_id].ECMpids[pid].ECM_PID;
+@@ -2983,6 +2984,7 @@
  		{
  			if(demux[demux_index].ECMpids[n].status == -1) continue; // skip ignores!
+ 
 +			er->demux_index = demux_index;
  			er->caid = er->ocaid = demux[demux_index].ECMpids[n].CAID;
  			er->prid = demux[demux_index].ECMpids[n].PROVID;
  			er->pid = demux[demux_index].ECMpids[n].ECM_PID;
-@@ -2637,6 +2639,7 @@
- 
+@@ -3086,6 +3088,7 @@
  		int32_t nr;
  		SIDTAB *sidtab;
-+		er->demux_index = demux_index;
- 		er->caid = er->ocaid = demux[demux_index].ECMpids[n].CAID;
- 		er->prid = demux[demux_index].ECMpids[n].PROVID;
- 		er->pid = demux[demux_index].ECMpids[n].ECM_PID;
-@@ -2703,6 +2706,7 @@
- 
- 		if(demux[demux_index].ECMpids[n].status == -1) continue; // skip ignores!
  
 +		er->demux_index = demux_index;
  		er->caid = er->ocaid = demux[demux_index].ECMpids[n].CAID;
  		er->prid = demux[demux_index].ECMpids[n].PROVID;
  		er->pid = demux[demux_index].ECMpids[n].ECM_PID;
-@@ -2760,6 +2764,7 @@
+@@ -3169,6 +3172,7 @@
+ 			continue; // skip ignores!
+ 		}
+ 
++		er->demux_index = demux_index;
+ 		er->caid = er->ocaid = demux[demux_index].ECMpids[n].CAID;
+ 		er->prid = demux[demux_index].ECMpids[n].PROVID;
+ 		er->pid = demux[demux_index].ECMpids[n].ECM_PID;
+@@ -3229,6 +3233,7 @@
  				cacheexprio = max_local_matching_reader+p_order+1;
  			}
  
@@ -58,25 +58,25 @@
  			er->caid = er->ocaid = demux[demux_index].ECMpids[n].CAID;
  			er->prid = demux[demux_index].ECMpids[n].PROVID;
  			er->pid = demux[demux_index].ECMpids[n].ECM_PID;
-@@ -4410,6 +4415,7 @@
+@@ -5175,6 +5180,7 @@
+ 				{
  					return;
  				}
- 
 +				er->demux_index = demux_id;
  				er->srvid = demux[demux_id].program_number;
  
  #ifdef WITH_STAPI5
-@@ -4453,6 +4459,7 @@
+@@ -5215,6 +5221,7 @@
+ 		{
  			return;
  		}
- 
 +		er->demux_index = demux_id;
  		er->srvid = demux[demux_id].program_number;
  
  #ifdef WITH_STAPI5
---- a/oscam-chk.c	2018-11-18 14:28:45.000000000 +0200
-+++ b/oscam-chk.c	2018-11-18 15:03:34.244012982 +0200
-@@ -733,6 +733,10 @@
+--- a/oscam-chk.c	2019-02-10 21:49:51.595103006 +0200
++++ b/oscam-chk.c	2019-02-10 22:11:34.017010970 +0200
+@@ -761,6 +761,10 @@
  	if(!cl || !rdr->enable)
  		{ return (0); }
  
@@ -87,13 +87,13 @@
  	// if physical reader a card needs to be inserted
  	if(!is_network_reader(rdr) && rdr->card_status != CARD_INSERTED)
  		{ return (0); }
---- a/oscam-config-reader.c	2018-12-08 15:52:39.308840782 +0200
-+++ b/oscam-config-reader.c	2018-12-08 16:01:00.638323080 +0200
-@@ -1069,6 +1069,7 @@
- 	DEF_OPT_STR("description"           , OFS(description),             NULL),
+--- a/oscam-config-reader.c	2019-02-10 21:49:51.595103006 +0200
++++ b/oscam-config-reader.c	2019-02-10 22:13:16.032225805 +0200
+@@ -1067,6 +1067,7 @@
+ 	DEF_OPT_STR("description"                     , OFS(description),                     NULL),
  #endif
- 	DEF_OPT_INT8("enable"               , OFS(enable),                  1),
-+	DEF_OPT_INT8("use_for_demux"        , OFS(for_demux),               -1),
- 	DEF_OPT_FUNC("protocol"             , 0,                            protocol_fn),
- 	DEF_OPT_FUNC("device"               , 0,                            device_fn),
- 	DEF_OPT_HEX("key"                   , OFS(ncd_key),                 SIZEOF(ncd_key)),
+ 	DEF_OPT_INT8("enable"                         , OFS(enable),                          1),
++	DEF_OPT_INT8("use_for_demux"                  , OFS(for_demux),                       -1),
+ 	DEF_OPT_FUNC("protocol"                       , 0,                                    protocol_fn),
+ 	DEF_OPT_FUNC("device"                         , 0,                                    device_fn),
+ 	DEF_OPT_HEX("key"                             , OFS(ncd_key),                         SIZEOF(ncd_key)),                  , OFS(ncd_key),                 SIZEOF(ncd_key)),
